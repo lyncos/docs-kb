@@ -15,3 +15,5 @@ s=re.sub(r"<code>[0-9a-f]{64}</code>",f"<code>{h}</code>",s); s=re.sub(r"must eq
 open(p,"w").write(s)
 PY
 cd "$D" && CLOUDFLARE_ACCOUNT_ID=324478f6c3ebf480bbc10bc217908644 npx --yes wrangler@latest deploy
+# Mirror on Cloudflare Pages (klstr account) for networks that block the custom domains: https://docs-kb-9tq.pages.dev
+CLOUDFLARE_ACCOUNT_ID=99688f3773eb067584944d176d7dc19a npx --yes wrangler@latest pages deploy public --project-name docs-kb --branch main --commit-dirty=true
