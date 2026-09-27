@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Docs KB Download</title>
+<style>
+:root{--bg:#fafaf9;--fg:#1c1917;--muted:#57534e;--card:#fff;--line:#e7e5e4;--accent:#0f766e;--on-accent:#fff;--code:#f5f5f4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171717;--fg:#f5f5f4;--muted:#a8a29e;--card:#1f1f1f;--line:#333;--accent:#5eead4;--on-accent:#0b1f1d;--code:#262626}}
+:root[data-theme="dark"]{--bg:#171717;--fg:#f5f5f4;--muted:#a8a29e;--card:#1f1f1f;--line:#333;--accent:#5eead4;--on-accent:#0b1f1d;--code:#262626}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:760px;margin:0 auto;padding:40px 16px}h1{font-size:1.6rem;margin:0 0 4px}p.sub{color:var(--muted);margin:0 0 28px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px;margin-bottom:20px}
+a{color:var(--accent)}a.btn{display:inline-block;background:var(--accent);color:var(--on-accent);text-decoration:none;font-weight:600;padding:10px 18px;border-radius:8px}
+pre{background:var(--code);border-radius:8px;padding:12px;overflow-x:auto;font-size:.85rem;margin:8px 0 0}code{font-family:ui-monospace,Consolas,monospace}
+h2{font-size:1.05rem;margin:0 0 6px}.meta{color:var(--muted);font-size:.9rem;margin-top:10px;word-break:break-all}
+table{border-collapse:collapse;width:100%;font-size:.92rem}td,th{text-align:left;padding:4px 8px 4px 0;border-bottom:1px solid var(--line)}
+</style></head><body><main>
+<h1>Docs KB</h1><p class="sub">Offline Markdown knowledge base for Claude Code. Snapshot 2026-09-26, 5,395 pages with YAML frontmatter.</p>
+<div class="card"><a class="btn" href="docs-kb.zip" download>Download docs-kb.zip (19.8 MB)</a>
+<div class="meta">SHA-256: <code>2a92ff58e3f40c5629ed027e031aac8c27e5b57a11bb70e860153b1f835b44ff</code> (<a href="docs-kb.zip.sha256">docs-kb.zip.sha256</a>)</div></div>
+<div class="card"><h2>Linux / WSL / macOS</h2>
+<pre><code>curl -fLO https://<span class="host">HOST</span>/docs-kb.zip
+curl -fLO https://<span class="host">HOST</span>/docs-kb.zip.sha256
+sha256sum -c docs-kb.zip.sha256 &amp;&amp; unzip -q docs-kb.zip -d ~   # creates ~/kb</code></pre></div>
+<div class="card"><h2>Windows PowerShell</h2>
+<pre><code>Invoke-WebRequest https://<span class="host">HOST</span>/docs-kb.zip -OutFile docs-kb.zip
+(Get-FileHash docs-kb.zip -Algorithm SHA256).Hash   # must equal 2A92FF58E3F40C5629ED027E031AAC8C27E5B57A11BB70E860153B1F835B44FF</code></pre></div>
+<div class="card"><h2>Set up in Claude Code</h2>
+<pre><code># 1. let Claude read it from any project, in ~/.claude/settings.json:
+#    "permissions": { "additionalDirectories": ["~/kb"] }
+# 2. per-product skills
+python3 ~/kb/_tools/make_skills.py
+# 3. optional read-only lookup subagent
+mkdir -p ~/.claude/agents &amp;&amp; cp ~/kb/_tools/kb-researcher.md ~/.claude/agents/</code></pre></div>
+<div class="card"><h2>Contents</h2><table>
+<tr><th>Product</th><th>Pages</th></tr>
+<tr><td>Amazon Bedrock AgentCore + Agent Registry (incl. cited references)</td><td>3,591</td></tr>
+<tr><td>LiteLLM</td><td>1,102</td></tr><tr><td>Coder</td><td>484</td></tr><tr><td>Tavily</td><td>108</td></tr><tr><td>Context7</td><td>136</td></tr></table>
+<p class="meta">Public vendor documentation, redistributed with attribution; see NOTICE.md inside the zip.</p></div>
+<script>for(const e of document.querySelectorAll('.host'))e.textContent=location.host;</script>
+</main></body></html>
