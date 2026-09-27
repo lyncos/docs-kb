@@ -10,6 +10,7 @@ P = {
 - `api-control-plane/` — `API_<Operation>.md` and data types (bedrock-agentcore-control).
 - `api-data-plane/` — `API_<Operation>.md` (bedrock-agentcore: InvokeAgentRuntime, memory events, sessions…).
 - `agent-registry-api-control-plane/`, `agent-registry-api-data-plane/` — Agent Registry APIs (CreateRegistry, SearchRegistryRecords…).
+- `references/` — external material the AgentCore docs cite: `repos/` (Markdown from agentcore-cli, bedrock-agentcore-sdk-python/-typescript, bedrock-agentcore-starter-toolkit, agentcore-samples, mcp-proxy-for-aws, AgentCore MCP server, AgentCore parts of agent-toolkit-for-aws), `aws-cli/` (every `aws bedrock-agentcore[-control]` / `aws agent-registry[-control]` command), `pages/<host>/…` (specs and pages cited: MCP, A2A, OAuth RFCs, Cedar, IAM action/condition-key lists, managed policies, KMS, Strands, LangGraph…). Each has `source_url` and `referenced_by` (the AgentCore pages citing it).
 - `_source/*/full.md` — each guide concatenated in one file (only for exhaustive grep)."""),
  "litellm": ("LiteLLM",
   "Local offline docs for LiteLLM (Python SDK and LiteLLM Proxy / AI Gateway). Use for LiteLLM config.yaml, model_list, providers, virtual keys, teams, budgets, routing/fallbacks, callbacks/observability, guardrails, MCP gateway, pass-through endpoints, caching, admin UI, release notes.",

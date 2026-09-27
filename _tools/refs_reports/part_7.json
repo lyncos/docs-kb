@@ -1,0 +1,489 @@
+{
+  "files_read": 38,
+  "files_in_batch": 38,
+  "refs": [
+    {
+      "ref": "https://github.com/aws/mcp-proxy-for-aws",
+      "kind": "repo",
+      "class": "core",
+      "pages": ["registry-mcp-endpoint.md"],
+      "note": "GitHub tool used to connect to an IAM-based Agent Registry MCP endpoint"
+    },
+    {
+      "ref": "https://github.com/awslabs/agentcore-samples/tree/main/01-features/07-centralize-and-govern-your-ai-infrastructure/03-registry/04-migrate-to-new-namespace",
+      "kind": "repo",
+      "class": "core",
+      "pages": ["registry-faq.md"],
+      "note": "Official AWS Agent Registry namespace-migration tooling repo, referenced twice as the source of migration tools"
+    },
+    {
+      "ref": "https://github.com/awslabs/mcp",
+      "kind": "repo",
+      "class": "core",
+      "pages": ["release-notes.md"],
+      "note": "awslabs/mcp repo hosting the official AgentCore MCP server"
+    },
+    {
+      "ref": "https://github.com/awslabs/mcp/blob/main/src/amazon-bedrock-agentcore-mcp-server/README.md",
+      "kind": "url",
+      "class": "core",
+      "pages": ["release-notes.md"],
+      "note": "Install/setup README for the official AgentCore MCP server"
+    },
+    {
+      "ref": "https://github.com/aws/agentcore-cli",
+      "kind": "repo",
+      "class": "core",
+      "pages": ["release-notes.md"],
+      "note": "AgentCore CLI GitHub repository (public preview launch announcement)"
+    },
+    {
+      "ref": "https://aws.amazon.com/blogs/machine-learning/the-future-of-managing-agents-at-scale-aws-agent-registry-now-in-preview/",
+      "kind": "url",
+      "class": "core",
+      "pages": ["release-notes.md"],
+      "note": "AWS Machine Learning Blog launch post for AWS Agent Registry"
+    },
+    {
+      "ref": "https://registry.modelcontextprotocol.io/",
+      "kind": "url",
+      "class": "core",
+      "pages": ["registry-supported-record-types.md", "registry-get-started.md"],
+      "note": "Official Model Context Protocol registry that server.json / MCP descriptors are modeled on and validated against"
+    },
+    {
+      "ref": "langchain-agentcore-codeinterpreter",
+      "kind": "package",
+      "class": "core",
+      "pages": ["release-notes.md"],
+      "note": "PyPI package for AgentCore Code Interpreter integration with LangChain Deep Agents, published under the LangChain org"
+    },
+    {
+      "ref": "https://modelcontextprotocol.io/docs/getting-started/intro",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-concepts.md"],
+      "note": "MCP protocol intro; Agent Registry validates MCP server records against this protocol schema"
+    },
+    {
+      "ref": "https://modelcontextprotocol.io/specification/2025-11-25",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-mcp-endpoint.md"],
+      "note": "MCP specification version the registry's MCP-compatible endpoint follows"
+    },
+    {
+      "ref": "https://modelcontextprotocol.io/specification/2025-11-25/schema",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-supported-record-types.md"],
+      "note": "MCP protocol specification schema used to validate tool definitions"
+    },
+    {
+      "ref": "https://a2a-protocol.org/latest/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-concepts.md"],
+      "note": "A2A (Agent-to-Agent) protocol site; agent records are validated against its schema"
+    },
+    {
+      "ref": "https://a2a-protocol.org/latest/specification/#441-agentcard",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-supported-record-types.md"],
+      "note": "A2A AgentCard specification section used for agent-card descriptor validation"
+    },
+    {
+      "ref": "https://a2a-protocol.org/latest/specification/#446-agentinterface",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-troubleshooting.md"],
+      "note": "A2A protocol version-numbering rule referenced in a troubleshooting error explanation"
+    },
+    {
+      "ref": "https://github.com/modelcontextprotocol/static/tree/main/schemas",
+      "kind": "repo",
+      "class": "related",
+      "pages": ["registry-supported-record-types.md"],
+      "note": "MCP server.json schema repository used for validating MCP server descriptors"
+    },
+    {
+      "ref": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-supported-record-types.md"],
+      "note": "MCP server.json schema file, one of several supported dataSchemaVersion values (also 2025-10-17, 2025-10-11, 2025-09-29, 2025-09-16, 2025-07-09 at the same path pattern)"
+    },
+    {
+      "ref": "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/schema/2025-11-25/schema.json",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-supported-record-types.md"],
+      "note": "MCP tools schema file, one of several supported dataSchemaVersion values (also 2025-06-18, 2025-03-26, 2024-11-05 at the same path pattern)"
+    },
+    {
+      "ref": "https://github.com/a2aproject/A2A/blob/v0.3.0/specification/json/a2a.json#L138",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-supported-record-types.md"],
+      "note": "A2A AgentCard JSON schema definition (#/definitions/AgentCard) used for validation"
+    },
+    {
+      "ref": "https://agentskills.io/home",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-supported-record-types.md"],
+      "note": "Official AgentSkills specification that SKILL.md content is validated against"
+    },
+    {
+      "ref": "https://kiro.dev/blog/introducing-remote-mcp/#securing-mcp-connections",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-mcp-endpoint.md"],
+      "note": "Kiro IDE docs on configuring bearer-token auth headers for MCP connections"
+    },
+    {
+      "ref": "https://kiro.dev/docs/cli/custom-agents/configuration-reference/#oauth-configuration",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-mcp-endpoint.md"],
+      "note": "Kiro OAuth scopes configuration reference for MCP clients"
+    },
+    {
+      "ref": "https://github.com/ag-ui-protocol/ag-ui",
+      "kind": "repo",
+      "class": "related",
+      "pages": ["release-notes.md"],
+      "note": "AG-UI protocol repo; AgentCore is listed as a first-party deployment target"
+    },
+    {
+      "ref": "https://github.com/aws/aws-cdk/releases/tag/v2.255.0",
+      "kind": "url",
+      "class": "related",
+      "pages": ["release-notes.md"],
+      "note": "CDK release notes for the AgentCore L2 constructs graduating to stable"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-data-encryption.md"],
+      "note": "KMS customer managed key concepts referenced for registry encryption"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-data-encryption.md"],
+      "note": "AWS KMS automatic key rotation guidance"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/developerguide/grants.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-data-encryption.md"],
+      "note": "KMS grants concept; registry creates a grant on the customer's key"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-data-encryption.md"],
+      "note": "KMS CreateGrant API called by the registry on the user's behalf"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-data-encryption.md"],
+      "note": "KMS GenerateDataKey API used to encrypt record descriptors"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-data-encryption.md"],
+      "note": "KMS Decrypt API used to decrypt record descriptors"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-data-encryption.md"],
+      "note": "KMS DescribeKey API used to validate the customer managed key"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-data-encryption.md"],
+      "note": "KMS encryption context concept used in all Agent Registry KMS operations"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/crypto/latest/userguide/cryptography-concepts.html#term-aad",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-data-encryption.md"],
+      "note": "Additional authenticated data concept underlying KMS encryption context"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-kms-key-policy.md"],
+      "note": "Instructions for creating a symmetric KMS key required before using a customer managed key"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#key-policy-default-allow-root-enable-iam",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-kms-key-policy.md"],
+      "note": "Default KMS key policy statement that enables IAM policies"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-kms-key-policy.md"],
+      "note": "General KMS key policy documentation referenced for adding registry statements"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_forward_access_sessions.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-data-encryption.md"],
+      "note": "IAM Forward Access Sessions (FAS) mechanism used by synchronous registry API calls to KMS"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-orgs",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-cross-account-sharing.md"],
+      "note": "Enabling RAM sharing with AWS Organizations, needed for automatic org-internal registry sharing"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/ram/latest/userguide/shareable.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-cross-account-sharing.md"],
+      "note": "RAM shareable resources reference for creating customer-managed permissions"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing-create-permission.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-cross-account-sharing.md"],
+      "note": "Instructions for creating a customer-managed RAM permission"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-cloudtrail-integration.md"],
+      "note": "S3 bucket policy required for CloudTrail log delivery"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail-by-using-the-aws-cli-create-trail.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-cloudtrail-integration.md"],
+      "note": "CLI instructions for creating a CloudTrail trail to log Agent Registry data events"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry.md"],
+      "note": "CloudTrail user guide listed as a related service for logging Agent Registry API calls"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-visual.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-notifications-approvals.md"],
+      "note": "How to create the EventBridge rule that reacts to Agent Registry approval events"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-notifications-approvals.md"],
+      "note": "EventBridge target types supported for Agent Registry notification rules"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry.md"],
+      "note": "EventBridge overview, listed as related service for registry approval notifications"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-organizations.md"],
+      "note": "Enabling all features in AWS Organizations, a prerequisite for registry auto-detection"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-prerequisites.md"],
+      "note": "AWS CLI installation/configuration guide, a registry prerequisite"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/sdkref/latest/guide/access-sso.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-prerequisites.md"],
+      "note": "Using IAM Identity Center to authenticate the AWS SDK for boto3 access to the registry"
+    },
+    {
+      "ref": "https://builder.aws.com/build/tools",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-prerequisites.md"],
+      "note": "AWS Builder Tools page referenced for setting up the AWS SDK"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-privatelink.md"],
+      "note": "AWS PrivateLink overview for accessing Agent Registry from a VPC"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html#considerations-interface-endpoints",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-privatelink.md"],
+      "note": "Considerations before creating an interface endpoint for Agent Registry"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html#create-interface-endpoint-aws",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-privatelink.md"],
+      "note": "Steps to create an interface endpoint for the registry control/data plane"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-access.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-privatelink.md"],
+      "note": "Controlling access to services using VPC endpoint policies"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-search-records.md"],
+      "note": "SDK retry-behavior configuration recommended for handling registry search eventual consistency"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonagentregistry.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-iam-permissions.md"],
+      "note": "Service Authorization Reference listing all AWS Agent Registry IAM actions"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AgentRegistryFullAccess.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-iam-permissions.md"],
+      "note": "AgentRegistryFullAccess managed policy reference"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["registry-faq.md"],
+      "note": "Legacy BedrockAgentCoreFullAccess managed policy being replaced during namespace migration"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-bedrock-agentcore.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["release-notes.md"],
+      "note": "AWS GovCloud (US) documentation specific to AgentCore availability"
+    },
+    {
+      "ref": "https://console.aws.amazon.com/agent-registry/home",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["registry-browse-records.md", "registry-cloudtrail-integration.md", "registry-configure-encryption.md", "registry-create-manage-records.md", "registry-create-manage.md", "registry-cross-account-sharing.md", "registry-deprecating-records.md", "registry-get-started.md", "registry-organizations.md", "registry-reviewing-records.md", "registry-search-records.md", "registry-sync-records.md"],
+      "note": "Console URL (many query-string variants across pages) — not doc content"
+    },
+    {
+      "ref": "https://console.aws.amazon.com/bedrock-agentcore/home",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["registry-create-manage-records.md", "registry-create-manage.md", "registry-get-started.md", "registry-reviewing-records.md", "registry-search-records.md", "registry-sync-records.md"],
+      "note": "Legacy Bedrock-AgentCore console URL — not doc content"
+    },
+    {
+      "ref": "https://console.aws.amazon.com/cloudtrail/",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["registry-cloudtrail-integration.md"],
+      "note": "Console URL"
+    },
+    {
+      "ref": "https://aws.amazon.com/compliance/shared-responsibility-model/",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["registry-data-protection.md"],
+      "note": "Generic AWS shared-responsibility marketing/compliance page, boilerplate across all AWS service docs"
+    },
+    {
+      "ref": "https://aws.amazon.com/compliance/data-privacy-faq",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["registry-data-protection.md"],
+      "note": "Generic AWS data-privacy FAQ, boilerplate"
+    },
+    {
+      "ref": "https://aws.amazon.com/cloudtrail/pricing/",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["registry-cloudtrail-integration.md"],
+      "note": "Pricing page"
+    },
+    {
+      "ref": "https://aws.amazon.com/kms/pricing/",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["registry-data-encryption.md"],
+      "note": "Pricing page"
+    },
+    {
+      "ref": "https://aws.amazon.com/support",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["registry-faq.md"],
+      "note": "Generic AWS Support contact link"
+    },
+    {
+      "ref": "https://aws.amazon.com/compliance/services-in-scope/SOC/",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["release-notes.md"],
+      "note": "Generic AWS compliance listing page"
+    },
+    {
+      "ref": "https://aws.amazon.com/compliance/services-in-scope/",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["release-notes.md"],
+      "note": "Generic AWS compliance listing page"
+    },
+    {
+      "ref": "https://aws.amazon.com/bedrock/agentcore/",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["release-notes.md"],
+      "note": "AgentCore marketing homepage, no doc content"
+    }
+  ]
+}

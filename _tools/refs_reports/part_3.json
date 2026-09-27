@@ -1,0 +1,510 @@
+{
+  "files_read": 49,
+  "files_in_batch": 49,
+  "refs": [
+    {
+      "ref": "https://github.com/aws/agentcore-cli",
+      "kind": "repo",
+      "class": "core",
+      "pages": ["gateway-setup-tools-credentials.md", "harness-get-started.md"],
+      "note": "Official AgentCore CLI GitHub repository"
+    },
+    {
+      "ref": "@aws/agentcore",
+      "kind": "package",
+      "class": "core",
+      "pages": ["gateway-setup-tools-credentials.md", "harness-get-started.md"],
+      "note": "npm package for the AgentCore CLI (npm install -g @aws/agentcore)"
+    },
+    {
+      "ref": "https://github.com/awslabs/amazon-bedrock-agentcore-samples",
+      "kind": "repo",
+      "class": "core",
+      "pages": ["ground-truth-evaluations.md", "getting-started-on-demand.md"],
+      "note": "Official AWS Labs AgentCore samples repo, linked as tutorials/evaluation samples"
+    },
+    {
+      "ref": "bedrock-agentcore-starter-toolkit",
+      "kind": "package",
+      "class": "core",
+      "pages": ["get-evaluator.md", "get-online-evaluations.md", "getting-started-on-demand.md", "ground-truth-evaluations.md"],
+      "note": "Python pip package (bedrock_agentcore_starter_toolkit) used throughout for Evaluation client examples"
+    },
+    {
+      "ref": "bedrock-agentcore",
+      "kind": "package",
+      "class": "core",
+      "pages": ["get-workload-access-token.md", "ground-truth-evaluations.md"],
+      "note": "Official bedrock_agentcore Python SDK package (identity.IdentityClient, evaluation.EvaluationClient modules)"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/cli/latest/reference/bedrock-agentcore-control/",
+      "kind": "url",
+      "class": "core",
+      "pages": ["gateway-setup-tools-credentials.md"],
+      "note": "AWS CLI command reference specific to the bedrock-agentcore-control service"
+    },
+    {
+      "ref": "https://modelcontextprotocol.io/docs/getting-started/intro",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-using.md", "gateway-using-mcp-call.md", "gateway-using-mcp-list.md", "gateway-using-mcp-prompts-get.md", "gateway-using-mcp-prompts-list.md", "gateway-using-mcp-resources-list.md", "gateway-using-mcp-resources-read.md", "gateway-using-mcp-resources-templates-list.md", "gateway-using-inspector.md"],
+      "note": "MCP protocol intro/getting-started page, referenced pervasively as the MCP definition link"
+    },
+    {
+      "ref": "https://modelcontextprotocol.io/docs/develop/build-client",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-setup-tools-credentials.md"],
+      "note": "MCP docs page for building an MCP client, needed to set up an MCP client against the gateway"
+    },
+    {
+      "ref": "https://modelcontextprotocol.io/docs/tools/inspector",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-using-inspector.md"],
+      "note": "MCP Inspector documentation, the dev tool used to debug AgentCore gateway targets"
+    },
+    {
+      "ref": "https://modelcontextprotocol.io/specification/2025-06-18",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-using-mcp-list.md", "gateway-using-mcp-prompts-list.md", "gateway-using-mcp-resources-list.md", "gateway-using-mcp-resources-templates-list.md"],
+      "note": "MCP specification version index page, referenced for optional params and version selection"
+    },
+    {
+      "ref": "https://modelcontextprotocol.io/specification/2025-06-18/server/tools",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-using-mcp-call.md", "gateway-using-mcp-list.md"],
+      "note": "MCP spec Tools page (covers calling-tools and listing-tools sections) referenced for tools/call and tools/list request/response format"
+    },
+    {
+      "ref": "https://modelcontextprotocol.io/specification/2025-06-18/server/prompts",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-using-mcp-prompts-get.md", "gateway-using-mcp-prompts-list.md"],
+      "note": "MCP spec Prompts page (covers getting-a-prompt and listing-prompts sections)"
+    },
+    {
+      "ref": "https://modelcontextprotocol.io/specification/2025-06-18/server/resources",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-using-mcp-resources-list.md", "gateway-using-mcp-resources-read.md", "gateway-using-mcp-resources-templates-list.md"],
+      "note": "MCP spec Resources page (covers listing-resources, reading-resources, resource-templates sections)"
+    },
+    {
+      "ref": "https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation#security-considerations",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-sessions.md"],
+      "note": "MCP spec security considerations for session hijacking, cited for unauthenticated gateway sessions"
+    },
+    {
+      "ref": "https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/mrtr",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-target-MCPservers.md"],
+      "note": "MCP spec page on the multi round-trip requests (MRTR) pattern used by elicitation/sampling on protocol 2026-07-28"
+    },
+    {
+      "ref": "https://modelcontextprotocol.io/specification/2024-11-05/server/tools#error-handling",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-using-mcp-call.md"],
+      "note": "MCP spec error handling reference for tools/call errors"
+    },
+    {
+      "ref": "mcp",
+      "kind": "package",
+      "class": "related",
+      "pages": ["gateway-sessions.md", "gateway-using-mcp-call.md", "gateway-using-mcp-list.md", "gateway-using-mcp-prompts-get.md", "gateway-using-mcp-prompts-list.md", "gateway-using-mcp-resources-list.md", "gateway-using-mcp-resources-read.md", "gateway-using-mcp-resources-templates-list.md", "gateway-using-mcp-semantic-search.md"],
+      "note": "Official MCP Python SDK package (mcp.ClientSession, mcp.client.streamable_http) used in nearly every code sample"
+    },
+    {
+      "ref": "@modelcontextprotocol/inspector",
+      "kind": "package",
+      "class": "related",
+      "pages": ["gateway-using-inspector.md"],
+      "note": "npm package for the MCP Inspector dev tool (npx @modelcontextprotocol/inspector)"
+    },
+    {
+      "ref": "strands-agents",
+      "kind": "package",
+      "class": "related",
+      "pages": ["gateway-sessions.md", "gateway-using-mcp-call.md", "gateway-using-mcp-list.md", "gateway-using-mcp-prompts-get.md", "gateway-using-mcp-prompts-list.md", "gateway-using-mcp-resources-list.md", "gateway-using-mcp-resources-read.md", "gateway-using-mcp-resources-templates-list.md", "gateway-using-mcp-semantic-search.md", "getting-started-custom.md", "gateway-setup-tools-credentials.md", "harness-export.md"],
+      "note": "Strands Agents framework package (strands.Agent, strands.tools.mcp.MCPClient), used extensively in code samples and as harness export target framework"
+    },
+    {
+      "ref": "https://strandsagents.com/latest/documentation/docs/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-setup-tools-credentials.md"],
+      "note": "Official Strands Agents SDK documentation site"
+    },
+    {
+      "ref": "https://www.langchain.com/langgraph",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-setup-tools-credentials.md"],
+      "note": "LangGraph product/docs entry point, linked for installing LangGraph"
+    },
+    {
+      "ref": "langgraph",
+      "kind": "package",
+      "class": "related",
+      "pages": ["gateway-using-mcp-call.md", "gateway-setup-tools-credentials.md"],
+      "note": "LangGraph Python package (langgraph.prebuilt.create_react_agent) used in code samples"
+    },
+    {
+      "ref": "langchain-mcp-adapters",
+      "kind": "package",
+      "class": "related",
+      "pages": ["gateway-using-mcp-list.md", "gateway-using-mcp-semantic-search.md"],
+      "note": "langchain_mcp_adapters.client.MultiServerMCPClient package used in LangGraph/LangChain code samples"
+    },
+    {
+      "ref": "CrewAI",
+      "kind": "named",
+      "class": "related",
+      "pages": ["gateway.md", "gateway-target-connector-web-search-tool.md"],
+      "note": "Named agent framework AgentCore Gateway advertises compatibility with (framework compatibility list)"
+    },
+    {
+      "ref": "LlamaIndex",
+      "kind": "named",
+      "class": "related",
+      "pages": ["gateway.md"],
+      "note": "Named agent framework AgentCore Gateway advertises compatibility with"
+    },
+    {
+      "ref": "LangChain",
+      "kind": "named",
+      "class": "related",
+      "pages": ["gateway-target-connector-web-search-tool.md"],
+      "note": "Named framework listed as compatible with the Web Search Tool connector"
+    },
+    {
+      "ref": "https://docs.litellm.ai/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["harness-models.md"],
+      "note": "LiteLLM documentation, needed to understand liteLlmModelConfig provider routing in the harness"
+    },
+    {
+      "ref": "https://docs.astral.sh/uv/getting-started/installation/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["getting-started-custom.md"],
+      "note": "uv Python package manager installation docs, used to scaffold the custom agent tutorial"
+    },
+    {
+      "ref": "https://swagger.io/specification/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-schema-openapi.md"],
+      "note": "OpenAPI Specification reference, the format Gateway OpenAPI targets must follow"
+    },
+    {
+      "ref": "https://docs.cdp.coinbase.com/x402/bazaar",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-target-integrations.md"],
+      "note": "Coinbase x402 Bazaar docs describing the discovery endpoints exposed via the built-in Gateway integration"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-stages.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-target-api-gateway.md"],
+      "note": "API Gateway stages documentation, needed to understand the REST API stage concept used as a Gateway target"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/apigateway/latest/api/API_GetExport.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-target-api-gateway.md"],
+      "note": "API Gateway GetExport API, called by AgentCore Gateway to fetch OpenAPI export of the REST API"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/apigateway/latest/developerguide/mcp-server.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-target-api-gateway.md"],
+      "note": "API Gateway console-side docs for adding a stage to an AgentCore gateway as an MCP server"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-target-api-gateway.md"],
+      "note": "API Gateway HTTP APIs docs, cited as an unsupported API Gateway type for Gateway targets"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-target-api-gateway.md"],
+      "note": "API Gateway WebSocket APIs docs, cited as an unsupported API Gateway type for Gateway targets"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-endpoint-types.htm",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-target-api-gateway.md"],
+      "note": "API Gateway endpoint types docs, needed to configure a public endpoint for the REST API target"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-private-integration.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-target-api-gateway.md"],
+      "note": "API Gateway private integration docs, alternative for reaching VPC resources"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-target-api-gateway.md", "gateway-vpc-egress.md"],
+      "note": "API Gateway usage plans/API keys docs, distinguishing API Gateway API keys from AgentCore-managed API keys"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-target-api-gateway.md"],
+      "note": "API Gateway Method resource API reference, used when setting operationName/operationId"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/apigateway/latest/api/API_UpdateMethod.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-target-api-gateway.md"],
+      "note": "API Gateway UpdateMethod API reference, used to set operationName which becomes operationId on export"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/apigateway/latest/api/API_PutRestApi.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-target-api-gateway.md"],
+      "note": "API Gateway PutRestApi API reference, used to reimport an updated OpenAPI definition"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-export-api.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-vpc-egress.md"],
+      "note": "API Gateway export docs, referenced for exporting a REST API as an OpenAPI spec for OpenAPI targets"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-setup-api-keys.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-target-api-gateway.md"],
+      "note": "API Gateway API key setup docs, needed for API key outbound authorization to an API Gateway target"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv-authentication-methods.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-setup-tools-credentials.md"],
+      "note": "IAM SigV4 authentication methods docs, needed for direct HTTP request authentication to the gateway"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-setup-tools-credentials.md"],
+      "note": "SigV4 query string authentication docs, alternate auth method for direct HTTP requests to the gateway"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-schema-openapi.md", "gateway-target-MCPservers.md"],
+      "note": "SigV4 authenticating requests docs, referenced for IAM (SigV4) outbound authorization to targets"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-target-api-gateway.md"],
+      "note": "IAM SigV4/SigV4a signature version docs, needed to configure IAM outbound authorization"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_forward_access_sessions.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-target-api-gateway.md"],
+      "note": "IAM Forward Access Sessions docs, explains how the GetExport call uses the caller's credentials"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/sdkref/latest/guide/overview.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-setup-tools-credentials.md"],
+      "note": "AWS SDKs and Tools Reference Guide overview, entry point for setting up an AWS SDK"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/sdkref/latest/guide/access-sso.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-setup-tools-credentials.md"],
+      "note": "Using IAM Identity Center to authenticate AWS SDK and Tools, needed for AgentCore CLI credential setup"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-setup-tools-credentials.md"],
+      "note": "AWS CLI User Guide getting started page"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-setup-tools-credentials.md"],
+      "note": "AWS CLI installation instructions"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-setup-tools-credentials.md"],
+      "note": "AWS CLI credential configuration quickstart"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ListUserPools.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-using-auth-ex-starter.md"],
+      "note": "Cognito ListUserPools API reference, used to find the user pool associated with a gateway"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-using-auth-ex-starter.md"],
+      "note": "Cognito DescribeUserPool API reference, used to get the user pool app client info"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-using-auth-ex-starter.md"],
+      "note": "Cognito DescribeUserPoolClient API reference, used to obtain the client secret for token retrieval"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-using-auth-ex-starter.md"],
+      "note": "BedrockAgentCoreFullAccess managed policy reference, granted to the gateway service role by the AgentCore CLI"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-rt",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-target-integrations.md"],
+      "note": "AWS General Reference for Agents for Amazon Bedrock Runtime endpoints/regions"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/general/latest/gr/bedrock.html#br-rt",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-target-integrations.md"],
+      "note": "AWS General Reference for Amazon Bedrock Runtime endpoints/regions"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/general/latest/gr/cw_region.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-target-integrations.md"],
+      "note": "Amazon CloudWatch endpoints and quotas reference for the CloudWatch integration template"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/general/latest/gr/ddb.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-target-integrations.md"],
+      "note": "Amazon DynamoDB endpoints and quotas reference for the DynamoDB integration template"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_Operations_Agents_for_Amazon_Bedrock_Runtime.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-target-integrations.md"],
+      "note": "Agents for Amazon Bedrock Runtime API reference, underlying the integration template's supported APIs"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-target-connector-managed-kb.md"],
+      "note": "Amazon Bedrock Knowledge Bases user guide, needed to understand/create the managed knowledge base behind the connector"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-use-converse-api.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["harness-models.md"],
+      "note": "Amazon Bedrock Guardrails with the Converse API docs, for configuring guardrailConfig in harness model requests"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-permissions.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["harness-models.md"],
+      "note": "IAM permissions setup for Amazon Bedrock Guardrails"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/bedrock/latest/userguide/endpoints.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["harness-models.md"],
+      "note": "Endpoints supported by Amazon Bedrock (bedrock-runtime vs bedrock-mantle), relevant to apiFormat selection"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["harness-lifecycle-hooks.md"],
+      "note": "Bedrock troubleshooting guide for connection timeout/reset on long-running or idle connections"
+    },
+    {
+      "ref": "https://aws.amazon.com/bedrock/agentcore/pricing/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["harness-memory.md", "harness-operations.md"],
+      "note": "Amazon Bedrock AgentCore pricing page, referenced for understanding harness/memory cost"
+    },
+    {
+      "ref": "https://aws.amazon.com/vpc/faqs/#connectivity",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-vpc-egress.md"],
+      "note": "Amazon VPC FAQ connectivity section, cited for AWS backbone traffic guarantees"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Enable-TransactionSearch.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["getting-started-on-demand.md"],
+      "note": "CloudWatch Transaction Search enablement docs, a prerequisite for AgentCore Evaluations on-demand evaluation"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Enable-Lambda-TransactionSearch.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["harness-operations.md"],
+      "note": "CloudWatch Transaction Search enablement docs, prerequisite for harness observability traces"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/boto3/latest/guide/quickstart.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["harness-get-started.md"],
+      "note": "boto3 quickstart/installation guide, needed for SDK-based harness usage"
+    }
+  ]
+}

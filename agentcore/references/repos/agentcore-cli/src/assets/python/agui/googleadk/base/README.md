@@ -1,0 +1,43 @@
+---
+title: '{{ name }}'
+description: An AG-UI agent deployed on Amazon Bedrock AgentCore using Google ADK.
+product: Amazon Bedrock AgentCore
+section: References / repo / agentcore-cli
+source_url: https://github.com/aws/agentcore-cli/blob/805f342/src/assets/python/agui/googleadk/base/README.md
+fetched: '2026-09-26'
+tags:
+- agentcore
+- agentcore-cli
+- reference
+---
+
+# {{ name }}
+
+An AG-UI agent deployed on Amazon Bedrock AgentCore using Google ADK.
+
+## Overview
+
+This agent implements the AG-UI protocol using Google's Agent Development Kit, enabling rich agent-user interaction via the AG-UI event stream.
+
+## Local Development
+
+```bash
+uv sync
+uv run python main.py
+```
+
+The agent starts on port 8080 and serves requests at `/invocations`.
+
+## Health Check
+
+```
+GET /ping
+```
+
+Returns `{"status": "healthy"}`.
+
+## Deploy
+
+```bash
+agentcore deploy
+```

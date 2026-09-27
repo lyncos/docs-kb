@@ -10,7 +10,7 @@ Every page carries YAML frontmatter: `title`, `description`, `product`, `section
 
 | Product | Pages | Index |
 |---|---|---|
-| Amazon Bedrock AgentCore | 1592 | [agentcore/index.md](agentcore/index.md) |
+| Amazon Bedrock AgentCore | 3591 | [agentcore/index.md](agentcore/index.md) |
 | LiteLLM | 1102 | [litellm/index.md](litellm/index.md) |
 | Coder | 484 | [coder/index.md](coder/index.md) |
 | Tavily | 108 | [tavily/index.md](tavily/index.md) |

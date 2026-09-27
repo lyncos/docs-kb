@@ -1,0 +1,671 @@
+{
+  "files_read": 40,
+  "files_in_batch": 40,
+  "refs": [
+    {
+      "ref": "https://github.com/aws/agentcore-cli",
+      "kind": "repo",
+      "class": "core",
+      "pages": ["runtime-get-started-cli-typescript.md", "runtime-get-started-cli.md", "runtime-get-started-code-deploy.md", "runtime-getting-started.md"],
+      "note": "Official AgentCore CLI GitHub repository"
+    },
+    {
+      "ref": "https://github.com/aws/bedrock-agentcore-sdk-python",
+      "kind": "repo",
+      "class": "core",
+      "pages": ["runtime-get-started-code-deploy-python.md"],
+      "note": "Official AgentCore Python SDK repository"
+    },
+    {
+      "ref": "https://github.com/awslabs/amazon-bedrock-agentcore-samples",
+      "kind": "repo",
+      "class": "core",
+      "pages": ["runtime-get-started-cli.md", "runtime-get-started-websocket.md", "runtime-bidirectional-streaming-examples.md", "runtime-mcp.md"],
+      "note": "Official AgentCore samples repo; multiple subpaths referenced (bidirectional streaming, MCP server basics, webrtc examples)"
+    },
+    {
+      "ref": "https://github.com/awslabs/agentcore-samples",
+      "kind": "repo",
+      "class": "core",
+      "pages": ["runtime-get-started-command-shell.md", "runtime-bidirectional-streaming-examples.md"],
+      "note": "AgentCore samples repo (distinct from amazon-bedrock-agentcore-samples); includes livekit integration example"
+    },
+    {
+      "ref": "bedrock-agentcore (pip package) / bedrock_agentcore",
+      "kind": "package",
+      "class": "core",
+      "pages": ["resource-providers.md", "response-streaming.md", "runtime-get-started-command-shell.md", "runtime-get-started-websocket.md", "runtime-get-started-code-deploy-python.md", "runtime-long-run.md", "runtime-filesystem-configurations.md", "runtime-header-allowlist.md", "runtime-a2a.md"],
+      "note": "Official AgentCore Python SDK package (pip install bedrock-agentcore), imported as bedrock_agentcore throughout examples"
+    },
+    {
+      "ref": "bedrock-agentcore-starter-toolkit",
+      "kind": "package",
+      "class": "core",
+      "pages": ["runtime-get-started-cli.md"],
+      "note": "Named as the underlying toolkit powering the AgentCore CLI"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrockagentcore.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["resource-based-policies.md"],
+      "note": "IAM service authorization reference listing AgentCore actions/resources/condition keys"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["resource-based-policies.md"],
+      "note": "IAM global condition context keys reference"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/session-traces-evaluations.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["results-and-output.md"],
+      "note": "CloudWatch doc for session traces/evaluations used by AgentCore observability"
+    },
+    {
+      "ref": "https://www.jsonrpc.org/specification",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-a2a-protocol-contract.md"],
+      "note": "JSON-RPC 2.0 specification underlying the A2A protocol"
+    },
+    {
+      "ref": "https://datatracker.ietf.org/doc/html/rfc6749",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-a2a-protocol-contract.md", "runtime-http-protocol-contract.md", "runtime-mcp-protocol-contract.md", "runtime-mcp.md"],
+      "note": "RFC 6749 OAuth 2.0 spec, referenced for auth error responses"
+    },
+    {
+      "ref": "https://datatracker.ietf.org/doc/html/rfc7235",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-a2a-protocol-contract.md", "runtime-agui-protocol-contract.md", "runtime-http-protocol-contract.md", "runtime-mcp-protocol-contract.md", "runtime-mcp.md"],
+      "note": "RFC 7235 HTTP Authentication spec, referenced for WWW-Authenticate header behavior"
+    },
+    {
+      "ref": "https://a2a-protocol.org/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-a2a.md"],
+      "note": "A2A protocol homepage/spec"
+    },
+    {
+      "ref": "https://a2a-protocol.org/latest/specification/#81-standard-json-rpc-errors",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-a2a.md"],
+      "note": "A2A spec section on standard JSON-RPC error handling"
+    },
+    {
+      "ref": "https://github.com/a2aproject/a2a-inspector",
+      "kind": "repo",
+      "class": "related",
+      "pages": ["runtime-a2a.md"],
+      "note": "A2A Inspector tool used for testing deployed A2A servers"
+    },
+    {
+      "ref": "https://docs.ag-ui.com/sdk/js/core/types",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-agui-protocol-contract.md"],
+      "note": "AG-UI protocol JS SDK core types reference"
+    },
+    {
+      "ref": "https://docs.ag-ui.com/introduction",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-agui.md"],
+      "note": "AG-UI protocol introduction docs"
+    },
+    {
+      "ref": "https://docs.ag-ui.com/quickstart/introduction",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-agui.md"],
+      "note": "AG-UI quickstart docs"
+    },
+    {
+      "ref": "https://dojo.ag-ui.com/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-agui.md"],
+      "note": "AG-UI Dojo interactive examples site"
+    },
+    {
+      "ref": "https://docs.ag-ui.com/introduction#supported-integrations",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-agui.md"],
+      "note": "AG-UI supported framework integrations list"
+    },
+    {
+      "ref": "https://docs.ag-ui.com/sdk/js/client/overview",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-agui.md"],
+      "note": "AG-UI TypeScript client SDK overview"
+    },
+    {
+      "ref": "https://docs.ag-ui.com/concepts/events",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-agui.md"],
+      "note": "AG-UI protocol event format documentation"
+    },
+    {
+      "ref": "https://docs.copilotkit.ai/langgraph/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-agui.md"],
+      "note": "CopilotKit LangGraph + AG-UI integration example"
+    },
+    {
+      "ref": "https://docs.copilotkit.ai/crewai-flows",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-agui.md"],
+      "note": "CopilotKit CrewAI + AG-UI integration example"
+    },
+    {
+      "ref": "https://docs.copilotkit.ai/aws-strands",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-agui.md"],
+      "note": "CopilotKit AWS Strands + AG-UI integration example"
+    },
+    {
+      "ref": "https://docs.copilotkit.ai/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-agui.md"],
+      "note": "CopilotKit docs, recommended for building full AG-UI client applications"
+    },
+    {
+      "ref": "https://strandsagents.com/latest/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-get-started-cli-typescript.md", "runtime-get-started-code-deploy-node.md"],
+      "note": "Strands Agents framework docs, primary framework used in AgentCore examples"
+    },
+    {
+      "ref": "strands-agents / @strands-agents/sdk (pip and npm packages)",
+      "kind": "package",
+      "class": "related",
+      "pages": ["runtime-filesystem-configurations.md", "runtime-long-run.md", "runtime-get-started-code-deploy-node.md"],
+      "note": "Strands Agents SDK packages used throughout AgentCore example code"
+    },
+    {
+      "ref": "ag-ui-strands (pip package) / @ag-ui/client (npm package)",
+      "kind": "package",
+      "class": "related",
+      "pages": ["runtime-agui.md"],
+      "note": "AG-UI protocol client/server bindings for Strands and JS clients"
+    },
+    {
+      "ref": "LangGraph",
+      "kind": "named",
+      "class": "related",
+      "pages": ["runtime-a2a.md", "runtime-agui.md", "runtime-get-started-cli.md", "runtime-how-it-works.md"],
+      "note": "Named agent framework supported for AgentCore Runtime deployments"
+    },
+    {
+      "ref": "CrewAI",
+      "kind": "named",
+      "class": "related",
+      "pages": ["runtime-agui.md", "runtime-how-it-works.md"],
+      "note": "Named agent framework supported for AgentCore Runtime deployments"
+    },
+    {
+      "ref": "LangChain",
+      "kind": "named",
+      "class": "related",
+      "pages": ["runtime-a2a.md"],
+      "note": "Named as a supported framework for A2A projects via AgentCore CLI"
+    },
+    {
+      "ref": "Google ADK",
+      "kind": "named",
+      "class": "related",
+      "pages": ["runtime-a2a.md"],
+      "note": "Named as a supported framework for A2A projects via AgentCore CLI"
+    },
+    {
+      "ref": "https://github.com/pipecat-ai/pipecat-examples/tree/main/deployment/aws-agentcore-websocket",
+      "kind": "repo",
+      "class": "related",
+      "pages": ["runtime-bidirectional-streaming-examples.md"],
+      "note": "Pipecat framework example integrating with AgentCore over WebSocket"
+    },
+    {
+      "ref": "https://github.com/pipecat-ai/pipecat-examples/tree/main/deployment/aws-agentcore-webrtc",
+      "kind": "repo",
+      "class": "related",
+      "pages": ["runtime-bidirectional-streaming-examples.md"],
+      "note": "Pipecat framework example integrating with AgentCore over WebRTC"
+    },
+    {
+      "ref": "https://github.com/pipecat-ai/pipecat-examples/tree/main/deployment/aws-agentcore-daily",
+      "kind": "repo",
+      "class": "related",
+      "pages": ["runtime-bidirectional-streaming-examples.md"],
+      "note": "Pipecat framework example integrating with AgentCore via Daily transport"
+    },
+    {
+      "ref": "https://github.com/aws-samples/sample-vonage-serverless-sonic",
+      "kind": "repo",
+      "class": "related",
+      "pages": ["runtime-bidirectional-streaming-examples.md"],
+      "note": "AWS sample repo showing Vonage voice integration with AgentCore bidirectional streaming"
+    },
+    {
+      "ref": "Pipecat / LiveKit",
+      "kind": "named",
+      "class": "related",
+      "pages": ["runtime-bidirectional-streaming-examples.md"],
+      "note": "Named voice/video agent frameworks with dedicated AgentCore integration examples"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-code-deploy-supported-runtimes.md"],
+      "note": "AWS Lambda runtime support policy, referenced for AgentCore code-deploy supported runtimes"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-filesystem-configurations.md"],
+      "note": "Amazon EFS how-it-works doc, relevant to AgentCore Runtime filesystem configuration"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-files-mounting.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-filesystem-configurations.md"],
+      "note": "S3 file mounting doc, relevant to AgentCore Runtime filesystem configuration"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-get-started-cli-typescript.md", "runtime-get-started-cli.md", "runtime-get-started-code-deploy-node.md", "runtime-get-started-code-deploy-python.md", "runtime-get-started-websocket.md"],
+      "note": "AWS CLI configuration files documentation, prerequisite for AgentCore CLI setup"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html#model-access-sdk-step4",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-get-started-cli-typescript.md", "runtime-get-started-cli.md", "runtime-get-started-code-deploy-node.md", "runtime-get-started-code-deploy-python.md"],
+      "note": "Bedrock model access documentation, prerequisite for AgentCore examples"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-get-started-cli.md"],
+      "note": "AWS account setup documentation, prerequisite"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/xray/latest/devguide/xray-services-adot.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-get-started-code-deploy-node.md", "runtime-get-started-code-deploy-python.md"],
+      "note": "AWS X-Ray / ADOT documentation for OpenTelemetry instrumentation used in code-deploy examples"
+    },
+    {
+      "ref": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731667(v=ws.10)",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-get-started-code-deploy-node.md", "runtime-get-started-code-deploy-python.md"],
+      "note": "Microsoft doc referenced for Windows long-path support, relevant troubleshooting for code-deploy on Windows"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket-s3.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-get-started-code-deploy-node.md"],
+      "note": "S3 bucket creation documentation"
+    },
+    {
+      "ref": "https://esbuild.github.io/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-get-started-cli-typescript.md", "runtime-get-started-code-deploy-node.md"],
+      "note": "esbuild bundler documentation, used for building Node.js AgentCore deployment packages"
+    },
+    {
+      "ref": "https://docs.astral.sh/uv/getting-started/installation/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-get-started-code-deploy-python.md"],
+      "note": "uv package manager installation docs, used for Python AgentCore deployment"
+    },
+    {
+      "ref": "https://docs.astral.sh/uv/guides/install-python/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-get-started-code-deploy-python.md"],
+      "note": "uv guide for installing Python versions"
+    },
+    {
+      "ref": "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/create_bucket.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-get-started-code-deploy-python.md"],
+      "note": "boto3 S3 create_bucket API reference"
+    },
+    {
+      "ref": "boto3 (AWS SDK for Python)",
+      "kind": "package",
+      "class": "related",
+      "pages": ["resource-based-policies.md", "resource-providers.md", "runtime-execute-command.md", "runtime-filesystem-configurations.md", "runtime-get-started-cli.md", "runtime-get-started-code-deploy-python.md", "runtime-header-allowlist.md", "runtime-how-it-works.md", "runtime-instances-get-started-cli.md", "runtime-invoke-agent.md", "runtime-lifecycle-settings.md"],
+      "note": "AWS SDK for Python, used pervasively in code examples across the guide"
+    },
+    {
+      "ref": "@aws-sdk (AWS SDK for JavaScript v3)",
+      "kind": "package",
+      "class": "related",
+      "pages": ["runtime-execute-command.md", "runtime-get-started-cli-typescript.md", "runtime-get-started-code-deploy-node.md"],
+      "note": "AWS SDK for JavaScript packages used in Node/TypeScript code examples"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-get-started-code-deploy-python.md"],
+      "note": "EC2 getting started guide"
+    },
+    {
+      "ref": "https://docs.microsoft.com/en-us/windows/wsl/install-win10",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-get-started-code-deploy.md"],
+      "note": "WSL install documentation, prerequisite for Windows-based AgentCore code-deploy"
+    },
+    {
+      "ref": "http://aws.amazon.com/premiumsupport/knowledge-center/lambda-deployment-package-errors/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-get-started-code-deploy.md"],
+      "note": "AWS knowledge center article on Lambda deployment package errors, referenced troubleshooting"
+    },
+    {
+      "ref": "https://aws.amazon.com/compliance/shared-responsibility-model/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-get-started-code-deploy.md"],
+      "note": "AWS shared responsibility model page"
+    },
+    {
+      "ref": "https://tools.ietf.org/html/rfc6455",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-get-started-websocket.md"],
+      "note": "RFC 6455 WebSocket protocol spec"
+    },
+    {
+      "ref": "https://botocore.amazonaws.com/v1/documentation/api/latest/topics/events.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-header-allowlist.md"],
+      "note": "botocore events documentation, relevant to SDK header handling"
+    },
+    {
+      "ref": "https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-http-protocol-contract.md"],
+      "note": "WHATWG Server-Sent Events spec underlying HTTP streaming protocol contract"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-ec2-managed-instances.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-instances-data-management.md", "runtime-instances-get-started-cli.md", "runtime-instances-get-started-console.md", "runtime-instances-how-it-works.md", "runtime-instances-security.md"],
+      "note": "EC2 Managed Instances documentation (including #managed-resource-visibility-settings anchor), core dependency for AgentCore Runtime Instances compute type"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-instances-encryption.md"],
+      "note": "EBS encryption documentation, relevant to Runtime Instances encryption at rest"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-instances-encryption.md"],
+      "note": "EBS encryption requirements documentation"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/developerguide/logging-using-cloudtrail.html#searching-kms-ct",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-instances-encryption.md"],
+      "note": "KMS CloudTrail logging documentation"
+    },
+    {
+      "ref": "https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/mrtr",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-mcp-protocol-contract.md"],
+      "note": "MCP specification pattern (multi-round-trip-request) referenced in protocol contract"
+    },
+    {
+      "ref": "https://modelcontextprotocol.io/seps/2567-sessionless-mcp#explicit-state-handles",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-mcp-protocol-contract.md"],
+      "note": "MCP SEP proposal on sessionless MCP / explicit state handles"
+    },
+    {
+      "ref": "https://modelcontextprotocol.io/specification/2025-03-26/basic/transports#streamable-http",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-mcp-protocol-contract.md"],
+      "note": "MCP transport spec for streamable HTTP"
+    },
+    {
+      "ref": "https://modelcontextprotocol.io/specification/2025-03-26/basic/transports#session-management",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-mcp-protocol-contract.md"],
+      "note": "MCP transport spec section on session management"
+    },
+    {
+      "ref": "https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#sending-messages-to-the-server",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-mcp.md"],
+      "note": "MCP spec section on client-to-server message transport, referenced for Accept header requirements"
+    },
+    {
+      "ref": "https://auth0.com/docs/get-started/applications/dynamic-client-registration",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-mcp.md"],
+      "note": "Auth0 Dynamic Client Registration documentation, used in the MCP Auth0 end-to-end example"
+    },
+    {
+      "ref": "https://auth0.com/docs/secure/tokens/access-tokens/get-access-tokens",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-mcp.md"],
+      "note": "Auth0 access tokens documentation, referenced in code comment"
+    },
+    {
+      "ref": "https://github.com/modelcontextprotocol/python-sdk/blob/main/examples/clients/simple-auth-client/mcp_simple_auth_client/main.py",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-mcp.md"],
+      "note": "Official MCP Python SDK simple-auth-client example, base for the Auth0 client code"
+    },
+    {
+      "ref": "https://github.com/modelcontextprotocol/python-sdk/issues/1664",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-mcp.md"],
+      "note": "MCP Python SDK GitHub issue on missing User-Agent headers, referenced as known limitation"
+    },
+    {
+      "ref": "https://community.auth0.com/t/jwt-tokens-with-dynamic-application-registration/189741",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-mcp.md"],
+      "note": "Auth0 community forum thread on JWT tokens with dynamic client registration, cited for a specific technical detail"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-baseline.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["runtime-mcp.md"],
+      "note": "AWS WAF managed rule groups documentation, referenced for User-Agent header requirement"
+    },
+    {
+      "ref": "npx @modelcontextprotocol/inspector (MCP Inspector)",
+      "kind": "package",
+      "class": "related",
+      "pages": ["runtime-mcp.md"],
+      "note": "Official MCP Inspector tool used for local and remote testing of MCP servers deployed to AgentCore"
+    },
+    {
+      "ref": "FastMCP (mcp.server.fastmcp, part of the official MCP Python SDK)",
+      "kind": "package",
+      "class": "related",
+      "pages": ["runtime-mcp.md"],
+      "note": "FastMCP class used to build MCP servers in the getting-started example"
+    },
+    {
+      "ref": "mcp (pip package, official MCP Python SDK)",
+      "kind": "package",
+      "class": "related",
+      "pages": ["runtime-mcp.md"],
+      "note": "pip install mcp — official Model Context Protocol Python SDK"
+    },
+    {
+      "ref": "Auth0",
+      "kind": "named",
+      "class": "related",
+      "pages": ["runtime-mcp.md"],
+      "note": "Identity provider used extensively for the AgentCore MCP OAuth end-to-end example (Auth0 by Okta)"
+    },
+    {
+      "ref": "Amazon Cognito (identity provider)",
+      "kind": "named",
+      "class": "related",
+      "pages": ["runtime-a2a.md", "runtime-agui.md", "runtime-header-allowlist.md", "runtime-mcp.md", "runtime-how-it-works.md"],
+      "note": "AWS Cognito user pools used throughout as the OAuth identity provider for MCP/A2A/AGUI protocol authentication; only placeholder discovery-URL endpoints given, no concrete Cognito doc URL in this batch"
+    },
+    {
+      "ref": "x402 (agentic payments protocol)",
+      "kind": "named",
+      "class": "related",
+      "pages": ["runtime-get-started-cli.md"],
+      "note": "Payment protocol referenced for AgentCore Payments feature (microtransactions); no URL given in this batch"
+    },
+    {
+      "ref": "https://your-idp/.well-known/openid-configuration",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["resource-providers.md"],
+      "note": "Placeholder discovery URL"
+    },
+    {
+      "ref": "https://console.aws.amazon.com/cloudwatch/",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["results-and-output.md"],
+      "note": "AWS console URL"
+    },
+    {
+      "ref": "bedrock-agentcore.{region}.amazonaws.com/... placeholder invocation/OAuth endpoints",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["runtime-a2a-protocol-contract.md", "runtime-agui-protocol-contract.md", "runtime-http-protocol-contract.md", "runtime-mcp-protocol-contract.md", "runtime-mcp.md", "runtime-a2a.md", "runtime-agui.md"],
+      "note": "Placeholder/example API endpoints with {region}/ARN placeholders, not real doc pages"
+    },
+    {
+      "ref": "http://localhost:* examples (various ports)",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["runtime-a2a.md", "runtime-agui.md", "runtime-mcp.md", "runtime-long-run.md", "runtime-get-started-cli-typescript.md", "runtime-get-started-code-deploy-node.md", "runtime-get-started-code-deploy-python.md"],
+      "note": "Local development endpoints, not external references"
+    },
+    {
+      "ref": "https://example-x402-merchant.com/paid-api",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["runtime-get-started-cli.md"],
+      "note": "Placeholder example merchant domain"
+    },
+    {
+      "ref": "https://beta.example.com",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["runtime-mcp.md"],
+      "note": "Placeholder example domain"
+    },
+    {
+      "ref": "cognito-idp.$REGION.amazonaws.com/$POOL_ID/.well-known/openid-configuration",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["runtime-agui.md", "runtime-mcp.md", "runtime-header-allowlist.md"],
+      "note": "Placeholder Cognito discovery URL with variables"
+    },
+    {
+      "ref": "https://nodejs.org",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["runtime-get-started-cli.md", "runtime-get-started-code-deploy-node.md"],
+      "note": "Generic tool homepage with no specific doc content"
+    },
+    {
+      "ref": "https://pypi.org/",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["runtime-get-started-code-deploy-python.md"],
+      "note": "Generic homepage"
+    },
+    {
+      "ref": "https://www.7-zip.org/download.html",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["runtime-get-started-code-deploy.md"],
+      "note": "Generic tool download page, not documentation"
+    },
+    {
+      "ref": "http://169.254.169.254/latest/meta-data/",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["runtime-get-started-command-shell.md"],
+      "note": "EC2 instance metadata service endpoint, generic example"
+    },
+    {
+      "ref": "https://github.com/user/repo.git",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["runtime-get-started-command-shell.md"],
+      "note": "Placeholder repo URL"
+    },
+    {
+      "ref": "Coinbase CDP, Stripe Privy, Google, GitHub, Slack, Salesforce (built-in credential provider vendors)",
+      "kind": "named",
+      "class": "skip",
+      "pages": ["resource-providers.md"],
+      "note": "Generic vendor names for built-in AgentCore Identity providers, no associated doc URL given"
+    },
+    {
+      "ref": "Claude Code, Amazon Kiro, OpenAI Codex",
+      "kind": "named",
+      "class": "skip",
+      "pages": ["runtime-get-started-command-shell.md"],
+      "note": "Named only as generic examples of coding agents using interactive shells; no doc reference implied"
+    }
+  ]
+}

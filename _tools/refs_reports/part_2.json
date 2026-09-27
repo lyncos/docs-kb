@@ -1,0 +1,405 @@
+{
+  "files_read": 58,
+  "files_in_batch": 58,
+  "refs": [
+    {
+      "ref": "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/01-features/07-centralize-and-govern-your-ai-infrastructure/01-gateway",
+      "kind": "repo",
+      "class": "core",
+      "pages": ["gateway-quick-start.md"],
+      "note": "Official AgentCore Gateway samples repo, linked for comprehensive examples"
+    },
+    {
+      "ref": "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control.html",
+      "kind": "url",
+      "class": "core",
+      "pages": ["gateway-quick-start.md", "gateway-encryption.md"],
+      "note": "Boto3 SDK reference for the AgentCore control plane client"
+    },
+    {
+      "ref": "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control/client/create_gateway.html",
+      "kind": "url",
+      "class": "core",
+      "pages": ["gateway-encryption.md"],
+      "note": "Boto3 create_gateway method reference"
+    },
+    {
+      "ref": "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control/client/update_gateway.html",
+      "kind": "url",
+      "class": "core",
+      "pages": ["gateway-encryption.md"],
+      "note": "Boto3 update_gateway method reference"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/cli/latest/reference/bedrock-agentcore-control/",
+      "kind": "url",
+      "class": "core",
+      "pages": ["gateway-encryption.md"],
+      "note": "AWS CLI reference root for bedrock-agentcore-control"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/cli/latest/reference/bedrock-agentcore-control/create-gateway.html",
+      "kind": "url",
+      "class": "core",
+      "pages": ["gateway-encryption.md"],
+      "note": "AWS CLI create-gateway command reference"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/cli/latest/reference/bedrock-agentcore-control/update-gateway.html",
+      "kind": "url",
+      "class": "core",
+      "pages": ["gateway-encryption.md"],
+      "note": "AWS CLI update-gateway command reference"
+    },
+    {
+      "ref": "@aws/agentcore",
+      "kind": "package",
+      "class": "core",
+      "pages": ["gateway-quick-start.md"],
+      "note": "Official npm package for the AgentCore CLI (npm install -g @aws/agentcore)"
+    },
+    {
+      "ref": "https://strandsagents.com/latest/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["evaluations-terminology.md"],
+      "note": "Strands Agents framework docs, an agent framework AgentCore integrates with"
+    },
+    {
+      "ref": "strands-agents",
+      "kind": "package",
+      "class": "related",
+      "pages": ["gateway-quick-start.md"],
+      "note": "PyPI package for the Strands Agents SDK used throughout AgentCore examples"
+    },
+    {
+      "ref": "mcp",
+      "kind": "package",
+      "class": "related",
+      "pages": ["gateway-quick-start.md", "gateway-agent-integration.md", "gateway-mcp-elicitation.md", "gateway-mcp-logging.md", "gateway-mcp-progress.md", "gateway-mcp-sampling.md", "gateway-mcp-streaming.md"],
+      "note": "Official Model Context Protocol Python SDK, used in nearly every MCP client code sample"
+    },
+    {
+      "ref": "langchain-mcp-adapters / langgraph",
+      "kind": "package",
+      "class": "related",
+      "pages": ["gateway-agent-integration.md", "gateway-mcp-elicitation.md"],
+      "note": "LangGraph + langchain-mcp-adapters packages used in agent integration and elicitation examples"
+    },
+    {
+      "ref": "DeepEval",
+      "kind": "named",
+      "class": "related",
+      "pages": ["evaluators.md"],
+      "note": "Open source evaluation library integrated as an AgentCore third-party evaluator source"
+    },
+    {
+      "ref": "AutoEval",
+      "kind": "named",
+      "class": "related",
+      "pages": ["evaluators.md"],
+      "note": "Open source evaluation library integrated as an AgentCore third-party evaluator source"
+    },
+    {
+      "ref": "OpenTelemetry",
+      "kind": "named",
+      "class": "related",
+      "pages": ["evaluations-terminology.md", "evaluations.md", "gateway-rate-limits-best-practices.md", "gateway-rate-limits-enforcement.md", "gateway-rules-propagation.md"],
+      "note": "Instrumentation standard AgentCore Evaluations and Gateway observability/rate-limit spans rely on"
+    },
+    {
+      "ref": "OpenInference",
+      "kind": "named",
+      "class": "related",
+      "pages": ["evaluations-terminology.md", "evaluations.md"],
+      "note": "Instrumentation library/semantic conventions supported for agent trace capture"
+    },
+    {
+      "ref": "ADOT (AWS Distro for OpenTelemetry)",
+      "kind": "named",
+      "class": "related",
+      "pages": ["evaluations-terminology.md"],
+      "note": "Auto-instrumentation agent AgentCore Evaluations currently supports"
+    },
+    {
+      "ref": "https://agentskills.io",
+      "kind": "url",
+      "class": "related",
+      "pages": ["evaluations-terminology.md"],
+      "note": "Open Agent Skills standard referenced for SKILL.md file structure"
+    },
+    {
+      "ref": "https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/mrtr",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-mcp-elicitation.md", "gateway-mcp-sampling.md"],
+      "note": "MCP multi round-trip requests (MRTR) pattern spec, used by newer elicitation/sampling flows"
+    },
+    {
+      "ref": "https://oauth.net/2/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-outbound-auth.md"],
+      "note": "OAuth 2.0 framework overview"
+    },
+    {
+      "ref": "https://oauth.net/2/scope/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-inbound-auth.md"],
+      "note": "OAuth Scopes reference"
+    },
+    {
+      "ref": "https://datatracker.ietf.org/doc/html/rfc6750#section-3",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-inbound-auth.md"],
+      "note": "RFC 6750 Bearer Token challenge format used by gateway WWW-Authenticate responses"
+    },
+    {
+      "ref": "https://datatracker.ietf.org/doc/html/rfc9728",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-inbound-auth.md"],
+      "note": "RFC 9728 OAuth Protected Resource Metadata, used by gateway's .well-known endpoint"
+    },
+    {
+      "ref": "http://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-event-types.md", "gateway-inbound-auth.md"],
+      "note": "OIDC spec on subject identifier types, referenced for PII-avoidance guidance in JWT logging"
+    },
+    {
+      "ref": "http://openid.net/specs/openid-connect-core-1_0.html#Claims",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-inbound-auth.md"],
+      "note": "OIDC spec on claims (JWT Subject claim logged in CloudTrail)"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/developerguide/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-encryption.md"],
+      "note": "AWS Key Management Service Developer Guide, top level"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["evaluations-encryption.md"],
+      "note": "KMS concepts: customer managed keys (#customer-cmk) and Forward Access Sessions (#fas)"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["evaluations-encryption.md", "gateway-encryption.md"],
+      "note": "Creating (symmetric encryption) KMS keys"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["evaluations-encryption.md", "gateway-encryption.md"],
+      "note": "KMS key access and permissions guidance"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/developerguide/logging-using-cloudtrail.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["evaluations-encryption.md"],
+      "note": "Logging AWS KMS API calls with CloudTrail"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-building-adding-targets-authorization.md", "gateway-outbound-auth.md"],
+      "note": "AWS Signature Version 4 (SigV4) signing reference used by gateway outbound IAM auth"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-building-adding-targets.md", "gateway-create-api.md"],
+      "note": "Ensuring idempotency, referenced for the clientToken pattern used by CreateGateway/CreateGatewayTarget"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/general/latest/gr/bedrock_agentcore.html#bedrock_agentcore_cp",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-add-target-api.md", "gateway-create-api.md", "gateway-outbound-auth.md"],
+      "note": "AWS General Reference listing AgentCore control plane endpoints"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-cloudtrail.md"],
+      "note": "AWS CloudTrail User Guide"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-cloudtrail.md"],
+      "note": "Creating a trail for your AWS account"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-cloudtrail.md"],
+      "note": "AWS CloudTrail API Reference"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/cli/latest/reference/cloudtrail/index.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-cloudtrail.md"],
+      "note": "AWS CloudTrail CLI Reference"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/lambda/latest/dg/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-add-target-lambda.md"],
+      "note": "AWS Lambda Developer Guide, for building the Lambda functions used as gateway targets"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-prerequisites-permissions.md"],
+      "note": "Viewing/attaching resource-based IAM policies in Lambda"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-services.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-prerequisites-permissions.md"],
+      "note": "Granting Lambda function access to AWS services"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["evaluations-prerequisites.md", "gateway-prerequisites-permissions.md"],
+      "note": "AWS managed policy reference for BedrockAgentCoreFullAccess"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonS3ReadOnlyAccess.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-prerequisites-permissions.md"],
+      "note": "AWS managed policy reference for AmazonS3ReadOnlyAccess"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrockagentcore.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-inbound-auth.md", "gateway-prerequisites-permissions.md"],
+      "note": "IAM actions, resources, and condition keys for Amazon Bedrock AgentCore"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-create-console.md"],
+      "note": "IAM role creation guide"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-prerequisites-permissions.md"],
+      "note": "Create a role to delegate permissions to an AWS service"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#term_trust_policy",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-prerequisites-permissions.md"],
+      "note": "IAM trust policy term definition"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-prerequisites-permissions.md"],
+      "note": "Adding and removing IAM identity permissions"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/cognito/latest/developerguide/token-endpoint.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-inbound-auth.md"],
+      "note": "Amazon Cognito token issuer endpoint, for obtaining access tokens to invoke a JWT-authorized gateway"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/sdkref/latest/guide/access-sso.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-prerequisites.md"],
+      "note": "Using IAM Identity Center to authenticate AWS SDK and Tools"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-quick-start.md"],
+      "note": "Getting started with the AWS CLI (credential configuration)"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html#model-access-sdk-step4",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-quick-start.md"],
+      "note": "Amazon Bedrock model access steps for non-foundation models"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["gateway-agent-integration.md"],
+      "note": "Amazon Bedrock supported models reference"
+    },
+    {
+      "ref": "https://github.com/aws/api-models-aws",
+      "kind": "repo",
+      "class": "related",
+      "pages": ["gateway-building-smithy-targets.md"],
+      "note": "AWS API Models repository, source of built-in Smithy models for AWS services"
+    },
+    {
+      "ref": "aws-cdk-lib",
+      "kind": "package",
+      "class": "related",
+      "pages": ["gateway-custom-domains.md"],
+      "note": "AWS CDK library used to build the CloudFront/Route53/ACM custom-domain example"
+    },
+    {
+      "ref": "mcp-proxy",
+      "kind": "package",
+      "class": "related",
+      "pages": ["gateway-custom-domains.md"],
+      "note": "Third-party proxy tool (run via uvx) for MCP clients lacking native streamable HTTP support"
+    },
+    {
+      "ref": "https://console.aws.amazon.com/bedrock-agentcore/home#",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["gateway-add-target-console.md", "gateway-create-console.md"],
+      "note": "AWS Management Console URL, not a documentation page"
+    },
+    {
+      "ref": "https://aws.amazon.com/cloudtrail/pricing/",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["gateway-event-types.md"],
+      "note": "Pricing/marketing page, not doc content"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+---
+title: Attach MCP Target with OpenAPI Schema
+description: Bedrock AgentCore gateway can turn OpenAPI specifications (JSON or YAML) into MCP-compatible tools without requiring you to manage infrastructure or hosting. Each operation defined in the OpenAPI file becomes an MCP tool, accessible through a single gateway endpoint URL.
+product: Amazon Bedrock AgentCore
+section: References / repo / agentcore-samples
+source_url: https://github.com/awslabs/agentcore-samples/blob/e1a55b3/01-features/07-centralize-and-govern-your-ai-infrastructure/01-gateway/01-attach-targets/mcp/openapi-schema/README.md
+fetched: '2026-09-26'
+tags:
+- agentcore
+- agentcore-samples
+- reference
+---
+
+# Attach MCP Target with OpenAPI Schema
+
+Bedrock AgentCore gateway can turn OpenAPI specifications (JSON or YAML) into MCP-compatible tools without requiring you to manage infrastructure or hosting. Each operation defined in the OpenAPI file becomes an MCP tool, accessible through a single gateway endpoint URL.
+
+![architecture](./images/api-groups-targets.png)
+
+## Documentation
+
+- [AgentCore gateway Developer Guide](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html)

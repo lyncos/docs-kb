@@ -1,0 +1,49 @@
+---
+title: lab1
+description: An MCP (Model Context Protocol) server deployed on Amazon Bedrock AgentCore.
+product: Amazon Bedrock AgentCore
+section: References / repo / agentcore-samples
+source_url: https://github.com/awslabs/agentcore-samples/blob/e1a55b3/06-workshops/02-AgentCore-gateway/05-mcp-server-as-a-target/mcpservers/app/labsession/README.md
+fetched: '2026-09-26'
+tags:
+- agentcore
+- agentcore-samples
+- reference
+---
+
+# lab1
+
+An MCP (Model Context Protocol) server deployed on Amazon Bedrock AgentCore.
+
+## Overview
+
+This project implements an MCP server using FastMCP. MCP servers expose tools that can be consumed by MCP clients (other agents or applications).
+
+## Local Development
+
+```bash
+# Install dependencies
+uv sync
+
+# Run the MCP server locally
+uv run python main.py
+```
+
+The server starts on port 8000 with Streamable HTTP transport.
+
+## Adding Tools
+
+Define tools using the `@mcp.tool()` decorator in `main.py`:
+
+```python
+@mcp.tool()
+def my_tool(param: str) -> str:
+    """Description of what the tool does."""
+    return f"Result: {param}"
+```
+
+## Deploy
+
+```bash
+agentcore deploy
+```

@@ -1,0 +1,426 @@
+{
+  "files_read": 48,
+  "files_in_batch": 48,
+  "refs": [
+    {
+      "ref": "https://aws.amazon.com/marketplace/pp/prodview-ia2zd5puqyi7g",
+      "kind": "url",
+      "class": "related",
+      "pages": ["payments-getting-started.md", "payments-marketplace-subscription.md", "payments-troubleshooting.md"],
+      "note": "AWS Marketplace listing for Coinbase Wallets for AgentCore Payments subscription, required for Coinbase billing"
+    },
+    {
+      "ref": "https://docs.cdp.coinbase.com/wallets/pricing",
+      "kind": "url",
+      "class": "related",
+      "pages": ["payments-getting-started.md", "payments-iam-roles.md", "payments-marketplace-subscription.md", "payments-prerequisites.md"],
+      "note": "Coinbase CDP wallet usage pricing page, referenced for Marketplace billing context"
+    },
+    {
+      "ref": "https://sandbox.node4all.com/v1/x402-test",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["payments-getting-started.md"],
+      "note": "example sandbox test endpoint used in a tutorial, not documentation"
+    },
+    {
+      "ref": "https://github.com/aws/agent-toolkit-for-aws",
+      "kind": "repo",
+      "class": "core",
+      "pages": ["payments-getting-started.md", "payments-iam-roles.md", "payments-prerequisites.md", "payments-process-payment.md", "payments-processing.md"],
+      "note": "official AWS agent toolkit repo containing the AgentCore Payments skill (aws-agents plugin / agents-build skill)"
+    },
+    {
+      "ref": "https://faucet.circle.com/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["payments-getting-started.md"],
+      "note": "Circle testnet USDC faucet used to fund test wallets in the payments quick start tutorial"
+    },
+    {
+      "ref": "https://docs.cdp.coinbase.com/api-reference/v2/authentication#1-create-client-api-key",
+      "kind": "url",
+      "class": "related",
+      "pages": ["payments-getting-started.md"],
+      "note": "Coinbase Developer Platform API key creation / authentication doc"
+    },
+    {
+      "ref": "https://dashboard.privy.io/",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["payments-getting-started.md", "payments-prerequisites.md"],
+      "note": "Privy dashboard login/app-creation page, not doc content"
+    },
+    {
+      "ref": "https://console.aws.amazon.com/bedrock-agentcore/",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["payments-getting-started.md"],
+      "note": "AWS console URL"
+    },
+    {
+      "ref": "https://example-x402-merchant.com/paid-api",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["payments-getting-started.md", "payments-process-payment.md"],
+      "note": "placeholder example merchant URL"
+    },
+    {
+      "ref": "https://docs.cdp.coinbase.com/embedded-wallets/welcome",
+      "kind": "url",
+      "class": "related",
+      "pages": ["payments-how-it-works.md"],
+      "note": "Coinbase Developer Platform embedded wallets overview doc, describes the CoinbaseCDP connector type"
+    },
+    {
+      "ref": "https://docs.privy.io/basics/get-started/organization",
+      "kind": "url",
+      "class": "related",
+      "pages": ["payments-how-it-works.md"],
+      "note": "Privy organization setup doc, describes the StripePrivy connector type"
+    },
+    {
+      "ref": "https://github.com/coinbase/cdp-agentcore-template",
+      "kind": "repo",
+      "class": "core",
+      "pages": ["payments-how-it-works.md", "payments-prerequisites.md", "payments-troubleshooting.md"],
+      "note": "Coinbase's reference frontend template specifically for integrating AWS AgentCore SDK with Coinbase wallet onramp/delegation flows"
+    },
+    {
+      "ref": "https://github.com/privy-io/aws-agentcore-sdk",
+      "kind": "repo",
+      "class": "core",
+      "pages": ["payments-how-it-works.md", "payments-prerequisites.md", "payments-troubleshooting.md"],
+      "note": "Privy's AgentCore SDK / reference frontend GitHub repo for AWS AgentCore integration"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSMarketplaceManageSubscriptions.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["payments-iam-roles.md", "payments-marketplace-subscription.md", "payments-prerequisites.md"],
+      "note": "AWS managed policy reference for AWSMarketplaceManageSubscriptions, required IAM permission for the Coinbase Marketplace subscription"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["payments-prerequisites.md"],
+      "note": "AWS CLI getting-started/install guide"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/sdkref/latest/guide/access-sso.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["payments-prerequisites.md"],
+      "note": "AWS SDK reference guide on using IAM Identity Center SSO to authenticate SDKs and tools"
+    },
+    {
+      "ref": "https://aws.amazon.com/developer/tools/",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["payments-prerequisites.md"],
+      "note": "generic AWS Builder Tools marketing/homepage, no specific doc content"
+    },
+    {
+      "ref": "https://docs.cdp.coinbase.com/api-reference/v2/authentication",
+      "kind": "url",
+      "class": "related",
+      "pages": ["payments-prerequisites.md", "payments-troubleshooting.md"],
+      "note": "Coinbase Developer Platform authentication reference doc"
+    },
+    {
+      "ref": "https://portal.cdp.coinbase.com/",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["payments-prerequisites.md"],
+      "note": "Coinbase portal login page"
+    },
+    {
+      "ref": "https://portal.cdp.coinbase.com/projects/api-keys",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["payments-prerequisites.md"],
+      "note": "Coinbase portal console page for API key management"
+    },
+    {
+      "ref": "https://docs.privy.io/authentication/overview#api-authentication",
+      "kind": "url",
+      "class": "related",
+      "pages": ["payments-prerequisites.md", "payments-troubleshooting.md"],
+      "note": "Privy authentication overview / API authentication doc"
+    },
+    {
+      "ref": "https://docs.uniswap.org/contracts/permit2/overview",
+      "kind": "url",
+      "class": "related",
+      "pages": ["payments-process-payment.md"],
+      "note": "Uniswap Permit2 contract documentation, referenced for the x402 'upto' scheme allowance mechanics"
+    },
+    {
+      "ref": "https://github.com/coinbase/x402/blob/main/specs/schemes/upto/README.md",
+      "kind": "url",
+      "class": "related",
+      "pages": ["payments-process-payment.md"],
+      "note": "x402 protocol 'upto' scheme specification on GitHub"
+    },
+    {
+      "ref": "https://www.x402.org/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["payments-process-payment.md"],
+      "note": "x402 Payment Required protocol homepage/spec, the open protocol AgentCore payments implements"
+    },
+    {
+      "ref": "https://drvd12nxpcyd5.cloudfront.net/market-recap",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["payments-process-payment.md"],
+      "note": "example/demo paid endpoint used only in code samples"
+    },
+    {
+      "ref": "https://docs.privy.io/recipes/agent-integrations/x402-sanctions-screening",
+      "kind": "url",
+      "class": "related",
+      "pages": ["payments-security-best-practices.md"],
+      "note": "Privy sanctions screening guidance for x402 agent integrations"
+    },
+    {
+      "ref": "https://docs.privy.io/controls/policies/overview",
+      "kind": "url",
+      "class": "related",
+      "pages": ["payments-security-best-practices.md"],
+      "note": "Privy wallet policy controls documentation"
+    },
+    {
+      "ref": "https://docs.cdp.coinbase.com/wallets/security-and-policies/security-overview",
+      "kind": "url",
+      "class": "related",
+      "pages": ["payments-security-best-practices.md"],
+      "note": "Coinbase wallet security and policies overview doc"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["policy-encryption.md"],
+      "note": "AWS KMS Developer Guide concepts (key types, AWS-owned/customer-managed keys, encryption context), referenced repeatedly to explain policy engine encryption"
+    },
+    {
+      "ref": "https://aws.amazon.com/kms/pricing/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["policy-encryption.md"],
+      "note": "AWS KMS pricing page, referenced for customer managed key cost"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_forward_access_sessions.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["policy-encryption.md"],
+      "note": "IAM Forward Access Sessions (FAS) doc, explains how Policy in AgentCore creates KMS grants using the caller's identity"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/developerguide/least-privilege.html#key-policy-least-privilege",
+      "kind": "url",
+      "class": "related",
+      "pages": ["policy-encryption.md"],
+      "note": "AWS KMS least-privilege key policy guidance (aws:SourceArn/SourceAccount conditions)"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-via-service",
+      "kind": "url",
+      "class": "related",
+      "pages": ["policy-encryption.md"],
+      "note": "AWS KMS kms:ViaService condition key documentation"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["policy-encryption.md"],
+      "note": "Guide to creating a KMS key, prerequisite for encrypting a policy engine"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["policy-encryption.md"],
+      "note": "KMS key access and permissions control guide"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys-adding-permission.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["policy-encryption.md"],
+      "note": "Guidance on restricting permission to delete/disable a KMS key"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/wellarchitected/latest/devops-guidance/ag.sad.5-implement-break-glass-procedures.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["policy-encryption.md"],
+      "note": "AWS Well-Architected DevOps guidance on break-glass access procedures, recommended for KMS key loss recovery"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-sensitive-filters.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["policy-guardrails-getting-started.md", "policy-guardrails-in-policies.md"],
+      "note": "Amazon Bedrock Guardrails sensitive information filter types documentation, referenced for guardrail categories in policy"
+    },
+    {
+      "ref": "https://docs.cedarpolicy.com",
+      "kind": "url",
+      "class": "related",
+      "pages": ["policy-core-concepts.md", "policy-permissions.md"],
+      "note": "Cedar policy language documentation site; Cedar is the open-source authorization language Policy in AgentCore is built on"
+    },
+    {
+      "ref": "https://docs.cedarpolicy.com/policies/syntax-datatypes.html#datatype-decimal",
+      "kind": "url",
+      "class": "related",
+      "pages": ["policy-guardrails-in-policies.md"],
+      "note": "Cedar decimal datatype syntax reference, used for guardrail confidence score comparisons"
+    },
+    {
+      "ref": "https://docs.cedarpolicy.com/policies/syntax-datatypes.html#datatype-long",
+      "kind": "url",
+      "class": "related",
+      "pages": ["policy-guardrails-in-policies.md"],
+      "note": "Cedar Long datatype syntax reference, used for guardrail finding counts"
+    },
+    {
+      "ref": "https://dogwood-policy.github.io/dogwood/index.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["policy-core-concepts.md", "policy-temporal.md", "policy.md"],
+      "note": "Dogwood policy language guide - open-source, Cedar-compatible session-aware policy language used for AgentCore temporal policies"
+    },
+    {
+      "ref": "https://www.cedarpolicy.com/en",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["policy.md"],
+      "note": "Cedar policy language marketing homepage (docs.cedarpolicy.com is the actual documentation site, captured separately)"
+    },
+    {
+      "ref": "https://github.com/cedar-policy/cedar-for-agents/tree/main/rust/cedar-policy-mcp-schema-generator",
+      "kind": "repo",
+      "class": "related",
+      "pages": ["policy-schema-constraints.md"],
+      "note": "open-source Cedar-for-agents MCP schema generator; explains the JSON Schema-to-Cedar type mapping Policy in AgentCore uses"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/aws-managed-policy/latest/reference/security-iam-awsmanpol.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["policy-permissions.md"],
+      "note": "AWS managed policies reference guide, including the full-access managed policy for Bedrock AgentCore"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["private-key-jwt.md"],
+      "note": "KMS GetPublicKey API reference, used to export the public key for Private Key JWT identity provider registration"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["private-key-jwt.md"],
+      "note": "Guide to importing external key material into a KMS key, for identity-provider-issued Private Key JWT keys"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["private-key-jwt.md"],
+      "note": "AWS KMS key policies documentation"
+    },
+    {
+      "ref": "https://login.microsoftonline.com/your-tenant-id/v2.0/.well-known/openid-configuration",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["private-key-jwt.md"],
+      "note": "placeholder Microsoft Entra OIDC discovery URL (your-tenant-id)"
+    },
+    {
+      "ref": "https://login.microsoftonline.com/your-tenant-id/oauth2/v2.0/token",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["private-key-jwt.md"],
+      "note": "placeholder Microsoft Entra token endpoint URL (your-tenant-id)"
+    },
+    {
+      "ref": "https://your-app.okta.com/oauth2/default/.well-known/openid-configuration",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["private-key-jwt.md"],
+      "note": "placeholder Okta OIDC discovery URL (your-app)"
+    },
+    {
+      "ref": "RFC 7523 (JWT Profile for OAuth 2.0 Client Authentication and Authorization Grants)",
+      "kind": "named",
+      "class": "related",
+      "pages": ["private-key-jwt.md"],
+      "note": "explicitly cited spec ('per RFC 7523, Section 2.2') underlying Private Key JWT client authentication in AgentCore Identity"
+    },
+    {
+      "ref": "RFC 8785 (JSON Canonicalization Scheme, JCS)",
+      "kind": "named",
+      "class": "related",
+      "pages": ["payments-troubleshooting.md"],
+      "note": "explicitly cited spec in an MPP challenge validation error message ('RFC 8785 JCS requires unique member names')"
+    },
+    {
+      "ref": "Strands Agents",
+      "kind": "named",
+      "class": "related",
+      "pages": ["payments-getting-started.md", "payments-how-it-works.md", "payments-process-payment.md"],
+      "note": "agent framework (strands / strands-agents-tools packages) with a dedicated AgentCore payments plugin integration; no specific doc URL cited in this batch"
+    },
+    {
+      "ref": "LangGraph",
+      "kind": "named",
+      "class": "related",
+      "pages": ["payments-process-payment.md"],
+      "note": "agent framework (langchain.agents / bedrock-agentcore[langgraph]) with a dedicated AgentCore payments middleware integration"
+    },
+    {
+      "ref": "OpenAI Agents SDK",
+      "kind": "named",
+      "class": "related",
+      "pages": ["payments-getting-started.md"],
+      "note": "named as a framework the AgentCore Payments skill's framework-agnostic tool works with; no doc link given"
+    },
+    {
+      "ref": "bedrock-agentcore",
+      "kind": "package",
+      "class": "core",
+      "pages": ["payments-getting-started.md", "payments-process-payment.md", "payments-prerequisites.md", "payments-processing.md", "payments-iam-roles.md"],
+      "note": "core AgentCore Python SDK package on PyPI (pip install bedrock-agentcore[strands-agents]/[langgraph]), used throughout payments code samples"
+    },
+    {
+      "ref": "@aws/agentcore",
+      "kind": "package",
+      "class": "core",
+      "pages": ["policy-getting-started.md", "policy-guardrails-getting-started.md"],
+      "note": "AgentCore CLI npm package (npm install -g @aws/agentcore)"
+    },
+    {
+      "ref": "Model Context Protocol (MCP) / mcp Python SDK",
+      "kind": "named",
+      "class": "related",
+      "pages": ["policy-getting-started.md", "policy-session-based-temporal.md", "policy-core-concepts.md", "policy-authorization-flow.md"],
+      "note": "MCP protocol and its Python SDK (mcp.client.streamable_http, ClientSession) underlie AgentCore Gateway tool calls evaluated by Policy in AgentCore; no specific doc URL given in this batch"
+    },
+    {
+      "ref": "Machine Payments Protocol (MPP)",
+      "kind": "named",
+      "class": "related",
+      "pages": ["payments-how-it-works.md", "payments-process-payment.md", "payments.md", "payments-troubleshooting.md"],
+      "note": "alternative HTTP 402-based payment protocol to x402 supported by AgentCore payments; no external spec URL given in this batch"
+    }
+  ]
+}

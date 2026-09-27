@@ -1,0 +1,349 @@
+{
+  "files_read": 41,
+  "files_in_batch": 41,
+  "refs": [
+    {
+      "ref": "https://github.com/aws/agentcore-cli",
+      "kind": "repo",
+      "class": "core",
+      "pages": ["agentcore-get-started-cli.md"],
+      "note": "Source/issues repo for the AgentCore CLI"
+    },
+    {
+      "ref": "bedrock-agentcore-starter-toolkit",
+      "kind": "package",
+      "class": "core",
+      "pages": ["agentcore-get-started-cli.md"],
+      "note": "Legacy Python pip package for the AgentCore CLI (predecessor to @aws/agentcore), mentioned as a PATH-shadowing gotcha"
+    },
+    {
+      "ref": "@aws/agentcore",
+      "kind": "package",
+      "class": "core",
+      "pages": ["agentcore-get-started-cli.md", "agentcore-cli-reference.md"],
+      "note": "npm package for the current AgentCore CLI"
+    },
+    {
+      "ref": "https://github.com/aws/bedrock-agentcore-sdk-python",
+      "kind": "repo",
+      "class": "core",
+      "pages": ["agentcore-sdk-memory.md"],
+      "note": "Official AgentCore Python SDK repo"
+    },
+    {
+      "ref": "https://github.com/aws/bedrock-agentcore-sdk-typescript",
+      "kind": "repo",
+      "class": "core",
+      "pages": ["browser-dcv-integration.md"],
+      "note": "Official AgentCore TypeScript SDK repo"
+    },
+    {
+      "ref": "https://github.com/aws/bedrock-agentcore-sdk-typescript/blob/main/src/tools/browser/client.ts#L380",
+      "kind": "url",
+      "class": "core",
+      "pages": ["browser-dcv-integration.md"],
+      "note": "Direct source link to generateLiveViewUrl method in the TS SDK"
+    },
+    {
+      "ref": "https://github.com/awslabs/amazon-bedrock-agentcore-samples",
+      "kind": "repo",
+      "class": "core",
+      "pages": ["agentcore-get-started-cli.md"],
+      "note": "Official AgentCore end-to-end code samples repo"
+    },
+    {
+      "ref": "bedrock-agentcore",
+      "kind": "package",
+      "class": "core",
+      "pages": ["agentcore-sdk-memory.md", "ab-testing-config-bundle.md", "ab-testing-target-based.md", "batch-evaluations-getting-started.md", "agentcore-python-sdk-reference.md", "browser-managing-sessions.md", "agent-runtime-versioning.md"],
+      "note": "AgentCore Python pip package (bedrock_agentcore module) used throughout SDK/code examples"
+    },
+    {
+      "ref": "bedrock-agentcore (npm)",
+      "kind": "package",
+      "class": "core",
+      "pages": ["browser-dcv-integration.md", "agentcore-typescript-sdk-reference.md"],
+      "note": "AgentCore TypeScript SDK npm package"
+    },
+    {
+      "ref": "https://aws.amazon.com/blogs/machine-learning/embed-a-live-ai-browser-agent-in-your-react-app-with-amazon-bedrock-agentcore/",
+      "kind": "url",
+      "class": "core",
+      "pages": ["browser-dcv-integration.md"],
+      "note": "AWS ML blog walkthrough for embedding AgentCore Browser Live View in React"
+    },
+    {
+      "ref": "Strands Agents SDK (strands / strands-agents / strands_evals / @strands-agents/sdk)",
+      "kind": "package",
+      "class": "related",
+      "pages": ["agentcore-get-started-cli.md", "agentcore-cli-reference.md", "ab-testing-config-bundle.md", "ab-testing-target-based.md", "ab-testing-3p-agents.md", "batch-evaluations-getting-started.md", "agentcore-python-sdk-reference.md", "agentcore-typescript-sdk-reference.md"],
+      "note": "Primary recommended agent framework used across AgentCore code examples (Python and TS)"
+    },
+    {
+      "ref": "LangGraph / LangChain",
+      "kind": "named",
+      "class": "related",
+      "pages": ["agentcore-get-started-cli.md", "agentcore-cli-reference.md", "agents-tools-runtime.md"],
+      "note": "Supported code-based agent framework option in agentcore create/CLI"
+    },
+    {
+      "ref": "Google Agent Development Kit (Google ADK)",
+      "kind": "named",
+      "class": "related",
+      "pages": ["agentcore-get-started-cli.md"],
+      "note": "Supported code-based agent framework option"
+    },
+    {
+      "ref": "OpenAI Agents SDK",
+      "kind": "named",
+      "class": "related",
+      "pages": ["agentcore-get-started-cli.md"],
+      "note": "Supported code-based agent framework option"
+    },
+    {
+      "ref": "CrewAI",
+      "kind": "named",
+      "class": "related",
+      "pages": ["agents-tools-runtime.md"],
+      "note": "Framework AgentCore Runtime is described as working seamlessly with"
+    },
+    {
+      "ref": "Vercel AI SDK (ai / @ai-sdk/amazon-bedrock)",
+      "kind": "package",
+      "class": "related",
+      "pages": ["agentcore-typescript-sdk-reference.md"],
+      "note": "TS Code Interpreter tool integrations target the Vercel AI SDK's ToolLoopAgent"
+    },
+    {
+      "ref": "Model Context Protocol (MCP)",
+      "kind": "named",
+      "class": "related",
+      "pages": ["agentcore-cli-reference.md", "agentcore-get-started-cli.md", "agents-tools-runtime.md", "ab-testing-config-bundle.md", "agentcore-python-sdk-reference.md"],
+      "note": "Protocol AgentCore Gateway/Runtime implements for tool calling; MCP targets, tools/list, protocolType MCP"
+    },
+    {
+      "ref": "A2A protocol (Agent2Agent)",
+      "kind": "named",
+      "class": "related",
+      "pages": ["agentcore-python-sdk-reference.md", "agents-tools-runtime.md"],
+      "note": "build_a2a_app / a2a.types.AgentCard integration in the Python SDK; A2A supported as a Runtime protocol"
+    },
+    {
+      "ref": "OpenTelemetry (opentelemetry-distro, opentelemetry-instrumentation, aws-opentelemetry-distro)",
+      "kind": "package",
+      "class": "related",
+      "pages": ["ab-testing-3p-agents.md", "ab-testing-config-bundle.md", "ab-testing-target-based.md", "ab-testing-prereqs.md", "agentcore-cli-reference.md", "agentcore-python-sdk-reference.md", "batch-evaluations-results.md"],
+      "note": "Tracing standard/packages AgentCore observability and A/B testing depend on (OTel spans, OTEL_ env vars)"
+    },
+    {
+      "ref": "https://aws-otel.github.io/docs/getting-started/lambda#adot-lambda-layer-arns",
+      "kind": "url",
+      "class": "related",
+      "pages": ["ab-testing-3p-agents.md"],
+      "note": "AWS Distro for OpenTelemetry Lambda layer ARNs, needed to instrument non-AgentCore-hosted agents"
+    },
+    {
+      "ref": "W3C Baggage header specification",
+      "kind": "named",
+      "class": "related",
+      "pages": ["ab-testing-config-bundle.md", "ab-testing-target-based.md", "ab-testing.md"],
+      "note": "AgentCore Gateway propagates A/B test variant/config-bundle info via W3C baggage headers"
+    },
+    {
+      "ref": "RFC 6455 (The WebSocket Protocol)",
+      "kind": "named",
+      "class": "related",
+      "pages": ["agentcore-python-sdk-reference.md"],
+      "note": "Cited explicitly to explain why OAuth shell auth must use Sec-WebSocket-Protocol"
+    },
+    {
+      "ref": "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["aws-sdk-memory.md"],
+      "note": "Boto3 (AWS SDK for Python) top-level docs"
+    },
+    {
+      "ref": "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["aws-sdk-memory.md"],
+      "note": "Boto3 reference for the bedrock-agentcore data-plane client"
+    },
+    {
+      "ref": "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["aws-sdk-memory.md"],
+      "note": "Boto3 reference for the bedrock-agentcore-control client"
+    },
+    {
+      "ref": "Chrome DevTools Protocol (CDP)",
+      "kind": "named",
+      "class": "related",
+      "pages": ["browser-invoke.md"],
+      "note": "Protocol used by the WebSocket-based Browser automation endpoint, contrasted with InvokeBrowser OS-level actions"
+    },
+    {
+      "ref": "Playwright",
+      "kind": "named",
+      "class": "related",
+      "pages": ["browser-invoke.md", "browser-managing-sessions.md"],
+      "note": "Example automation library connecting to AgentCore Browser sessions over CDP"
+    },
+    {
+      "ref": "browser-use",
+      "kind": "named",
+      "class": "related",
+      "pages": ["browser-invoke.md"],
+      "note": "Named alongside Playwright as a library that connects through the CDP endpoint"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/dcv/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["browser-dcv-integration.md"],
+      "note": "AWS DCV service docs — underlying tech for AgentCore Browser Live View"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/dcv/latest/websdkguide/what-is.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["browser-dcv-integration.md"],
+      "note": "AWS DCV Web Client SDK guide, wrapped by BrowserLiveView component"
+    },
+    {
+      "ref": "https://www.chromium.org/administrators/linux-quick-start/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["browser-enterprise-policies.md"],
+      "note": "Chromium enterprise policy mechanism AgentCore Browser policies are based on"
+    },
+    {
+      "ref": "https://chromeenterprise.google/policies/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["browser-enterprise-policies.md"],
+      "note": "Chrome Enterprise Policy List — valid policy keys reference for browser enterprise policies"
+    },
+    {
+      "ref": "https://www.chromium.org/developers/design-documents/extensions/",
+      "kind": "url",
+      "class": "related",
+      "pages": ["browser-extensions.md"],
+      "note": "Chromium extension format guidelines required for AgentCore Browser extensions"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["best-practices.md"],
+      "note": "IAM Access Analyzer, recommended for validating least-privilege AgentCore policies"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/kms/latest/developerguide/logging-using-cloudtrail.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["batch-evaluations-encryption.md"],
+      "note": "Logging AWS KMS API calls with CloudTrail, for monitoring batch evaluation encryption"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["agentcore-vpc.md"],
+      "note": "AWS managed policy reference required for VPC service-linked role permissions"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/gpbucketnamespaces.html#account-regional-gp-buckets",
+      "kind": "url",
+      "class": "related",
+      "pages": ["agentcore-vpc.md"],
+      "note": "S3 general purpose bucket namespace doc, explains AgentCore's internal code-artifact buckets"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["bedrock-agentcore-limits.md"],
+      "note": "Service Quotas guide for requesting AgentCore quota increases (linked repeatedly)"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["bedrock-agentcore-limits.md"],
+      "note": "EC2 service quotas relevant to AgentCore Runtime Instances compute type"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/ebs/latest/userguide/ebs-resource-quotas.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["bedrock-agentcore-limits.md"],
+      "note": "EBS quotas relevant to AgentCore Runtime Instances"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["bedrock-agentcore-limits.md"],
+      "note": "VPC quotas relevant to AgentCore Runtime Instances networking"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html#api-request-throttling",
+      "kind": "url",
+      "class": "related",
+      "pages": ["bedrock-agentcore-limits.md"],
+      "note": "EC2 Auto Scaling API throttling quota referenced for Instances compute type"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/working_with_metrics.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["bedrock-agentcore-limits.md"],
+      "note": "CloudWatch metrics doc for monitoring AgentCore Memory TokenCount"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html",
+      "kind": "url",
+      "class": "related",
+      "pages": ["agentcore-get-started-cli.md"],
+      "note": "AWS CLI credential configuration, a prerequisite for the AgentCore CLI"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html#model-access-sdk-step4",
+      "kind": "url",
+      "class": "related",
+      "pages": ["agentcore-get-started-cli.md", "bedrock-agentcore-limits.md"],
+      "note": "Amazon Bedrock model access steps, prerequisite for non-default foundation models used by AgentCore agents"
+    },
+    {
+      "ref": "https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["agentcore-get-started-cli.md"],
+      "note": "Generic AWS account sign-up page, not AgentCore-specific"
+    },
+    {
+      "ref": "https://nodejs.org",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["agentcore-get-started-cli.md"],
+      "note": "Generic Node.js homepage, no doc content"
+    },
+    {
+      "ref": "https://console.aws.amazon.com/bedrock-agentcore/home#",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["agentcore-vpc.md"],
+      "note": "AWS console URL"
+    },
+    {
+      "ref": "placeholder/templated endpoint URLs (https://<gateway-id>.gateway.bedrock-agentcore..., https://bedrock-agentcore-control.<Region>..., https://bedrock-agentcore.<Region>..., https://premiousEndpoint, https://example-x402-merchant.com/paid-api, https://amazon.com/, lambda-url <control-id> endpoints)",
+      "kind": "url",
+      "class": "skip",
+      "pages": ["ab-testing-3p-agents.md", "ab-testing-config-bundle.md", "ab-testing-target-based.md", "bedrock-agentcore-limits.md", "agentcore-vpc.md", "browser-enterprise-policies.md", "browser-extensions.md", "browser-invoke.md", "browser-managing-sessions.md", "agentcore-python-sdk-reference.md", "agentcore-get-started-cli.md"],
+      "note": "Templated/placeholder API endpoint and example URLs, not real external documentation"
+    }
+  ]
+}

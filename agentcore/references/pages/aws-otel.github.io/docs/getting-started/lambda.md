@@ -1,0 +1,418 @@
+---
+title: AWS Distro for OpenTelemetry Lambda
+description: 📢
+product: Amazon Bedrock AgentCore
+section: References / aws-otel.github.io
+source_url: https://aws-otel.github.io/docs/getting-started/lambda
+fetched: '2026-09-26'
+tags:
+- agentcore
+- aws-otel-github-io
+- reference
+- related
+referenced_by:
+- observability-configure.md
+- observability-get-started.md
+conversion: pandoc
+---
+
+# AWS Distro for OpenTelemetry Lambda
+
+# AWS Distro for OpenTelemetry Lambda
+
+📢
+
+New: ADOT Lambda layers now support Application Signals for enhanced observability and monitoring capabilities.
+
+[Learn More](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-application-signals.html)
+
+The AWS Distro for OpenTelemetry (ADOT) now offers AWS Distro for OpenTelemetry (ADOT) Lambda layers with Application Signals support, providing a complete Application Performance Monitoring (APM) experience. These optimized ADOT Lambda layers deliver a plug-and-play user experience by automatically instrumenting Lambda functions without requiring a dedicated collector. The layers package OpenTelemetry with out-of-the-box configuration for AWS Lambda and AWS X-Ray, enabling simple setup through a convenient layer. Customers can easily enable or disable OpenTelemetry instrumentation for their Lambda functions without modifying any code, streamlining the observability implementation process.
+
+💡
+
+Enable transaction search to capture 100% of Lambda traces - Reduce observability costs and time spent troubleshooting production issues through efficient, complete data collection
+
+[Learn More](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html)
+
+  
+
+------------------------------------------------------------------------
+
+  
+
+## [](#getting-started-with-aws-lambda-layers)Getting Started with AWS Lambda layers
+
+There are various methods for enabling AWS Distro for OpenTelemetry (ADOT) auto-instrumentation for your Lambda function
+
+- Use the Lambda console
+- Use the CloudWatch Application Signals console
+- Using AWS CDK
+- By manually adding the ADOT Lambda Layers
+
+📋
+
+Following steps will also enable AWS Application Signals along with tracing in your Lambda function. If you want to disable AWS Application Signals and retain only OpenTelemetry functionality, set the environment variable
+
+OTEL_AWS_APPLICATION_SIGNALS_ENABLED = false
+
+Note: We recommend to keep the AWS Application Signals turned on for the complete APM experience
+
+  
+
+------------------------------------------------------------------------
+
+  
+
+## [](#use-the-lambda-console)Use the Lambda Console
+
+Use these steps to enable AWS Distro for OpenTelemetry (ADOT) auto-instrumentation through the Lambda console:
+
+1.  Open the AWS Lambda console at <https://console.aws.amazon.com/lambda/>
+2.  In the navigation pane, choose **Functions** and then choose the name of the function that you want to enable
+3.  Choose the **Configuration** tab, and then choose **Monitoring and operations tools**
+4.  Choose **Edit**
+5.  In the **CloudWatch Application Signals and X-Ray** section, select both:
+    - **Application Signals**
+    - **Lambda service traces**
+6.  Choose **Save**
+
+  
+
+------------------------------------------------------------------------
+
+  
+
+## [](#use-the-cloudwatch-application-signals-console)Use the CloudWatch Application Signals Console
+
+Use these steps to enable AWS Distro for OpenTelemetry (ADOT) auto-instrumentation through the CloudWatch console:
+
+1.  Open the CloudWatch console at <https://console.aws.amazon.com/cloudwatch/>
+2.  In the navigation pane, choose **Application Signals**, **Services**
+3.  In the **Services** list area, choose **Enable Application Signals**
+4.  Choose the **Lambda** tile
+5.  Select each function that you want to enable for Application Signals, and then choose **Done**
+
+  
+
+------------------------------------------------------------------------
+
+  
+
+## [](#use-the-aws-cdk)Use the AWS CDK
+
+### [](#1-add-the-iam-policy)1. Add the IAM policy.
+
+``` prism-code
+Copyconst fn = new Function(this, 'DemoFunction', {    code: Code.fromAsset('$YOUR_LAMBDA.zip'),    runtime: Runtime.PYTHON_3_12,    handler: '$YOUR_HANDLER'})
+fn.role?.addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName(    'CloudWatchLambdaApplicationSignalsExecutionRolePolicy'));
+```
+
+### [](#2-add-aws-distro-for-opentelemetry-adot-layer)2. Add AWS Distro for OpenTelemetry (ADOT) Layer
+
+``` prism-code
+Copyfn.addLayers(LayerVersion.fromLayerVersionArn(    this, 'AwsLambdaLayerForOtel',    '$AWS_LAMBDA_LAYER_FOR_OTEL_ARN'))fn.addEnvironment("AWS_LAMBDA_EXEC_WRAPPER", "/opt/otel-instrument");// [Optional] Disable AWS Application Signals// Recommended to keep the AWS Application Signals turned on for the complete APM experience// fn.addEnvironment("OTEL_AWS_APPLICATION_SIGNALS_ENABLED", "false");
+```
+
+Replace `$AWS_LAMBDA_LAYER_FOR_OTEL_ARN` with the actual [AWS Lambda Layer for OpenTelemetry ARN in the corresponding region and language](#adot-lambda-layer-arns).
+
+### [](#optional-enable-application-signals-discovery)(Optional) Enable Application Signals Discovery
+
+📋
+
+Note: This configuration only needs to be performed once per account and region
+
+If you enabled Application Signals (recommended), grant the required permissions to discover your RUM, Synthetics or uninstrumented services. For more information, see [Enable Application Signals in your account](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable.html)
+
+``` prism-code
+Copyimport { aws_applicationsignals as applicationsignals } from 'aws-cdk-lib';
+const cfnDiscovery = new applicationsignals.CfnDiscovery(this,  'ApplicationSignalsServiceRole', { } );
+```
+
+  
+
+------------------------------------------------------------------------
+
+  
+
+## [](#manually-add-aws-distro-for-opentelemetry-adot-lambda-layers)Manually Add AWS Distro for OpenTelemetry (ADOT) Lambda Layers
+
+1.  **Add the ADOT Lambda Layer** to your Lambda runtime. Find the layer ARN for your region in the [Lambda Layer ARNs section](#adot-lambda-layer-arns) below.
+
+2.  **Set Environment Variables:**
+
+    - `AWS_LAMBDA_EXEC_WRAPPER=/opt/otel-instrument`
+    - (optional) `LAMBDA_APPLICATION_SIGNALS_REMOTE_ENVIRONMENT` - Configure custom Lambda environments. Default is `lambda:default`
+    - (optional) `OTEL_AWS_APPLICATION_SIGNALS_ENABLED=false` - To disable AWS Application Signals.
+
+3.  **Attach IAM Policy** - Add the AWS managed IAM policy `CloudWatchLambdaApplicationSignalsExecutionRolePolicy` to the Lambda execution role.
+
+4.  **Enable Active Tracing** (Optional but recommended) - Enable Lambda active tracing to get a better tracing experience.
+
+  
+
+------------------------------------------------------------------------
+
+  
+
+## [](#manually-remove-aws-distro-for-opentelemetry-adot-lambda-layer)Manually Remove AWS Distro for OpenTelemetry (ADOT) Lambda Layer
+
+1.  **Remove the ADOT Lambda Layer** from your Lambda runtime.
+2.  Remove the `AWS_LAMBDA_EXEC_WRAPPER=/opt/otel-instrument` environment variable.
+
+  
+
+------------------------------------------------------------------------
+
+  
+
+## [](#configuration-options)Configuration Options
+
+### [](#sampling-configuration)Sampling Configuration
+
+By default, the trace sampling strategy is parent-based. You can adjust sampling by setting `OTEL_TRACES_SAMPLER`:
+
+For example, in order to set trace sampling rate to 30%.
+
+``` prism-code
+CopyOTEL_TRACES_SAMPLER=traceidratioOTEL_TRACES_SAMPLER_ARG=0.3
+```
+
+For more information , see [OpenTelemetry Environment Variable Specification](https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/).
+
+### [](#enable-all-library-instrumentations)Enable All Library Instrumentations
+
+To reduce Lambda cold starts, by default only AWS SDK and HTTP instrumentations are enabled. Enable all instrumentations with:
+
+- **Python:** `OTEL_PYTHON_DISABLED_INSTRUMENTATIONS=none`
+- **Node.js:** `OTEL_NODE_DISABLED_INSTRUMENTATIONS=none`
+- **Java:** `OTEL_INSTRUMENTATION_COMMON_DEFAULT_ENABLED=true`
+
+### [](#service-grouping)Service Grouping
+
+Set the `OTEL_SERVICE_NAME` environment variable to group multiple Lambda functions into one service. This name will be displayed in Application Signals dashboards. Functions with the same service name will be merged into a single service.
+
+### [](#traces-exporter)Traces Exporter
+
+By default, traces are exported in OTLP format through the Lambda embedded agent to CloudWatch X-Ray. No additional configuration is required, and this setup provides the best performance.
+
+If you need to export traces to a custom OTLP endpoint, configure the OTLP exporter settings as described in the [OpenTelemetry documentation](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/#otel_exporter_otlp_traces_endpoint).
+
+### [](#metrics-exporter)Metrics Exporter
+
+By default, metrics exporting is disabled.
+
+To send OpenTelemetry metrics to CloudWatch, ADOT Lambda provides two options:
+
+#### [](#option-1-send-emf-to-the-lambda-application-log-group)Option 1. Send EMF to the Lambda Application Log Group
+
+Enable OpenTelemetry metrics export using EMF (Embedded Metric Format) by setting:
+
+``` prism-code
+CopyOTEL_METRICS_EXPORTER=awsemf
+```
+
+With this setting:
+
+- Metrics are exported with the best performance
+- EMF logs are published to the default Lambda application log group
+
+#### [](#option-2-send-emf-to-a-custom-log-group)Option 2. Send EMF to a Custom Log Group
+
+To publish EMF logs to a custom CloudWatch Log Group and Log Stream, set:
+
+``` prism-code
+CopyOTEL_METRICS_EXPORTER=awsemfOTEL_EXPORTER_OTLP_LOGS_HEADERS=x-aws-log-group=<LOG_GROUP>,x-aws-log-stream=<LOG_STREAM>
+```
+
+*Replace the placeholders:*
+
+- *`<LOG_GROUP>`*: the name of your target CloudWatch Log Group
+- *`<LOG_STREAM>`*: the name of your target Log Stream
+
+With this setting:
+
+- EMF logs are published to a custom CloudWatch Log Group, allowing you to fully separate EMF metrics data from Lambda application logs
+- The Lambda execution role must have `logs:CreateLogGroup`, `logs:CreateLogStream`, and `logs:PutLogEvents` permissions for the target log resource
+- `x-aws-log-group` and `x-aws-log-stream` must be specified together
+
+#### [](#optional-customize-the-metrics-namespace)(Optional) Customize the Metrics Namespace
+
+By default, metrics are published to CloudWatch using the namespace **default**. To customize the CloudWatch metrics namespace for your Lambda function, include:
+
+``` prism-code
+CopyOTEL_EXPORTER_OTLP_LOGS_HEADERS=x-aws-metric-namespace=<NAMESPACE>
+```
+
+- *`<NAMESPACE>`*: your desired CloudWatch metrics namespace
+
+### [](#logs-exporter)Logs Exporter
+
+By default, logs exporting is disabled.
+
+To export OpenTelemetry logs to CloudWatch, ADOT Lambda provides two options:
+
+#### [](#option-1-export-logs-to-the-lambda-application-log-group)Option 1. Export Logs to the Lambda Application Log Group
+
+To export OpenTelemetry logs via the Lambda embedded agent to the Lambda application log group, set:
+
+``` prism-code
+CopyOTEL_LOGS_EXPORTER=console
+```
+
+With this setting:
+
+- Logs are exported with the best performance
+- **Note:** OpenTelemetry logs will be mixed together with Lambda application logs in the same log group and log stream
+
+#### [](#option-2-export-logs-to-a-custom-log-group)Option 2. Export Logs to a Custom Log Group
+
+To export OpenTelemetry logs to a custom CloudWatch Log Group and Log Stream, set:
+
+``` prism-code
+CopyOTEL_LOGS_EXPORTER=otlpOTEL_EXPORTER_OTLP_LOGS_HEADERS=x-aws-log-group=<LOG_GROUP>,x-aws-log-stream=<LOG_STREAM>OTEL_EXPORTER_OTLP_LOGS_ENDPOINT=https://logs.<AWS_REGION>.amazonaws.com/v1/logs
+```
+
+*Replace the placeholders:*
+
+- *`<LOG_GROUP>`*: the name of your target CloudWatch Log Group
+- *`<LOG_STREAM>`*: the name of your target Log Stream
+- *`<AWS_REGION>`*: the AWS region where your logs should be sent
+
+With this setting:
+
+- OpenTelemetry logs are published to a custom CloudWatch Log Group, allowing you to fully separate OpenTelemetry logs from Lambda application logs
+- The Lambda execution role must have `logs:CreateLogGroup`, `logs:CreateLogStream`, and `logs:PutLogEvents` permissions for the target log resource
+- `x-aws-log-group` and `x-aws-log-stream` must be specified together
+
+#### [](#logging-library-configuration)Logging Library Configuration
+
+If you do not see any OpenTelemetry logs, ensure that the logging library instrumentation is enabled and configured correctly:
+
+- **Python**
+
+  ``` prism-code
+  CopyOTEL_PYTHON_LOGGING_AUTO_INSTRUMENTATION_ENABLED=true
+  ```
+
+- **Node.js**
+
+  Example: Instrumenting Winston logging library
+
+  1.  Enable winston instrumentation (and other desired instrumentations) by setting:
+
+  ``` prism-code
+  CopyOTEL_NODE_ENABLED_INSTRUMENTATIONS="aws-sdk,aws-lambda,http,winston"
+  ```
+
+  2.  Configure winston to use OpenTelemetry transport:
+
+  ``` prism-code
+  Copyconst winston = require('winston');const { OpenTelemetryTransportV3 } = require('@opentelemetry/winston-transport');
+  const logger = winston.createLogger({  level: 'info',  transports: [    new OpenTelemetryTransportV3()  ]});
+  ```
+
+  For other node.js logging libraries, please refer to the corresponding OpenTelemetry documentation. For example:
+
+  - **pino** – [@opentelemetry/instrumentation-pino](https://www.npmjs.com/package/@opentelemetry/instrumentation-pino)
+  - **bunyan** – [@opentelemetry/instrumentation-bunyan](https://www.npmjs.com/package/@opentelemetry/instrumentation-bunyan)
+
+  
+
+------------------------------------------------------------------------
+
+  
+
+## [](#supported-runtimes)Supported Runtimes
+
+The AWS Distro for OpenTelemetry (ADOT) Lambda Layer supports following runtimes:
+
+Python
+
+Node.js
+
+Java
+
+.NET
+
+| Runtime |
+|---------|
+| Java 11 |
+| Java 17 |
+| Java 21 |
+
+  
+
+------------------------------------------------------------------------
+
+  
+
+## [](#adot-lambda-layer-arns)ADOT Lambda Layer ARNs
+
+### [](#aws-lambda-layer-for-opentelemetry-arns)AWS Lambda Layer for OpenTelemetry ARNs
+
+The following tables list the ARNs to use the AWS Lambda Layer for OpenTelemetry for each Region where it's supported.
+
+Python
+
+Node.js
+
+Java
+
+.NET
+
+[TABLE]
+
+  
+
+------------------------------------------------------------------------
+
+  
+
+## [](#container-image-deployment)Container Image Deployment
+
+Lambda functions deployed as container images do not support Lambda Layers in the traditional way. When using container images, you cannot attach a layer as you would with other Lambda deployment methods. Instead, you must manually incorporate the layer’s contents into your container image during the build process.
+
+For detailed container integration examples for Java, Node.js, Python, and .NET, refer to the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable-LambdaMain.html#containerized-lambda).
+
+  
+
+------------------------------------------------------------------------
+
+  
+
+## [](#monitor-application-health)Monitor Application Health
+
+**\[Recommended\]** Once you have enabled Application Signals on your Lambda functions, you can monitor your application health through the CloudWatch Application Signals console. This provides:
+
+- **Service Maps** - Visual representation of your application architecture
+- **Traces** - Detailed request flow and performance metrics
+- **Metrics** - Standard application metrics and custom metrics
+- **Alarms** - Automated alerts based on performance thresholds
+
+For more information, see [Monitor the operational health of your applications with Application Signals](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Services.html).
+
+  
+
+------------------------------------------------------------------------
+
+  
+
+## [](#not-recommended-using-the-legacy-adot-lambda-layers-with-embedded-collector)(Not Recommended) Using the legacy ADOT Lambda Layers with embedded collector
+
+⚠️
+
+The links below describes the legacy approach of using non-optimized ADOT Lambda Layer with an added overhead of a collector. Unless you want to export the telemetry data to a non CloudWatch endpoint, the approach below is not recommended
+
+- [\[Not Recommended\] AWS managed Lambda layer for ADOT Java SDK and ADOT Collector](/docs/getting-started/lambda/lambda-java)
+- [\[Not Recommended\] AWS managed Lambda Layer for ADOT Java Auto-instrumentation Agent and ADOT Collector](/docs/getting-started/lambda/lambda-java-auto-instr)
+- [\[Not Recommended\] AWS managed Lambda Layer for ADOT JavaScript SDK and ADOT Collector](/docs/getting-started/lambda/lambda-js)
+- [\[Not Recommended\] AWS managed Lambda Layer for ADOT Python SDK and ADOT Collector](/docs/getting-started/lambda/lambda-python)
+- [\[Not Recommended\] AWS managed Lambda Layer for ADOT Collector and ADOT Lambda .NET SDK (Manual Instrumentation)](/docs/getting-started/lambda/lambda-dotnet)
+- [\[Not Recommended\] AWS managed Lambda Layer for ADOT Collector and ADOT Lambda Go SDK (Manual Instrumentation)](/docs/getting-started/lambda/lambda-go)
+
+### [](#advanced-configurations)Advanced Configurations
+
+- [Manual Steps for Private Lambda Layers](/docs/getting-started/lambda/lambda-manual-steps) - Instructions for building and deploying custom Lambda layers
+- [Custom Configuration for ADOT Collector on Lambda](/docs/getting-started/lambda/lambda-custom-configuration) - Detailed guide for customizing the ADOT Collector configuration
+
+## On this page

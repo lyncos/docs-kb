@@ -1,0 +1,367 @@
+---
+title: Get Access Tokens
+description: To access your API, you must request an access token when authenticating a user.
+product: Amazon Bedrock AgentCore
+section: References / auth0.com
+source_url: https://auth0.com/docs/secure/tokens/access-tokens/get-access-tokens
+fetched: '2026-09-26'
+tags:
+- agentcore
+- auth0-com
+- reference
+- related
+referenced_by:
+- runtime-mcp.md
+conversion: native-md
+---
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://auth0.com/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+> Learn how to request Access Tokens using the Authorize endpoint when authenticating users and include the target audience and scope of access requested by the app and granted by the user.
+
+# Get Access Tokens
+
+export const AuthCodeGroup = ({children, dropdown}) => {
+  const [processedChildren, setProcessedChildren] = useState(children);
+  useEffect(() => {
+    let unsubscribe = null;
+    function init() {
+      unsubscribe = window.autorun(() => {
+        const processChildren = node => {
+          if (typeof node === "string") {
+            let processedNode = node;
+            for (const [key, value] of window.rootStore.variableStore.values.entries()) {
+              const escapedKey = key.replaceAll(/[.*+?^${}()|[\]\\]/g, (String.raw)`\$&`);
+              processedNode = processedNode.replaceAll(new RegExp(escapedKey, "g"), value);
+            }
+            return processedNode;
+          } else if (Array.isArray(node)) {
+            return node.map(processChildren);
+          } else if (node && node.props && node.props.children) {
+            return {
+              ...node,
+              props: {
+                ...node.props,
+                children: processChildren(node.props.children)
+              }
+            };
+          }
+          return node;
+        };
+        setProcessedChildren(processChildren(children));
+      });
+    }
+    if (window.rootStore) {
+      init();
+    } else {
+      window.addEventListener("adu:storeReady", init);
+    }
+    return () => {
+      window.removeEventListener("adu:storeReady", init);
+      unsubscribe?.();
+    };
+  }, [children]);
+  return <CodeGroup dropdown={dropdown}>{processedChildren}</CodeGroup>;
+};
+
+export const AuthCodeBlock = ({filename, icon, language, highlight, children}) => {
+  const [displayText, setDisplayText] = useState(children);
+  const [copyText, setCopyText] = useState(children);
+  const wrapperRef = React.useRef(null);
+  useEffect(() => {
+    let unsubscribe = null;
+    function init() {
+      if (!window.autorun || !window.rootStore) {
+        return;
+      }
+      unsubscribe = window.autorun(() => {
+        let processedChildrenForDisplay = children;
+        let processedChildrenForCopy = children;
+        for (const [key, value] of window.rootStore.variableStore.values.entries()) {
+          const escapedKey = key.replaceAll(/[.*+?^${}()|[\]\\]/g, (String.raw)`\$&`);
+          let displayValue = value;
+          if (key === "{yourClientSecret}" && value !== "{yourClientSecret}") {
+            displayValue = value.substring(0, 3) + "*****MASKED*****";
+          }
+          processedChildrenForDisplay = processedChildrenForDisplay.replaceAll(new RegExp(escapedKey, "g"), displayValue);
+          processedChildrenForCopy = processedChildrenForCopy.replaceAll(new RegExp(escapedKey, "g"), value);
+        }
+        setDisplayText(processedChildrenForDisplay);
+        setCopyText(processedChildrenForCopy);
+      });
+    }
+    if (window.rootStore) {
+      init();
+    } else {
+      window.addEventListener("adu:storeReady", init);
+    }
+    return () => {
+      window.removeEventListener("adu:storeReady", init);
+      unsubscribe?.();
+    };
+  }, [children]);
+  useEffect(() => {
+    if (!wrapperRef.current) return;
+    const originalWriteText = navigator.clipboard.writeText.bind(navigator.clipboard);
+    let isOverriding = false;
+    const handleClick = e => {
+      const button = e.target.closest('[data-testid="copy-code-button"]');
+      if (!button || !wrapperRef.current.contains(button)) return;
+      isOverriding = true;
+      navigator.clipboard.writeText = text => {
+        if (isOverriding) {
+          isOverriding = false;
+          navigator.clipboard.writeText = originalWriteText;
+          return originalWriteText(copyText);
+        }
+        return originalWriteText(text);
+      };
+      setTimeout(() => {
+        if (isOverriding) {
+          isOverriding = false;
+          navigator.clipboard.writeText = originalWriteText;
+        }
+      }, 100);
+    };
+    const wrapper = wrapperRef.current;
+    wrapper.addEventListener('click', handleClick, true);
+    return () => {
+      wrapper.removeEventListener('click', handleClick, true);
+      if (navigator.clipboard.writeText !== originalWriteText) {
+        navigator.clipboard.writeText = originalWriteText;
+      }
+    };
+  }, [copyText]);
+  return <div ref={wrapperRef}>
+      <CodeBlock filename={filename} icon={icon} language={language} lines highlight={highlight}>
+        {displayText}
+      </CodeBlock>
+    </div>;
+};
+
+To access your API, you must request an [access token](/docs/secure/tokens/access-tokens) when authenticating a user.
+
+<Callout icon="file-lines" color="#0EA5E9" iconType="regular">
+  These Auth0 tools help you modify your application to authenticate users:
+
+  * [Quickstarts](/docs/quickstarts) are the easiest way to implement authentication. They show you how to use [Universal Login](/docs/authenticate/login/auth0-universal-login/universal-login-vs-classic-login) and Auth0's language- and framework-specific SDKs.
+  * The [Auth0 Authentication API](https://auth0.com/docs/api/authentication) is a reference for those who prefer to write code independently. First, identify [which flow to use](/docs/get-started/authentication-and-authorization-flow/which-oauth-2-0-flow-should-i-use). Then follow the instructions to implement that flow.
+</Callout>
+
+To request an <Tooltip tip="Access Token: Authorization credential, in the form of an opaque string or JWT, used to access an API." cta="View Glossary" href="/docs/glossary?term=access+token">access token</Tooltip>, make a POST call to the [token URL](https://auth0.com/docs/api/authentication#client-credentials-flow).
+
+#### Example POST to token URL
+
+<AuthCodeGroup>
+  ```bash cURL theme={null}
+  curl --request POST \
+    --url 'https://{yourDomain}/oauth/token' \
+    --header 'content-type: application/x-www-form-urlencoded' \
+    --data grant_type=client_credentials \
+    --data client_id={yourClientId} \
+    --data client_secret={yourClientSecret} \
+    --data audience=YOUR_API_IDENTIFIER
+  ```
+
+  ```csharp C# theme={null}
+  var client = new RestClient("https://{yourDomain}/oauth/token");
+  var request = new RestRequest(Method.POST);
+  request.AddHeader("content-type", "application/x-www-form-urlencoded");
+  request.AddParameter("application/x-www-form-urlencoded", "grant_type=client_credentials&client_id={yourClientId}&client_secret={yourClientSecret}&audience=YOUR_API_IDENTIFIER", ParameterType.RequestBody);
+  IRestResponse response = client.Execute(request);
+  ```
+
+  ```go Go theme={null}
+  package main
+
+  import (
+  	"fmt"
+  	"strings"
+  	"net/http"
+  	"io/ioutil"
+  )
+
+  func main() {
+
+  	url := "https://{yourDomain}/oauth/token"
+
+  	payload := strings.NewReader("grant_type=client_credentials&client_id={yourClientId}&client_secret={yourClientSecret}&audience=YOUR_API_IDENTIFIER")
+
+  	req, _ := http.NewRequest("POST", url, payload)
+
+  	req.Header.Add("content-type", "application/x-www-form-urlencoded")
+
+  	res, _ := http.DefaultClient.Do(req)
+
+  	defer res.Body.Close()
+  	body, _ := ioutil.ReadAll(res.Body)
+
+  	fmt.Println(res)
+  	fmt.Println(string(body))
+
+  }
+  ```
+
+  ```java Java theme={null}
+  HttpResponse<String> response = Unirest.post("https://{yourDomain}/oauth/token")
+    .header("content-type", "application/x-www-form-urlencoded")
+    .body("grant_type=client_credentials&client_id={yourClientId}&client_secret={yourClientSecret}&audience=YOUR_API_IDENTIFIER")
+    .asString();
+  ```
+
+  ```javascript Node.JS theme={null}
+  var axios = require("axios").default;
+
+  var options = {
+    method: 'POST',
+    url: 'https://{yourDomain}/oauth/token',
+    headers: {'content-type': 'application/x-www-form-urlencoded'},
+    data: new URLSearchParams({
+      grant_type: 'client_credentials',
+      client_id: '{yourClientId}',
+      client_secret: '{yourClientSecret}',
+      audience: 'YOUR_API_IDENTIFIER'
+    })
+  };
+
+  axios.request(options).then(function (response) {
+    console.log(response.data);
+  }).catch(function (error) {
+    console.error(error);
+  });
+  ```
+
+  ```php PHP theme={null}
+  $curl = curl_init();
+
+  curl_setopt_array($curl, [
+    CURLOPT_URL => "https://{yourDomain}/oauth/token",
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 30,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "POST",
+    CURLOPT_POSTFIELDS => "grant_type=client_credentials&client_id={yourClientId}&client_secret={yourClientSecret}&audience=YOUR_API_IDENTIFIER",
+    CURLOPT_HTTPHEADER => [
+      "content-type: application/x-www-form-urlencoded"
+    ],
+  ]);
+
+  $response = curl_exec($curl);
+  $err = curl_error($curl);
+
+  curl_close($curl);
+
+  if ($err) {
+    echo "cURL Error #:" . $err;
+  } else {
+    echo $response;
+  }
+  ```
+
+  ```python Python theme={null}
+  import http.client
+
+  conn = http.client.HTTPSConnection("")
+
+  payload = "grant_type=client_credentials&client_id={yourClientId}&client_secret={yourClientSecret}&audience=YOUR_API_IDENTIFIER"
+
+  headers = { 'content-type': "application/x-www-form-urlencoded" }
+
+  conn.request("POST", "/{yourDomain}/oauth/token", payload, headers)
+
+  res = conn.getresponse()
+  data = res.read()
+
+  print(data.decode("utf-8"))
+  ```
+
+  ```ruby Ruby theme={null}
+  require 'uri'
+  require 'net/http'
+  require 'openssl'
+
+  url = URI("https://{yourDomain}/oauth/token")
+
+  http = Net::HTTP.new(url.host, url.port)
+  http.use_ssl = true
+  http.verify_mode = OpenSSL::SSL::VERIFY_PEER
+
+  request = Net::HTTP::Post.new(url)
+  request["content-type"] = 'application/x-www-form-urlencoded'
+  request.body = "grant_type=client_credentials&client_id={yourClientId}&client_secret={yourClientSecret}&audience=YOUR_API_IDENTIFIER"
+
+  response = http.request(request)
+  puts response.read_body
+  ```
+</AuthCodeGroup>
+
+##### Parameters
+
+| Parameter Name  | Description                                                                                                                                                                                                                                                                     |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `grant_type`    | Set this to "client\_credentials".                                                                                                                                                                                                                                              |
+| `client_id`     | Your application's Client ID. You can find this value on the [application's settings tab](https://manage.auth0.com/#/applications).                                                                                                                                             |
+| `client_secret` | Your application's Client Secret. You can find this value on the [application's settings tab](https://manage.auth0.com/#/applications). To learn more about available application authentication methods, read [Application Credentials](/docs/secure/application-credentials). |
+| `audience`      | The audience for the token, which is your API. You can find this in the **Identifier** field on your [API's settings tab](https://manage.auth0.com/#/apis).                                                                                                                     |
+| `organization`  | Optional. The organization name or identifier you want the request to be associated with. To learn more, read [Machine-to-Machine Access for Organizations](/docs/manage-users/organizations/organizations-for-m2m-applications).                                               |
+
+#### Response
+
+You receive an `HTTP 200` response with a payload containing `access_token`, `token_type`, and `expires_in` values:
+
+```json lines theme={null}
+{
+  "access_token":"eyJz93a...k4laUWw",
+  "token_type":"Bearer",
+  "expires_in":86400
+}
+```
+
+<Warning>
+  Validate your tokens before saving them. To learn how, read [Validate ID Tokens](/docs/secure/tokens/id-tokens/validate-id-tokens) and [Validate Access Tokens](/docs/secure/tokens/access-tokens/validate-access-tokens).
+</Warning>
+
+## Control access token audience
+
+When a user authenticates, you request an access token and include the target <Tooltip tip="Audience: Unique identifier of the audience for an issued token. Named aud in a token, its value contains the ID of either an application (Client ID) for an ID Token or an API (API Identifier) for an Access Token." cta="View Glossary" href="/docs/glossary?term=audience">audience</Tooltip> and scope of access in your request. The application uses the `/authorize` endpoint to request access. This access is both requested by the application and granted by the user during authentication
+
+You can configure your tenant to always include a default audience.
+
+| Token Use            | Format | Requested Audience                                                                               | Requested Scope |
+| -------------------- | ------ | ------------------------------------------------------------------------------------------------ | --------------- |
+| /userinfo endpoint   | Opaque | tenant name (`\{yourDomain}`), no value for `audience` parameter, no `audience` parameter passed | `openid`        |
+| Auth0 Management API | JWT    | Management API v2 identifier (`https://{tenant}.auth0.com/api/v2/`)                              |                 |
+| Your own custom API  | JWT    | The API Identifier for your custom API registered in the Auth0 Dashboard                         |                 |
+
+In only one specific instance, access tokens can have multiple target audiences. This requires that your custom API's <Tooltip tip="Signing Algorithm: Algorithm used to digitally sign tokens to ensure the token has not been tampered with." cta="View Glossary" href="/docs/glossary?term=signing+algorithm">signing algorithm</Tooltip> is set to **RS256**. To learn more, read [Token Best Practices](/docs/secure/tokens/token-best-practices).
+
+### Multiple audiences
+
+If you specify an audience of your custom API identifier and a scope of `openid`, then the resulting access token's `aud` claim will be an array rather than a string, and the access token will be valid for both your custom API and for the `/userinfo` endpoint. Your access tokens can only have two or more audiences if you use a single custom API as well as Auth0's `/userinfo` endpoint.
+
+### Custom domains and the Auth0 Management API
+
+Auth0 issues tokens with an issuer (`iss)` claim of whichever domain you used when requesting the token. [Custom domain](/docs/customize/custom-domains) users can use either their <Tooltip tip="Custom Domain: Third-party domain with a specialized, or vanity, name." cta="View Glossary" href="/docs/glossary?term=custom+domain">custom domain</Tooltip> or their Auth0 domain.
+
+For example, suppose you have a custom domain, `https://login.northwind.com`. If you request an access token from `https://login.northwind.com/authorize`, your token's `iss` claim will be `https://login.northwind.com/`. However, if you request an access token from `https://northwind.auth0.com/authorize`, your token's `iss` claim will be `https://northwind.auth0.com/`.
+
+If you request an access token from your custom domain with the target audience of the Auth0 <Tooltip tip="Management API: A product to allow customers to perform administrative tasks." cta="View Glossary" href="/docs/glossary?term=Management+API">Management API</Tooltip>, then you **must** call the Auth0 Management API from your custom domain. Otherwise your access token is considered invalid.
+
+## Renew access tokens
+
+By default, an access token for a custom API is valid for 86400 seconds (24 hours). You can [shorten the time period before the token expires](/docs/secure/tokens/access-tokens/update-access-token-lifetime).
+
+After an access token has expired, you can renew your access token. To do so either re-authenticate the user using Auth0 or use a [refresh token](/docs/secure/tokens/refresh-tokens).
+
+## Learn more
+
+* [Validate Access Tokens](/docs/secure/tokens/access-tokens/validate-access-tokens)
+* [Use Access Tokens](/docs/secure/tokens/access-tokens/use-access-tokens)
+* [JSON Web Tokens](/docs/secure/tokens/json-web-tokens)
+* [Refresh Tokens](/docs/secure/tokens/refresh-tokens)
+* [Identity Provider Access Tokens](/docs/secure/tokens/access-tokens/identity-provider-access-tokens)
+* [Management API Access Tokens](/docs/secure/tokens/access-tokens/management-api-access-tokens)

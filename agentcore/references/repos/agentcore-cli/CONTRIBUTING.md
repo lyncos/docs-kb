@@ -1,0 +1,156 @@
+---
+title: Contributing Guidelines
+description: Thank you for your interest in contributing to our project. Whether it's a bug report, new feature, correction, or additional documentation, we greatly value feedback and contributions from our community.
+product: Amazon Bedrock AgentCore
+section: References / repo / agentcore-cli
+source_url: https://github.com/aws/agentcore-cli/blob/805f342/CONTRIBUTING.md
+fetched: '2026-09-26'
+tags:
+- agentcore
+- agentcore-cli
+- reference
+---
+
+# Contributing Guidelines
+
+Thank you for your interest in contributing to our project. Whether it's a bug report, new feature, correction, or
+additional documentation, we greatly value feedback and contributions from our community.
+
+Please read through this document before submitting any issues or pull requests to ensure we have all the necessary
+information to effectively respond to your bug report or contribution.
+
+## Reporting Bugs/Feature Requests
+
+We welcome you to use the GitHub issue tracker to report bugs or suggest features.
+
+When filing an issue, please check existing open, or recently closed, issues to make sure somebody else hasn't already
+reported the issue. Please try to include as much information as you can. Details like these are incredibly useful:
+
+- A reproducible test case or series of steps
+- The version of our code being used
+- Any modifications you've made relevant to the bug
+- Anything unusual about your environment or deployment
+
+## Contributing via Pull Requests
+
+Contributions via pull requests are much appreciated. Before sending us a pull request, please ensure that:
+
+1. **Every PR must be linked to an issue.** Open an issue first (or find an existing one) and reference it in your PR
+   using `Closes #issue-number`. PRs without an associated issue will not be reviewed.
+2. You are working against the latest source on the _main_ branch.
+3. You check existing open, and recently merged, pull requests to make sure someone else hasn't addressed the problem
+   already.
+4. You open an issue to discuss any significant work - we would hate for your time to be wasted.
+
+To send us a pull request, please:
+
+1. Fork the repository.
+2. Modify the source; please focus on the specific change you are contributing. If you also reformat all the code, it
+   will be hard for us to focus on your change.
+3. Ensure local tests pass.
+4. Commit to your fork using clear commit messages.
+5. Send us a pull request, answering any default questions in the pull request interface.
+6. Pay attention to any automated CI failures reported in the pull request, and stay involved in the conversation.
+
+GitHub provides additional document on [forking a repository](https://help.github.com/articles/fork-a-repo/) and
+[creating a pull request](https://help.github.com/articles/creating-a-pull-request/).
+
+## Finding contributions to work on
+
+Looking at the existing issues is a great way to find something to contribute on. As our projects, by default, use the
+default GitHub issue labels (enhancement/bug/duplicate/help wanted/invalid/question/wontfix), looking at any 'help
+wanted' issues is a great place to start.
+
+## Maintainer notes: Claude security review on community PRs
+
+The `Claude Security Review` workflow runs automatically on maintainer-authored PRs (opened/reopened/synchronize) and on
+community PRs once a maintainer applies the **`safe-to-review`** label. PRs from non-collaborators are otherwise skipped
+— the label is the gate, so a maintainer must manually review the diff before the automated reviewer runs.
+
+> **Why the label and not an approving review?** GitHub does not inject repo/org secrets into workflows triggered by
+> `pull_request_review` events when the PR head is a fork, regardless of the reviewer's access level. The Bedrock OIDC
+> role and GitHub App credentials this workflow needs are only available on `pull_request_target` events, so the label
+> path is the only one that works end-to-end for fork PRs.
+
+To re-run the review on a later commit, remove and re-apply the label, or trigger the `Claude Security Review` workflow
+manually from the Actions tab with the PR number. Note that manual dispatch can verify the analysis and prompt plumbing
+but cannot post inline comments — the action's inline-comment MCP server only attaches on PR-context events
+(`pull_request_target`).
+
+## Code of Conduct
+
+This project has adopted the [Amazon Open Source Code of Conduct](https://aws.github.io/code-of-conduct). For more
+information see the [Code of Conduct FAQ](https://aws.github.io/code-of-conduct-faq) or contact
+opensource-codeofconduct@amazon.com with any additional questions or comments.
+
+## Security issue notifications
+
+If you discover a potential security issue in this project we ask that you notify AWS/Amazon Security via our
+[vulnerability reporting page](http://aws.amazon.com/security/vulnerability-reporting/). Please do **not** create a
+public github issue.
+
+## Development Setup
+
+### Prerequisites
+
+- Node.js 20+
+- npm
+
+### Building
+
+```bash
+npm install
+npm run build
+```
+
+### Testing
+
+```bash
+npm test           # Run all tests
+npm run test:watch # Run tests in watch mode
+```
+
+See [docs/TESTING.md](docs/TESTING.md) for detailed testing guidelines.
+
+### Local Development with CDK Package
+
+If you're also developing the CDK package (`@aws/agentcore-cdk`):
+
+```bash
+# In the CDK package directory
+npm link
+
+# In this directory
+npm link @aws/agentcore-cdk
+```
+
+### Testing End-to-End
+
+1. Create a test project:
+
+```bash
+cd /tmp && mkdir test-project && cd test-project
+agentcore create
+```
+
+2. Link local CDK package in vended CDK:
+
+```bash
+cd agentcore/cdk
+npm link @aws/agentcore-cdk
+```
+
+3. Test synth:
+
+```bash
+npm run cdk synth
+```
+
+## Related Packages
+
+- `@aws/agentcore-cdk` - CDK constructs used by vended projects
+
+## Licensing
+
+See the [LICENSE](LICENSE) file for our project's licensing. We will ask you to confirm the licensing of your
+contribution.

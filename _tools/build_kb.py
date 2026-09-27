@@ -39,8 +39,11 @@ def split_fm(text):
 
 
 def first_h1(body):
-    m = re.search(r"^#\s+(.+?)\s*$", body, re.M)
-    return re.sub(r"<[^>]+>", "", m.group(1)).strip() if m else None
+    cands = [m for m in (re.search(r"^#\s+(.+?)\s*$", body, re.M), re.search(r"<h1[^>]*>(.*?)</h1>", body, re.S | re.I)) if m]
+    if not cands:
+        return None
+    m = min(cands, key=lambda m: m.start())
+    return re.sub(r"<[^>]+>", "", m.group(1)).strip() or None
 
 
 def summary(body):
@@ -63,6 +66,15 @@ def slugify(s):
 def source_url(product, rel, fm):
     if product == "agentcore":
         guide, name = rel.split("/", 1)
+        if guide == "references":
+            if fm.get("source_url"):
+                return fm["source_url"]
+            kind, rest = name.split("/", 1)
+            if kind == "repos":
+                repo, path = rest.split("/", 1)
+                src = open(os.path.join(SRC, "agentcore-docs/references/repos", repo, ".source")).read().strip()
+                slug, sha = src.split("@")
+                return f"https://github.com/{slug}/blob/{sha}/{path}"
         return f"{AWS[guide][1]}/{name[:-3]}.html"
     if product == "litellm":
         top, rest = rel.split("/", 1)
@@ -85,6 +97,12 @@ def section_of(product, rel):
     parts = rel.split("/")
     if product == "agentcore":
         guide = parts[0]
+        if guide == "references":
+            if parts[1] == "repos":
+                return f"References / repo / {parts[2]}"
+            if parts[1] == "aws-cli":
+                return f"References / AWS CLI / {parts[2]}"
+            return f"References / {parts[2]}"
         if guide == "developer-guide":
             stem = parts[1][:-3]
             return f"{AWS[guide][0]} / {stem.split('-')[0]}"
@@ -124,9 +142,14 @@ def build():
                     "fetched": FETCHED,
                     "tags": sorted({product, slugify(sec.split(" / ")[-1]) or "root"}),
                 }
+                if rel.startswith("references/"):
+                    meta["tags"] = sorted(set(meta["tags"]) | {"reference"} | set(fm.get("tags") or []))
+                    for k in ("referenced_by", "conversion"):
+                        if fm.get(k):
+                            meta[k] = fm[k]
                 if product == "agentcore" and (rel.startswith("agent-registry") or "registry" in rel.split("/")[-1]):
                     meta["tags"] = sorted(set(meta["tags"]) | {"agent-registry"})
-                orig = {k: v for k, v in fm.items() if k not in meta}
+                orig = {k: v for k, v in fm.items() if k not in meta and k not in ("fetched", "product", "section")}
                 if orig:
                     meta["original_frontmatter"] = orig
                 meta = {k: v for k, v in meta.items() if v not in (None, "")}

@@ -1,0 +1,56 @@
+---
+title: Methods to assume a role
+description: 'Before a user, application, or service can use a role that you created, you must grant permissions to switch to the role. You can use any policy attached to groups or users to grant the necessary permissions. After permissions are granted, the user can assume a role from the AWS '
+product: Amazon Bedrock AgentCore
+section: References / docs.aws.amazon.com
+source_url: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage-assume.html
+fetched: '2026-09-26'
+tags:
+- agentcore
+- docs-aws-amazon-com
+- reference
+- related
+referenced_by:
+- security-iam.md
+conversion: native-md
+---
+
+# Methods to assume a role
+<a name="id_roles_manage-assume"></a>
+
+Before a user, application, or service can use a role that you created, you must [grant permissions to switch](id_roles_use_permissions-to-switch.md) to the role. You can use any policy attached to groups or users to grant the necessary permissions. After permissions are granted, the user can assume a role from the AWS Management Console, the Tools for Windows PowerShell, the AWS Command Line Interface (AWS CLI) and the [`AssumeRole`](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) API.
+
+**Important**  
+When you create a role programmatically instead of in the IAM console, you have an option to add a `Path` of up to 512 characters in addition to the `RoleName`, which can be up to 64 characters long. However, if you intend to use a role with the **Switch Role** feature in the AWS Management Console, then the combined `Path` and `RoleName` cannot exceed 64 characters.
+
+The method used to assume the role determines who can assume the role and how long the role session can last. When using `AssumeRole*` API operations, the IAM role that you assume is the resource. The user or role that calls `AssumeRole*` API operations is the principal.
+
+The following table compares methods for assuming roles.
+
+
+|  Method of assuming the role |  **Who can assume the role**  | **Method to specify credential lifetime** |  **Credential lifetime (min \| max \| default)**  | 
+| --- | --- | --- | --- | 
+| AWS Management Console | User or roles¹(by [switching roles](id_roles_use_switch-role-console.md)) | Maximum session duration on the Role Summary page | 15m \| Maximum session duration setting² \| 1hr | 
+| [`assume-role`](https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html) CLI or [`AssumeRole`](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) API operation |  User or role¹ | duration-seconds CLI or DurationSeconds API parameter | 15m \| Maximum session duration setting² \| 1hr  | 
+| [`assume-role-with-saml`](https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role-with-saml.html) CLI or [`AssumeRoleWithSAML`](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html) API operation | Any user authenticated using SAML | duration-seconds CLI or DurationSeconds API parameter | 15m \| Maximum session duration setting² \| 1hr  | 
+| [`assume-role-with-web-identity`](https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role-with-web-identity.html) CLI or [`AssumeRoleWithWebIdentity`](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html) API operation | Any user authenticated using an OIDC provider | duration-seconds CLI or DurationSeconds API parameter | 15m \| Maximum session duration setting² \| 1hr  | 
+| [Console URL](id_roles_providers_enable-console-custom-url.md) constructed with AssumeRole  | User or role | SessionDuration HTML parameter in the URL | 15m \| 12hr \| 1hr  | 
+| [Console URL](id_roles_providers_enable-console-custom-url.md) constructed with AssumeRoleWithSAML  | Any user authenticated using SAML | SessionDuration HTML parameter in the URL | 15m \| 12hr \| 1hr | 
+| [Console URL](id_roles_providers_enable-console-custom-url.md) constructed with AssumeRoleWithWebIdentity  | Any user authenticated using an OIDC provider | SessionDuration HTML parameter in the URL | 15m \| 12hr \| 1hr  | 
+
+¹ Using the credentials from one role to assume a different role is called [role chaining](id_roles.md#iam-term-role-chaining). When you use role chaining, the role's session duration is limited to one hour. This applies to AWS Management Console role switching, AWS CLI, and API operations. This limitation does not apply to the initial assumption of a role from user credentials, or to applications running on Amazon EC2 instances using instance profiles.
+
+² This setting can have a value from 1 hour to 12 hours. For details about modifying the maximum session duration setting, see [IAM role management](id_roles_manage.md). This setting determines the maximum session duration that you can request when you get the role credentials. For example, when you use the [AssumeRole\*](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) API operations to assume a role, you can specify a session length using the `DurationSeconds` parameter. Use this parameter to specify the length of the role session from 900 seconds (15 minutes) up to the maximum session duration setting for the role. IAM users who switch roles in the console are granted the maximum session duration, or the remaining time in their user session, whichever is less. Assume that you set a maximum duration of 5 hours on a role. An IAM user that has been signed into the console for 10 hours (out of the default maximum of 12) switches to the role. The available role session duration is 2 hours. To learn how to view the maximum value for your role, see [Update the maximum session duration for a role](id_roles_update-role-settings.md#id_roles_update-session-duration) later in this page.
+
+**Notes**  
+The maximum session duration setting does not limit sessions that are assumed by AWS services.
+Amazon EC2 IAM role credentials are not subject to the maximum session duration configured in the role.
+To allow users to assume the current role again within a role session, specify the role ARN or AWS account ARN as a principal in the role trust policy. AWS services that provide compute resources such as Amazon EC2, Amazon ECS, Amazon EKS, and Lambda provide temporary credentials and automatically update these credentials. This ensures that you always have a valid set of credentials. For these services, it's not necessary to assume the current role again to obtain temporary credentials. However, if you intend to pass [session tags](id_session-tags.md) or a [session policy](access_policies.md#policies_session), you need to assume the current role again. To learn how to modify a role trust policy to add the principal role ARN or AWS account ARN, see [Update a role trust policy](id_roles_update-role-trust-policy.md).
+
+**Topics**
++ [Switch from a user to an IAM role (console)](id_roles_use_switch-role-console.md)
++ [Switch to an IAM role (AWS CLI)](id_roles_use_switch-role-cli.md)
++ [Switch to an IAM role (Tools for Windows PowerShell)](id_roles_use_switch-role-twp.md)
++ [Switch to an IAM role (AWS API)](id_roles_use_switch-role-api.md)
++ [Use an IAM role to grant permissions to applications running on Amazon EC2 instances](id_roles_use_switch-role-ec2.md)
++ [Use instance profiles](id_roles_use_switch-role-ec2_instance-profiles.md)

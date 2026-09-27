@@ -1,0 +1,114 @@
+---
+title: Baseline rule groups
+description: You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see Working with the console.
+product: Amazon Bedrock AgentCore
+section: References / docs.aws.amazon.com
+source_url: https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-baseline.html
+fetched: '2026-09-26'
+tags:
+- agentcore
+- docs-aws-amazon-com
+- reference
+- related
+referenced_by:
+- runtime-mcp.md
+conversion: native-md
+---
+
+**Introducing a new console experience for AWS WAF**
+
+You can now use the updated experience to access AWS WAF functionality anywhere in the console. For more details, see [Working with the console](https://docs.aws.amazon.com/waf/latest/developerguide/working-with-console.html). 
+
+# Baseline rule groups
+<a name="aws-managed-rule-groups-baseline"></a>
+
+Baseline managed rule groups provide general protection against a wide variety of common threats. Choose one or more of these rule groups to establish baseline protection for your resources. 
+
+## Core rule set (CRS) managed rule group
+<a name="aws-managed-rule-groups-baseline-crs"></a>
+
+VendorName: `AWS`, Name: `AWSManagedRulesCommonRuleSet`, WCU: 700
+
+**Note**  
+This documentation covers the most recent static version release of this managed rule group. We report version changes in the changelog log at [AWS Managed Rules changelog](aws-managed-rule-groups-changelog.md). For information about other versions, use the API command [DescribeManagedRuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_DescribeManagedRuleGroup.html).   
+The information that we publish for the rules in the AWS Managed Rules rule groups is intended to provide you with what you need to use the rules without giving bad actors what they need to circumvent the rules.   
+If you need more information than you find here, contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/). 
+
+The core rule set (CRS) rule group contains rules that are generally applicable to web applications. This provides protection against exploitation of a wide range of vulnerabilities, including some of the high risk and commonly occurring vulnerabilities described in OWASP publications such as [OWASP Top 10](https://owasp.org/www-project-top-ten/). Consider using this rule group for any AWS WAF use case.
+
+This managed rule group adds labels to the web requests that it evaluates, which are available to rules that run after this rule group in your protection pack (web ACL). AWS WAF also records the labels to Amazon CloudWatch metrics. For general information about labels and label metrics, see [Web request labeling](waf-labels.md) and [Label metrics and dimensions](waf-metrics.md#waf-metrics-label). 
+
+
+| Rule name | Description and label | 
+| --- | --- | 
+| NoUserAgent\_HEADER | Inspects for requests that are missing the HTTP `User-Agent` header.<br />Rule action: Block<br />Label: `awswaf:managed:aws:core-rule-set:NoUserAgent_Header` | 
+| UserAgent\_BadBots\_HEADER | Inspects for common `User-Agent` header values that indicate that the request is a bad bot. Example patterns include `nessus`, and `nmap`. For bot management, see also [AWS WAF Bot Control rule group](aws-managed-rule-groups-bot.md). <br />Rule action: Block<br />Label: `awswaf:managed:aws:core-rule-set:BadBots_Header` | 
+| SizeRestrictions\_QUERYSTRING | Inspects for URI query strings that are over 2,048 bytes. <br />Rule action: Block<br />Label: `awswaf:managed:aws:core-rule-set:SizeRestrictions_QueryString` | 
+| SizeRestrictions\_Cookie\_HEADER | Inspects for cookie headers that are over 10,240 bytes. <br />Rule action: Block<br />Label: `awswaf:managed:aws:core-rule-set:SizeRestrictions_Cookie_Header` | 
+| SizeRestrictions\_BODY | Inspects for request bodies that are over 8 KB (8,192 bytes). <br />Rule action: Block<br />Label: `awswaf:managed:aws:core-rule-set:SizeRestrictions_Body` | 
+| SizeRestrictions\_URIPATH | Inspects for URI paths that are over 1,024 bytes. <br />Rule action: Block<br />Label: `awswaf:managed:aws:core-rule-set:SizeRestrictions_URIPath` | 
+| EC2MetaDataSSRF\_BODY | Inspects for attempts to exfiltrate Amazon EC2 metadata from the request body. This rule only inspects the request body up to the body size limit for the protection pack (web ACL) and resource type. For Application Load Balancer and AWS AppSync, the limit is fixed at 8 KB. For CloudFront, API Gateway, Amazon Cognito, App Runner, Verified Access, and Amazon Bedrock AgentCore Gateway, the default limit is 16 KB and you can increase the limit up to 64 KB in your protection pack (web ACL) configuration. This rule uses the `Continue` option for oversize content handling. For more information, see [Oversize web request components in AWS WAF](waf-oversize-request-components.md). <br />Rule action: Block<br />Label: `awswaf:managed:aws:core-rule-set:EC2MetaDataSSRF_Body` | 
+| EC2MetaDataSSRF\_COOKIE | Inspects for attempts to exfiltrate Amazon EC2 metadata from the request cookie. <br />Rule action: Block<br />Label: `awswaf:managed:aws:core-rule-set:EC2MetaDataSSRF_Cookie` | 
+| EC2MetaDataSSRF\_URIPATH | Inspects for attempts to exfiltrate Amazon EC2 metadata from the request URI path. <br />Rule action: Block<br />Label: `awswaf:managed:aws:core-rule-set:EC2MetaDataSSRF_URIPath` | 
+| EC2MetaDataSSRF\_QUERYARGUMENTS | Inspects for attempts to exfiltrate Amazon EC2 metadata from the request query arguments. <br />Rule action: Block<br />Label: `awswaf:managed:aws:core-rule-set:EC2MetaDataSSRF_QueryArguments` | 
+| GenericLFI\_QUERYARGUMENTS | Inspects for the presence of Local File Inclusion (LFI) exploits in the query arguments. Examples include path traversal attempts using techniques like `../../`. <br />Rule action: Block<br />Label: `awswaf:managed:aws:core-rule-set:GenericLFI_QueryArguments` | 
+| GenericLFI\_URIPATH | Inspects for the presence of Local File Inclusion (LFI) exploits in the URI path. Examples include path traversal attempts using techniques like `../../`. <br />Rule action: Block<br />Label: `awswaf:managed:aws:core-rule-set:GenericLFI_URIPath` | 
+| GenericLFI\_BODY | Inspects for the presence of Local File Inclusion (LFI) exploits in the request body. Examples include path traversal attempts using techniques like `../../`. This rule only inspects the request body up to the body size limit for the protection pack (web ACL) and resource type. For Application Load Balancer and AWS AppSync, the limit is fixed at 8 KB. For CloudFront, API Gateway, Amazon Cognito, App Runner, Verified Access, and Amazon Bedrock AgentCore Gateway, the default limit is 16 KB and you can increase the limit up to 64 KB in your protection pack (web ACL) configuration. This rule uses the `Continue` option for oversize content handling. For more information, see [Oversize web request components in AWS WAF](waf-oversize-request-components.md). <br />Rule action: Block<br />Label: `awswaf:managed:aws:core-rule-set:GenericLFI_Body` | 
+| RestrictedExtensions\_URIPATH | Inspects for requests whose URI paths contain system file extensions that are unsafe to read or run. Example patterns include extensions like `.log` and `.ini`. <br />Rule action: Block<br />Label: `awswaf:managed:aws:core-rule-set:RestrictedExtensions_URIPath` | 
+| RestrictedExtensions\_QUERYARGUMENTS | Inspects for requests whose query arguments contain system file extensions that are unsafe to read or run. Example patterns include extensions like `.log` and `.ini`. <br />Rule action: Block<br />Label: `awswaf:managed:aws:core-rule-set:RestrictedExtensions_QueryArguments` | 
+| GenericRFI\_QUERYARGUMENTS | Inspects the values of all query parameters for attempts to exploit RFI (Remote File Inclusion) in web applications by embedding URLs that contain IPv4 addresses. Examples include patterns like `http://`, `https://`, `ftp://`, `ftps://`, and `file://`, with an IPv4 host header in the exploit attempt. <br />Rule action: Block<br />Label: `awswaf:managed:aws:core-rule-set:GenericRFI_QueryArguments` | 
+| GenericRFI\_BODY | Inspects the request body for attempts to exploit RFI (Remote File Inclusion) in web applications by embedding URLs that contain IPv4 addresses. Examples include patterns like `http://`, `https://`, `ftp://`, `ftps://`, and `file://`, with an IPv4 host header in the exploit attempt. This rule only inspects the request body up to the body size limit for the protection pack (web ACL) and resource type. For Application Load Balancer and AWS AppSync, the limit is fixed at 8 KB. For CloudFront, API Gateway, Amazon Cognito, App Runner, Verified Access, and Amazon Bedrock AgentCore Gateway, the default limit is 16 KB and you can increase the limit up to 64 KB in your protection pack (web ACL) configuration. This rule uses the `Continue` option for oversize content handling. For more information, see [Oversize web request components in AWS WAF](waf-oversize-request-components.md). <br />Rule action: Block<br />Label: `awswaf:managed:aws:core-rule-set:GenericRFI_Body` | 
+| GenericRFI\_URIPATH | Inspects the URI path for attempts to exploit RFI (Remote File Inclusion) in web applications by embedding URLs that contain IPv4 addresses. Examples include patterns like `http://`, `https://`, `ftp://`, `ftps://`, and `file://`, with an IPv4 host header in the exploit attempt. <br />Rule action: Block<br />Label: `awswaf:managed:aws:core-rule-set:GenericRFI_URIPath` | 
+| CrossSiteScripting\_COOKIE | Inspects the values of cookie headers for common cross-site scripting (XSS) patterns using the built-in AWS WAF [Cross-site scripting attack rule statement](waf-rule-statement-type-xss-match.md). Example patterns include scripts like `<script>alert("hello")</script>`.  The rule match details in the AWS WAF logs is not populated for version 2.0 of this rule group.  <br />Rule action: Block<br />Label: `awswaf:managed:aws:core-rule-set:CrossSiteScripting_Cookie` | 
+| CrossSiteScripting\_QUERYARGUMENTS | Inspects the values of query arguments for common cross-site scripting (XSS) patterns using the built-in AWS WAF [Cross-site scripting attack rule statement](waf-rule-statement-type-xss-match.md). Example patterns include scripts like `<script>alert("hello")</script>`.  The rule match details in the AWS WAF logs is not populated for version 2.0 of this rule group.  <br />Rule action: Block<br />Label: `awswaf:managed:aws:core-rule-set:CrossSiteScripting_QueryArguments` | 
+| CrossSiteScripting\_BODY | Inspects the request body for common cross-site scripting (XSS) patterns using the built-in AWS WAF [Cross-site scripting attack rule statement](waf-rule-statement-type-xss-match.md). Example patterns include scripts like `<script>alert("hello")</script>`.  The rule match details in the AWS WAF logs is not populated for version 2.0 of this rule group.  This rule only inspects the request body up to the body size limit for the protection pack (web ACL) and resource type. For Application Load Balancer and AWS AppSync, the limit is fixed at 8 KB. For CloudFront, API Gateway, Amazon Cognito, App Runner, Verified Access, and Amazon Bedrock AgentCore Gateway, the default limit is 16 KB and you can increase the limit up to 64 KB in your protection pack (web ACL) configuration. This rule uses the `Continue` option for oversize content handling. For more information, see [Oversize web request components in AWS WAF](waf-oversize-request-components.md). <br />Rule action: Block<br />Label: `awswaf:managed:aws:core-rule-set:CrossSiteScripting_Body` | 
+| CrossSiteScripting\_URIPATH | Inspects the value of the URI path for common cross-site scripting (XSS) patterns using the built-in AWS WAF [Cross-site scripting attack rule statement](waf-rule-statement-type-xss-match.md). Example patterns include scripts like `<script>alert("hello")</script>`.  The rule match details in the AWS WAF logs is not populated for version 2.0 of this rule group.  <br />Rule action: Block<br />Label: `awswaf:managed:aws:core-rule-set:CrossSiteScripting_URIPath` | 
+
+## Admin protection managed rule group
+<a name="aws-managed-rule-groups-baseline-admin"></a>
+
+VendorName: `AWS`, Name: `AWSManagedRulesAdminProtectionRuleSet`, WCU: 100
+
+**Note**  
+This documentation covers the most recent static version release of this managed rule group. We report version changes in the changelog log at [AWS Managed Rules changelog](aws-managed-rule-groups-changelog.md). For information about other versions, use the API command [DescribeManagedRuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_DescribeManagedRuleGroup.html).   
+The information that we publish for the rules in the AWS Managed Rules rule groups is intended to provide you with what you need to use the rules without giving bad actors what they need to circumvent the rules.   
+If you need more information than you find here, contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/). 
+
+The Admin protection rule group contains rules that allow you to block external access to exposed administrative pages. This might be useful if you run third-party software or want to reduce the risk of a malicious actor gaining administrative access to your application.
+
+This managed rule group adds labels to the web requests that it evaluates, which are available to rules that run after this rule group in your protection pack (web ACL). AWS WAF also records the labels to Amazon CloudWatch metrics. For general information about labels and label metrics, see [Web request labeling](waf-labels.md) and [Label metrics and dimensions](waf-metrics.md#waf-metrics-label). 
+
+
+| Rule name | Description and label | 
+| --- | --- | 
+| AdminProtection\_URIPATH | Inspects for URI paths that are generally reserved for administration of a web server or application. Example patterns include `sqlmanager`. <br />Rule action: Block<br />Label: `awswaf:managed:aws:admin-protection:AdminProtection_URIPath` | 
+
+## Known bad inputs managed rule group
+<a name="aws-managed-rule-groups-baseline-known-bad-inputs"></a>
+
+VendorName: `AWS`, Name: `AWSManagedRulesKnownBadInputsRuleSet`, WCU: 200
+
+**Note**  
+This documentation covers the most recent static version release of this managed rule group. We report version changes in the changelog log at [AWS Managed Rules changelog](aws-managed-rule-groups-changelog.md). For information about other versions, use the API command [DescribeManagedRuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_DescribeManagedRuleGroup.html).   
+The information that we publish for the rules in the AWS Managed Rules rule groups is intended to provide you with what you need to use the rules without giving bad actors what they need to circumvent the rules.   
+If you need more information than you find here, contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/). 
+
+The Known bad inputs rule group contains rules to block request patterns that are known to be invalid and are associated with exploitation or discovery of vulnerabilities. This can help reduce the risk of a malicious actor discovering a vulnerable application.
+
+This managed rule group adds labels to the web requests that it evaluates, which are available to rules that run after this rule group in your protection pack (web ACL). AWS WAF also records the labels to Amazon CloudWatch metrics. For general information about labels and label metrics, see [Web request labeling](waf-labels.md) and [Label metrics and dimensions](waf-metrics.md#waf-metrics-label). 
+
+
+| Rule name | Description and label | 
+| --- | --- | 
+| JavaDeserializationRCE\_HEADER | Inspects the keys and values of HTTP request headers for patterns indicating Java deserialization Remote Command Execution (RCE) attempts, such as the Spring Core and Cloud Function RCE vulnerabilities (CVE-2022-22963, CVE-2022-22965). Example patterns include `(java.lang.Runtime).getRuntime().exec("whoami")`. This rule only inspects the first 8 KB of the request headers or the first 200 headers, whichever limit is reached first, and it uses the `Continue` option for oversize content handling. For more information, see [Oversize web request components in AWS WAF](waf-oversize-request-components.md). <br />Rule action: Block<br />Label: `awswaf:managed:aws:known-bad-inputs:JavaDeserializationRCE_Header`  | 
+| JavaDeserializationRCE\_BODY | Inspects the request body for patterns indicating Java deserialization Remote Command Execution (RCE) attempts, such as the Spring Core and Cloud Function RCE vulnerabilities (CVE-2022-22963, CVE-2022-22965). Example patterns include `(java.lang.Runtime).getRuntime().exec("whoami")`. This rule only inspects the request body up to the body size limit for the protection pack (web ACL) and resource type. For Application Load Balancer and AWS AppSync, the limit is fixed at 8 KB. For CloudFront, API Gateway, Amazon Cognito, App Runner, Verified Access, and Amazon Bedrock AgentCore Gateway, the default limit is 16 KB and you can increase the limit up to 64 KB in your protection pack (web ACL) configuration. This rule uses the `Continue` option for oversize content handling. For more information, see [Oversize web request components in AWS WAF](waf-oversize-request-components.md). <br />Rule action: Block<br />Label: `awswaf:managed:aws:known-bad-inputs:JavaDeserializationRCE_Body` | 
+| JavaDeserializationRCE\_URIPATH | Inspects the request URI for patterns indicating Java deserialization Remote Command Execution (RCE) attempts, such as the Spring Core and Cloud Function RCE vulnerabilities (CVE-2022-22963, CVE-2022-22965). Example patterns include `(java.lang.Runtime).getRuntime().exec("whoami")`. <br />Rule action: Block<br />Label: `awswaf:managed:aws:known-bad-inputs:JavaDeserializationRCE_URIPath` | 
+| JavaDeserializationRCE\_QUERYSTRING | Inspects the request query string for patterns indicating Java deserialization Remote Command Execution (RCE) attempts, such as the Spring Core and Cloud Function RCE vulnerabilities (CVE-2022-22963, CVE-2022-22965). Example patterns include `(java.lang.Runtime).getRuntime().exec("whoami")`. <br />Rule action: Block<br />Label: `awswaf:managed:aws:known-bad-inputs:JavaDeserializationRCE_QueryString` | 
+| Host\_localhost\_HEADER | Inspects the host header in the request for patterns indicating localhost. Example patterns include `localhost`. <br />Rule action: Block<br />Label: `awswaf:managed:aws:known-bad-inputs:Host_Localhost_Header` | 
+| PROPFIND\_METHOD | Inspects the HTTP method in the request for `PROPFIND`, which is a method similar to `HEAD`, but with the extra intention to exfiltrate XML objects. <br />Rule action: Block<br />Label: `awswaf:managed:aws:known-bad-inputs:Propfind_Method` | 
+| ExploitablePaths\_URIPATH | Inspects the URI path for attempts to access exploitable web application paths. Example patterns include paths like `web-inf`. <br />Rule action: Block<br />Label: `awswaf:managed:aws:known-bad-inputs:ExploitablePaths_URIPath` | 
+| Log4JRCE\_HEADER | Inspects the keys and values of request headers for the presence of the Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://www.cve.org/CVERecord?id=CVE-2021-45046), [CVE-2021-45105](https://www.cve.org/CVERecord?id=CVE-2021-45105)) and protects against Remote Code Execution (RCE) attempts. Example patterns include `${jndi:ldap://example.com/}`. This rule only inspects the first 8 KB of the request headers or the first 200 headers, whichever limit is reached first, and it uses the `Continue` option for oversize content handling. For more information, see [Oversize web request components in AWS WAF](waf-oversize-request-components.md). <br />Rule action: Block<br />Label: `awswaf:managed:aws:known-bad-inputs:Log4JRCE_Header` | 
+| Log4JRCE\_QUERYSTRING | Inspects the query string for the presence of the Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://www.cve.org/CVERecord?id=CVE-2021-45046), [CVE-2021-45105](https://www.cve.org/CVERecord?id=CVE-2021-45105)) and protects against Remote Code Execution (RCE) attempts. Example patterns include `${jndi:ldap://example.com/}`. <br />Rule action: Block<br />Label: `awswaf:managed:aws:known-bad-inputs:Log4JRCE_QueryString` | 
+| Log4JRCE\_BODY | Inspects the body for the presence of the Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://www.cve.org/CVERecord?id=CVE-2021-45046), [CVE-2021-45105](https://www.cve.org/CVERecord?id=CVE-2021-45105)) and protects against Remote Code Execution (RCE) attempts. Example patterns include `${jndi:ldap://example.com/}`. This rule only inspects the request body up to the body size limit for the protection pack (web ACL) and resource type. For Application Load Balancer and AWS AppSync, the limit is fixed at 8 KB. For CloudFront, API Gateway, Amazon Cognito, App Runner, Verified Access, and Amazon Bedrock AgentCore Gateway, the default limit is 16 KB and you can increase the limit up to 64 KB in your protection pack (web ACL) configuration. This rule uses the `Continue` option for oversize content handling. For more information, see [Oversize web request components in AWS WAF](waf-oversize-request-components.md). <br />Rule action: Block<br />Label: `awswaf:managed:aws:known-bad-inputs:Log4JRCE_Body` | 
+| Log4JRCE\_URIPATH | Inspects the URI path for the presence of the Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://www.cve.org/CVERecord?id=CVE-2021-45046), [CVE-2021-45105](https://www.cve.org/CVERecord?id=CVE-2021-45105)) and protects against Remote Code Execution (RCE) attempts. Example patterns include `${jndi:ldap://example.com/}`. <br />Rule action: Block<br />Label: `awswaf:managed:aws:known-bad-inputs:Log4JRCE_URIPath` | 
+| ReactJSRCE\_BODY | Inspects the request body for patterns indicating presence of CVE-2025-55182. This rule only inspects the request body up to the body size limit for the protection pack (web ACL) and resource type. For Application Load Balancer and AWS AppSync, the limit is fixed at 8 KB. For CloudFront, API Gateway, Amazon Cognito, App Runner, and AWS Verified Access, the default limit is 16 KB and you can increase the limit up to 64 KB in your protection pack (web ACL) configuration. This rule uses the `CONTINUE` option for oversize content handling. For more information, see [Oversize web request components in AWS WAF](waf-oversize-request-components.md). <br />Rule action: Block<br />Label: `awswaf:managed:aws:known-bad-inputs:ReactJSRCE_Body` |
