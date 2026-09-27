@@ -1,0 +1,34 @@
+---
+title: organizations members
+description: Manage organization members
+product: Coder
+section: reference
+source_url: https://coder.com/docs/reference/cli/organizations_members
+fetched: '2026-09-26'
+tags:
+- coder
+- reference
+---
+
+<!-- DO NOT EDIT | GENERATED CONTENT -->
+
+Manage organization members
+
+Aliases:
+
+* member
+
+## Usage
+
+```console
+coder organizations members
+```
+
+## Subcommands
+
+| Name                                                             | Purpose                                         |
+|------------------------------------------------------------------|-------------------------------------------------|
+| [<code>list</code>](./organizations_members_list.md)             | List all organization members                   |
+| [<code>edit-roles</code>](./organizations_members_edit-roles.md) | Edit organization member's roles                |
+| [<code>add</code>](./organizations_members_add.md)               | Add a new member to the current organization    |
+| [<code>remove</code>](./organizations_members_remove.md)         | Remove a new member to the current organization |

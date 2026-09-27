@@ -1,0 +1,36 @@
+---
+title: schedule extend
+description: Extend the stop time of a currently running workspace instance.
+product: Coder
+section: reference
+source_url: https://coder.com/docs/reference/cli/schedule_extend
+fetched: '2026-09-26'
+tags:
+- coder
+- reference
+---
+
+<!-- DO NOT EDIT | GENERATED CONTENT -->
+
+Extend the stop time of a currently running workspace instance.
+
+Aliases:
+
+* override-stop
+
+## Usage
+
+```console
+coder schedule extend <workspace-name> <duration from now>
+```
+
+## Description
+
+```console
+Extends the workspace deadline.
+  * The new stop time is calculated from *now*.
+  * The new stop time must be at least 30 minutes in the future.
+  * The workspace template may restrict the maximum workspace runtime.
+
+ $ coder schedule extend my-workspace 90m
+```

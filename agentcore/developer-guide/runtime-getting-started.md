@@ -1,0 +1,26 @@
+---
+title: Get started with AgentCore Runtime
+description: You can use the following tutorials to get started with Amazon Bedrock AgentCore Runtime.
+product: Amazon Bedrock AgentCore
+section: Developer Guide / runtime
+source_url: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-getting-started.html
+fetched: '2026-09-26'
+tags:
+- agentcore
+- runtime
+---
+
+# Get started with AgentCore Runtime
+<a name="runtime-getting-started"></a>
+
+You can use the following tutorials to get started with Amazon Bedrock AgentCore Runtime.
+
+The [AgentCore CLI](https://github.com/aws/agentcore-cli) is a Command Line Interface (CLI) that simplifies the infrastructure setup for containerizing and deploying an agent to an AgentCore Runtime.
+
+**Topics**
++ [Get started with the AgentCore CLI](runtime-get-started-cli.md)
++ [Get started with the AgentCore CLI in TypeScript](runtime-get-started-cli-typescript.md)
++ [Get started without the AgentCore CLI](getting-started-custom.md)
++ [Get started with Instances](runtime-instances-getting-started.md)
++ [Get started with Amazon Bedrock AgentCore Runtime direct code deployment](runtime-get-started-code-deploy.md)
++ [Get started with bidirectional streaming using WebSocket](runtime-get-started-websocket.md)

@@ -1,0 +1,48 @@
+---
+title: Authentication and Access Control
+description: This guide covers the authentication mechanisms and access controls available in Context7, including API key handling and enterprise identity features.
+product: Context7
+section: docs
+source_url: https://context7.com/docs/security/auth-and-access-control
+fetched: '2026-09-26'
+tags:
+- context7
+- docs
+---
+
+# Authentication and Access Control
+
+This guide covers the authentication mechanisms and access controls available in Context7, including API key handling and enterprise identity features.
+
+## API Key Security
+
+- API keys use cryptographic random generation
+- Keys are hashed and encrypted in our database
+- Keys can be rotated at any time from your dashboard
+- Rate limiting prevents abuse and unauthorized access
+
+## Enterprise SSO
+
+**Single Sign-On (SSO) is available for Enterprise plans.**
+
+### Supported SSO Providers
+
+- SAML 2.0
+- OAuth 2.0
+- OpenID Connect (OIDC)
+
+### Enterprise Features
+
+- Centralized user management
+- Teamspace access controls
+- Audit logs for compliance
+- Custom authentication policies
+
+### Setup Guides
+
+For step-by-step configuration on self-hosted deployments, see:
+
+- [Microsoft Entra ID (SSO)](/enterprise/security/entra-sso) — wire up Entra ID sign-in for an On-Premise instance
+- [Microsoft Entra ID](/enterprise/enterprise-managed-auth/entra) — proxy the Context7 MCP server through Azure APIM with Entra authentication
+
+Contact our sales team at [context7.com/contact](https://context7.com/contact) for Enterprise plan details.

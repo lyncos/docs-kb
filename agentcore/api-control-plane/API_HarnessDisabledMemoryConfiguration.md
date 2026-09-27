@@ -1,0 +1,29 @@
+---
+title: HarnessDisabledMemoryConfiguration
+description: Explicitly opt out of memory.
+product: Amazon Bedrock AgentCore
+section: Control Plane API
+source_url: https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_HarnessDisabledMemoryConfiguration.html
+fetched: '2026-09-26'
+tags:
+- agentcore
+- control-plane-api
+---
+
+# HarnessDisabledMemoryConfiguration
+<a name="API_HarnessDisabledMemoryConfiguration"></a>
+
+Explicitly opt out of memory.
+
+## Contents
+<a name="API_HarnessDisabledMemoryConfiguration_Contents"></a>
+
+The members of this exception structure are context-dependent.
+
+## See Also
+<a name="API_HarnessDisabledMemoryConfiguration_SeeAlso"></a>
+
+For more information about using this API in one of the language-specific AWS SDKs, see the following:
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/bedrock-agentcore-control-2023-06-05/HarnessDisabledMemoryConfiguration) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/bedrock-agentcore-control-2023-06-05/HarnessDisabledMemoryConfiguration) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/bedrock-agentcore-control-2023-06-05/HarnessDisabledMemoryConfiguration) 

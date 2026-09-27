@@ -1,0 +1,34 @@
+---
+title: KmsKeySourceType
+description: Contains the AWS KMS key configuration for a JWT client assertion.
+product: Amazon Bedrock AgentCore
+section: Control Plane API
+source_url: https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_KmsKeySourceType.html
+fetched: '2026-09-26'
+tags:
+- agentcore
+- control-plane-api
+---
+
+# KmsKeySourceType
+<a name="API_KmsKeySourceType"></a>
+
+Contains the AWS KMS key configuration for a JWT client assertion.
+
+## Contents
+<a name="API_KmsKeySourceType_Contents"></a>
+
+ ** kmsKeyArn **   <a name="bedrockagentcorecontrol-Type-KmsKeySourceType-kmsKeyArn"></a>
+The Amazon Resource Name (ARN) of the AWS KMS key used to sign the JWT client assertion. The key must be an asymmetric key with key usage SIGN\_VERIFY and a key spec compatible with the configured signing algorithm.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 2048.  
+Pattern: `arn:aws(|-cn|-us-gov):kms:[a-zA-Z0-9-]*:[0-9]{12}:key/[a-zA-Z0-9-]{36}`   
+Required: Yes
+
+## See Also
+<a name="API_KmsKeySourceType_SeeAlso"></a>
+
+For more information about using this API in one of the language-specific AWS SDKs, see the following:
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/bedrock-agentcore-control-2023-06-05/KmsKeySourceType) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/bedrock-agentcore-control-2023-06-05/KmsKeySourceType) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/bedrock-agentcore-control-2023-06-05/KmsKeySourceType) 

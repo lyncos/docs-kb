@@ -1,0 +1,145 @@
+# Context7 MCP
+
+> Search these docs: GET /docs/search?q=<query> returns JSON { results: [{ href, title, heading, snippet, tab }] }. Append .md to any page href for its markdown.
+
+## Context7
+
+- [Intro](/docs/overview.md): Context7 brings up-to-date, version-specific library documentation into your AI coding assistant
+- [Search API](/docs/search-api.md): Search all Context7 documentation with one request
+- [CLI](/docs/clients/cli.md): The ctx7 CLI — fetch library documentation and configure Context7 MCP from your terminal
+- [Library Owners](/docs/library-owners.md): Claim your library and control how Context7 parses it with context7.json
+- [Best Practices](/docs/tips.md): Get the most out of Context7 with these best practices
+- [Adding Libraries](/docs/adding-libraries.md): Add a public library to Context7 so AI coding assistants get up-to-date docs for it
+- [Keeping Libraries Fresh](/docs/library-updates.md): How Context7 ensures library documentation stays fresh
+- [Claim Your Library](/docs/howto/claiming-libraries.md): Verify ownership and manage your library's configuration via the admin panel
+- [Verify Your Library](/docs/howto/verification.md): Get your library verified to increase visibility and build trust with developers
+- [Add the Chat Widget](/docs/howto/chat-widget.md): Embed an AI-powered chat assistant on your documentation site
+- [Manage Rules](/docs/howto/rules.md): Prepend custom guidelines to the documentation your teamspace retrieves
+- [Add Private Sources](/docs/howto/private-sources.md): Add and manage private source documentation
+- [Manage API Keys](/docs/howto/api-keys.md): Create and manage API keys for Context7 authentication
+- [Set Up OAuth](/docs/howto/oauth.md): Authenticate with Context7 MCP server using OAuth 2.0
+- [Monitor Usage](/docs/howto/usage.md): Monitor your Context7 API usage and track costs
+- [Manage Your Teamspace](/docs/howto/teamspace.md): Invite members and manage teamspace permissions
+- [Manage Policies](/docs/howto/policies.md): Control which sources and libraries your teamspace can access
+- [Overview](/docs/enterprise.md): Turn your internal documentation into LLM-ready context for developers, coding agents, and engineering leaders
+- [Microsoft Entra ID](/docs/enterprise/enterprise-managed-auth/entra.md): Route Context7 MCP traffic through Azure API Management with per-user Microsoft Entra ID authentication.
+- [Okta](/docs/enterprise/enterprise-managed-auth/okta.md): Centrally authorize the Context7 MCP server for your organization through Okta Cross-App Access, so developers connect on first login with no
+- [Getting Started](/docs/enterprise/on-premise.md): Run the Context7 stack inside your infrastructure with your chosen AI and storage services
+- [Changelog](/docs/enterprise/changelog.md): Release notes for the Context7 On-Premise image.
+- [GitHub](/docs/enterprise/integrations/github.md): Connect Context7 to GitHub with a GitHub App or a personal access token for private repository access and push webhooks
+- [Other Git](/docs/enterprise/integrations/other-git.md): Ingest private repositories from a self-managed Git host such as Gerrit, Gitea, or self-hosted Bitbucket over HTTPS or SSH
+- [Gerrit](/docs/enterprise/integrations/gerrit.md): Index Gerrit repositories and submit generated code documentation as Gerrit changes
+- [Confluence](/docs/enterprise/integrations/confluence.md): Index Confluence spaces from Atlassian Cloud or a self-hosted Data Center instance
+- [AWS Bedrock](/docs/enterprise/integrations/aws-bedrock.md): Use Anthropic models and Amazon Titan embeddings through native AWS Bedrock APIs
+- [Entra SSO](/docs/enterprise/security/entra-sso.md): Let your teamspace sign in with Microsoft Entra ID instead of shared passwords.
+- [OIDC SSO](/docs/enterprise/security/oidc-sso.md): Let your team sign in with any OIDC-compatible identity provider instead of shared passwords.
+- [Library Access](/docs/enterprise/security/library-access.md): Restrict which libraries each user can query over the MCP and API, based on their SSO groups or individual grants.
+- [Docker](/docs/enterprise/deployment/docker.md): Deploy Context7 On-Premise with Docker Compose
+- [Kubernetes](/docs/enterprise/deployment/kubernetes.md): Deploy Context7 On-Premise on Kubernetes using raw manifests
+- [Scaling](/docs/enterprise/deployment/scaling.md): Run Context7 On-Premise as multiple replicas behind a load balancer
+- [Vector Stores](/docs/enterprise/deployment/vector-stores.md): Choose where Context7 On-Premise stores embeddings: embedded LanceDB, pgvector, or Milvus
+- [Library Import](/docs/enterprise/library-import.md): Move library content from Context7 Cloud into an airgapped on-premise install
+- [Automatic Updates](/docs/enterprise/automatic-repository-updates.md): Keep indexed Git repositories current with schedules, GitHub push events, and cached refreshes
+- [GitOps](/docs/enterprise/gitops.md): Manage the list of indexed repositories declaratively from a Git repo and reconcile your on-premise instance to match it
+- [Backup & Restore](/docs/enterprise/backup-restore.md): Context7 On-Premise can back up all of its data into a single archive, on a schedule or on demand. A backup contains everything needed to rebuild
+- [Authentication](/docs/enterprise/api/authentication.md): How to authenticate requests to your on-premise Context7 instance
+- [Search for libraries](/docs/enterprise/api/search/search-for-libraries.md): Search locally indexed libraries by name
+- [Get documentation context](/docs/enterprise/api/context/get-documentation-context.md): Retrieve documentation snippets for a library ranked by relevance to your query
+- [Parse a Git repository](/docs/enterprise/api/parse/parse-a-git-repository.md): Queue a GitHub or GitLab repository for parsing and indexing
+- [Parse an OpenAPI spec by URL](/docs/enterprise/api/parse/parse-an-openapi-spec-by-url.md): Queue a remote OpenAPI specification (JSON or YAML) for parsing and indexing
+- [Upload an OpenAPI spec file](/docs/enterprise/api/parse/upload-an-openapi-spec-file.md): Upload an OpenAPI specification file directly for parsing and indexing
+- [Import a library bundle](/docs/enterprise/api/parse/import-libraries.md): Import pre-parsed libraries into an airgapped on-premise install, as a JSON body or a Context7 Cloud export file
+- [Parse a website](/docs/enterprise/api/parse/parse-a-website.md): Crawl and index a public website starting from the given URL
+- [Refresh a library](/docs/enterprise/api/parse/refresh-a-library.md): Re-parse an existing library using its stored settings
+- [Get parse status](/docs/enterprise/api/parse/get-parse-status.md): Returns the status of all active and queued parse jobs
+- [Overview](/docs/security/overview.md): An overview of Context7's security practices, data handling, and compliance measures
+- [Data Privacy](/docs/security/data-privacy.md): How Context7 handles query storage, retrieval scope, and your data
+- [Infrastructure](/docs/security/infrastructure.md): The platform-level protections behind Context7, including hosting, abuse prevention, and secure development
+- [Authentication and Access Control](/docs/security/auth-and-access-control.md): This guide covers the authentication mechanisms and access controls available in Context7, including API key handling and enterprise identity
+- [Compliance and Reporting](/docs/security/compliance-and-reporting.md): How Context7 handles security reporting, transparency, and compliance certifications
+- [Data Safety](/docs/security/data-safety.md): How Context7 detects prompt injection and malicious content in indexed documentation
+- [Best Practices](/docs/security/best-practices.md): Recommendations for using Context7 securely across credentials, repository access, and network usage
+- [Claude Code](/docs/clients/claude-code.md): Using Context7 with Claude Code
+- [Codex](/docs/clients/codex.md): Using Context7 with OpenAI Codex
+- [GitHub Copilot CLI](/docs/clients/copilot-cli.md): Using Context7 with GitHub Copilot CLI
+- [Cursor](/docs/clients/cursor.md): Using Context7 with Cursor
+- [OpenCode](/docs/clients/opencode.md): Using Context7 with OpenCode
+- [Pi](/docs/clients/pi.md): Using Context7 with the Pi coding agent
+- [VS Code](/docs/clients/vscode.md): Using Context7 with VS Code
+- [MCP Clients](/docs/resources/all-clients.md): Installation examples for MCP clients
+- [API Guide](/docs/api-guide.md): Authentication, rate limits, best practices, and integration guides for the Context7 API
+- [Search Context7 documentation](/docs/api-reference/search/search-context7-documentation.md): Search Context7 with a natural language query. Context7 finds the most relevant libraries, searches their documentation, and returns the best
+- [Search for libraries](/docs/api-reference/search/search-for-libraries.md): Search for libraries by name with intelligent LLM-powered ranking based on your query context.
+- [Get library usage metrics](/docs/api-reference/metrics/get-library-usage-metrics.md): Retrieve full usage metrics for a library: cumulative and daily request counters broken down by surface (web page, text docs, MCP, CLI), MCP client
+- [Get documentation context](/docs/api-reference/context/get-documentation-context.md): Retrieve intelligent, LLM-reranked documentation context for natural language queries. Returns the most relevant code snippets and documentation for
+- [Refresh a library](/docs/api-reference/refresh/refresh-a-library.md): Trigger a refresh of an existing library to fetch the latest documentation. Library owners have dedicated refresh limits.
+- [Get teamspace policies](/docs/api-reference/policies/get-teamspace-policies.md): Retrieve the current policy configuration for the teamspace associated with the API key. Includes source type access settings and public repository
+- [Update teamspace policies](/docs/api-reference/policies/update-teamspace-policies.md): Incrementally update policy configuration for the teamspace associated with the API key. Only the fields you include in the request body are modified
+- [Add a GitHub repository](/docs/api-reference/add-library/add-a-github-repository.md): Submit a GitHub repository for documentation processing. Supports private repos via a gitToken or by connecting your GitHub account at
+- [Add a GitLab repository](/docs/api-reference/add-library/add-a-gitlab-repository.md): Submit a GitLab repository for documentation processing. Supports private repos via a gitToken or by connecting your GitLab account at
+- [Add a Bitbucket repository](/docs/api-reference/add-library/add-a-bitbucket-repository.md): Submit a Bitbucket repository for documentation processing. Supports private repos via a gitToken or by connecting your Bitbucket account at
+- [Add from other Git providers](/docs/api-reference/add-library/add-from-other-git-providers.md): Submit a repository from any Git provider not covered by the dedicated GitHub, GitLab, or Bitbucket endpoints. Supports Gitea, Forgejo, Codeberg,
+- [Add an OpenAPI specification by URL](/docs/api-reference/add-library/add-an-openapi-specification-by-url.md): Submit an OpenAPI specification URL for documentation processing.
+- [Upload an OpenAPI specification file](/docs/api-reference/add-library/upload-an-openapi-specification-file.md): Upload an OpenAPI specification file (JSON or YAML) for documentation processing. Requires a team project. File size limit is 10MB.
+- [Add an llms.txt file](/docs/api-reference/add-library/add-an-llmstxt-file.md): Submit an llms.txt file URL for documentation processing.
+- [Add a website](/docs/api-reference/add-library/add-a-website.md): Submit a website URL for documentation processing.
+- [Add a Confluence space](/docs/api-reference/add-library/add-a-confluence-space.md): Submit a Confluence space for documentation processing. Requires a connected Confluence account and a team project. You can optionally specify
+- [Add Notion pages](/docs/api-reference/add-library/add-notion-pages.md): Submit selected Notion pages for documentation processing. Requires a connected Notion account and a team project.
+- [Agentic Tools](/docs/agentic-tools.md): Build AI agents with up-to-date library documentation
+- [Getting Started](/docs/sdks/ts/getting-started.md): Get started with the Context7 TypeScript SDK
+- [Search](/docs/sdks/ts/commands/search.md): Find relevant documentation without resolving a library first
+- [Search Library](/docs/sdks/ts/commands/search-library.md): Search available libraries
+- [Get Context](/docs/sdks/ts/commands/get-context.md): Retrieve documentation context for a library
+- [Getting Started](/docs/agentic-tools/ai-sdk/getting-started.md): Add Context7 documentation tools to your Vercel AI SDK applications
+- [resolveLibraryId](/docs/agentic-tools/ai-sdk/tools/resolve-library-id.md): Search for libraries and resolve them to Context7-compatible IDs
+- [queryDocs](/docs/agentic-tools/ai-sdk/tools/query-docs.md): Fetch up-to-date documentation for a specific library
+- [Context7Agent](/docs/agentic-tools/ai-sdk/agents/context7-agent.md): Pre-built AI agent for documentation lookup workflows
+- [GitHub Actions](/docs/integrations/github-actions.md): Automatically refresh your Context7 library when your docs change
+- [CodeRabbit](/docs/integrations/code-rabbit.md): AI-powered code review tool
+- [Factory AI](/docs/integrations/factory-ai.md): AI-native software development platform with Droids
+- [Tembo](/docs/integrations/tembo.md): Orchestration layer for AI-powered engineering workflows
+- [Mastra](/docs/integrations/mastra.md): TypeScript framework for building AI agents
+- [eve](/docs/integrations/eve.md): Filesystem-first framework for building durable AI agents
+- [Developer Guide](/docs/resources/developer.md): Set up and run Context7 MCP locally for development
+- [Troubleshooting](/docs/resources/troubleshooting.md): Resolve common issues when setting up or using the Context7 MCP server
+
+## Docs7
+
+- [Intro](/docs/docs7/overview.md): A documentation platform built for the way agents read, search, and decide
+- [Quickstart](/docs/docs7/quickstart.md): Preview and publish a Docs7 site
+- [Docs7 configuration](/docs/docs7/configuration.md): Configure Docs7-only fields in docs.json
+- [Custom Domains](/docs/docs7/custom-domains.md): Serve your docs from your own domain or from a path on your website
+- [Migrate from Mintlify](/docs/docs7/migrate-from-mintlify.md): Move an existing Mintlify project to Docs7
+- [Builds](/docs/docs7/builds.md): Configure production builds, previews, and local builds
+- [AI Visibility](/docs/docs7/ai-visibility.md): See which AI agents request your docs and what they fetch
+- [Analytics](/docs/docs7/analytics.md): Understand visitors, searches, assistant questions, and referrers
+- [Agent](/docs/docs7/agent.md): Configure autonomous fixes, pull request reviews, and scheduled checks
+- [SEO](/docs/docs7/seo.md): Control indexing, metadata, sitemaps, and structured data
+- [Agent readiness](/docs/docs7/agent-readiness.md): Expose searchable Markdown and structured discovery for AI agents
+- [CLI](/docs/docs7/cli.md): Preview, sign in, and deploy documentation with the Docs7 CLI
+- [Callouts](/docs/docs7/components/callouts.md): Highlight notes, warnings, and other important information
+- [Cards](/docs/docs7/components/cards.md): Group related content and link to another page
+- [Columns](/docs/docs7/components/columns.md): Arrange content in a responsive grid
+- [Tiles](/docs/docs7/components/tiles.md): Create a link with a large visual preview
+- [Tabs](/docs/docs7/components/tabs.md): Switch between related blocks of content
+- [Code groups](/docs/docs7/components/code-groups.md): Show code examples in tabs
+- [Steps](/docs/docs7/components/steps.md): Write a numbered procedure
+- [Accordions](/docs/docs7/components/accordions.md): Hide details until the reader opens them
+- [Frames](/docs/docs7/components/frames.md): Present images, videos, and embeds with an optional caption
+- [Icons](/docs/docs7/components/icons.md): Add an icon inline with text
+- [Badges](/docs/docs7/components/badge.md): Add a small status or version label
+- [Tooltips](/docs/docs7/components/tooltips.md): Explain a word or action on hover
+- [Fields](/docs/docs7/components/fields.md): Document request parameters and response fields
+- [Expandables](/docs/docs7/components/expandables.md): Document nested object properties
+- [Examples](/docs/docs7/components/examples.md): Pin API examples beside the page content
+- [Panel](/docs/docs7/components/panel.md): Place custom content in the right column
+- [Tree](/docs/docs7/components/tree.md): Show a file and folder structure
+- [Color](/docs/docs7/components/color.md): Show click-to-copy color swatches
+- [Prompt](/docs/docs7/components/prompt.md): Present a prompt that readers can copy or open in Cursor
+- [Updates](/docs/docs7/components/updates.md): Build a changelog from dated entries
+- [View](/docs/docs7/components/view.md): Let readers switch between versions of page content
+- [Visibility](/docs/docs7/components/visibility.md): Show different content to people and AI tools
+- [GitHub](/docs/docs7/components/github.md): Show a GitHub repository card
+- [Mermaid](/docs/docs7/components/mermaid.md): Create diagrams from a code fence
+- [LaTeX](/docs/docs7/components/latex.md): Add mathematical notation to a page
+- [React components](/docs/docs7/components/react-components.md): Define a small custom component in MDX

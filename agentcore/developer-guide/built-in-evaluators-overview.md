@@ -1,0 +1,28 @@
+---
+title: Built-in evaluators
+description: Built-in evaluators in AgentCore Evaluations provide pre-configured evaluators for assessing your agents. These evaluators use predefined evaluator models and prompt templates that have been optimized for common evaluation scenarios.
+product: Amazon Bedrock AgentCore
+section: Developer Guide / built
+source_url: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/built-in-evaluators-overview.html
+fetched: '2026-09-26'
+tags:
+- agentcore
+- built
+---
+
+# Built-in evaluators
+<a name="built-in-evaluators-overview"></a>
+
+Built-in evaluators in AgentCore Evaluations provide pre-configured evaluators for assessing your agents. These evaluators use predefined evaluator models and prompt templates that have been optimized for common evaluation scenarios.
+
+You can use built-in evaluators with on-demand, batch, and online evaluations. To specify a built-in evaluator, use its ID in the following format: `Builtin.EvaluatorName` , such as `Builtin.Helpfulness`.
+
+**Note**  
+Built-in evaluator configurations, including their evaluator models and prompt templates, cannot be modified.
+
+For evaluators that only apply when a tool call loads a skill, see [Skill evaluators](skill-evaluators.md).
+
+**Topics**
++ [Cross region inference](evaluations-cross-region-inference.md)
++ [Skill evaluators](skill-evaluators.md)
++ [Prompt templates](prompt-templates-builtin.md)

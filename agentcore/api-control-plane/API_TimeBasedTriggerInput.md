@@ -1,0 +1,33 @@
+---
+title: TimeBasedTriggerInput
+description: Trigger configuration based on time.
+product: Amazon Bedrock AgentCore
+section: Control Plane API
+source_url: https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_TimeBasedTriggerInput.html
+fetched: '2026-09-26'
+tags:
+- agentcore
+- control-plane-api
+---
+
+# TimeBasedTriggerInput
+<a name="API_TimeBasedTriggerInput"></a>
+
+Trigger configuration based on time.
+
+## Contents
+<a name="API_TimeBasedTriggerInput_Contents"></a>
+
+ ** idleSessionTimeout **   <a name="bedrockagentcorecontrol-Type-TimeBasedTriggerInput-idleSessionTimeout"></a>
+Idle session timeout (seconds) that triggers memory processing.  
+Type: Integer  
+Valid Range: Minimum value of 10. Maximum value of 3000.  
+Required: No
+
+## See Also
+<a name="API_TimeBasedTriggerInput_SeeAlso"></a>
+
+For more information about using this API in one of the language-specific AWS SDKs, see the following:
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/bedrock-agentcore-control-2023-06-05/TimeBasedTriggerInput) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/bedrock-agentcore-control-2023-06-05/TimeBasedTriggerInput) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/bedrock-agentcore-control-2023-06-05/TimeBasedTriggerInput) 

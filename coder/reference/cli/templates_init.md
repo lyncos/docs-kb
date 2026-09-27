@@ -1,0 +1,31 @@
+---
+title: templates init
+description: Get started with a templated template.
+product: Coder
+section: reference
+source_url: https://coder.com/docs/reference/cli/templates_init
+fetched: '2026-09-26'
+tags:
+- coder
+- reference
+---
+
+<!-- DO NOT EDIT | GENERATED CONTENT -->
+
+Get started with a templated template.
+
+## Usage
+
+```console
+coder templates init [flags] [directory]
+```
+
+## Options
+
+### --id
+
+|      |                                                                                                                                                                                                                                                                                   |
+|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Type | <code>aws-devcontainer\|aws-linux\|aws-windows\|azure-linux\|digitalocean-linux\|docker\|docker-devcontainer\|docker-envbuilder\|gcp-devcontainer\|gcp-linux\|gcp-vm-container\|gcp-windows\|incus\|kubernetes\|kubernetes-devcontainer\|nomad-docker\|quickstart\|scratch</code> |
+
+Specify a given example template by ID.

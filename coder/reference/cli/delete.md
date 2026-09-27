@@ -1,0 +1,51 @@
+---
+title: delete
+description: Delete a workspace
+product: Coder
+section: reference
+source_url: https://coder.com/docs/reference/cli/delete
+fetched: '2026-09-26'
+tags:
+- coder
+- reference
+---
+
+<!-- DO NOT EDIT | GENERATED CONTENT -->
+
+Delete a workspace
+
+Aliases:
+
+* rm
+
+## Usage
+
+```console
+coder delete [flags] <workspace>
+```
+
+## Description
+
+```console
+  - Delete a workspace for another user (if you have permission):
+
+     $ coder delete <username>/<workspace_name>
+```
+
+## Options
+
+### --orphan
+
+|      |                   |
+|------|-------------------|
+| Type | <code>bool</code> |
+
+Delete a workspace without deleting its resources. This can delete a workspace in a broken state, but may also lead to unaccounted cloud resources.
+
+### -y, --yes
+
+|      |                   |
+|------|-------------------|
+| Type | <code>bool</code> |
+
+Bypass confirmation prompts.

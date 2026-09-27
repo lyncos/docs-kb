@@ -1,0 +1,23 @@
+---
+title: Protecting your data using VPC and AWS PrivateLink
+description: You can use Amazon Virtual Private Cloud (Amazon VPC) and AWS PrivateLink to create private connections between your VPC and Amazon Bedrock AgentCore.
+product: Amazon Bedrock AgentCore
+section: Developer Guide / vpc
+source_url: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/vpc.html
+fetched: '2026-09-26'
+tags:
+- agentcore
+- vpc
+---
+
+# Protecting your data using VPC and AWS PrivateLink
+<a name="vpc"></a>
+
+You can use Amazon Virtual Private Cloud (Amazon VPC) and AWS PrivateLink to create private connections between your VPC and Amazon Bedrock AgentCore.
+
+**Topics**
++ [Use interface VPC endpoints (AWS PrivateLink) to create a private connection between your VPC and your Amazon Bedrock AgentCore resources](vpc-interface-endpoints.md)
++ [Configure Amazon Bedrock AgentCore Gateway VPC Egress for Gateway Targets](gateway-vpc-egress.md)
++ [Connect to private resources in your VPC using VPC Lattice](vpc-egress-private-endpoints.md)
++ [Configure Amazon Bedrock AgentCore Runtime and tools for VPC](agentcore-vpc.md)
++ [Use IAM condition keys with AgentCore VPC settings](security-vpc-condition.md)

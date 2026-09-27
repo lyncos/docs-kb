@@ -1,0 +1,47 @@
+---
+title: Mock Completion Responses - Save Testing Costs
+description: Trying to test making LLM Completion calls without calling the LLM APIs ? Pass `mock_response` to `litellm.completion` and litellm will directly return the response without neededing the call the LLM API and spend $$
+product: LiteLLM
+section: docs/tutorials
+source_url: https://docs.litellm.ai/docs/tutorials/mock_completion
+fetched: '2026-09-26'
+tags:
+- docs-tutorials
+- litellm
+---
+
+# Mock Completion Responses - Save Testing Costs
+
+Trying to test making LLM Completion calls without calling the LLM APIs ? 
+Pass `mock_response` to `litellm.completion` and litellm will directly return the response without neededing the call the LLM API and spend $$ 
+
+## Using `completion()` with `mock_response`
+
+```python
+from litellm import completion 
+
+model = "{{openai_small}}"
+messages = [{"role":"user", "content":"Why is LiteLLM amazing?"}]
+
+completion(model=model, messages=messages, mock_response="It's simple to use and easy to get started")
+```
+
+## Building a pytest function using `completion`
+
+```python
+from litellm import completion
+import pytest
+
+def test_completion_openai():
+    try:
+        response = completion(
+            model="{{openai_small}}",
+            messages=[{"role":"user", "content":"Why is LiteLLM amazing?"}],
+            mock_response="LiteLLM is awesome"
+        )
+        # Add any assertions here to check the response
+        print(response)
+        print(response['choices'][0]['finish_reason'])
+    except Exception as e:
+        pytest.fail(f"Error occurred: {e}")
+```

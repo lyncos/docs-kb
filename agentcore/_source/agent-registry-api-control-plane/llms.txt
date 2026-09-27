@@ -1,0 +1,110 @@
+# AgentRegistry Control Plane API Reference AgentRegistry Control Plane API Reference
+
+> AWS Agent Registry is a managed catalog for publishing and discovering resources such as MCP servers, agents, and agent skills. Agent Registry Control is its control-plane API: use it to create and manage registries and the records they contain, configure discovery and authorization, govern record approval and curation workflows, and manage automatic detection of resources. Data-plane search and MCP invocation operations are provided by the companion Agent Registry API.
+
+- [Welcome](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/Welcome.md)
+- [Common Parameters](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/CommonParameters.md)
+- [Common Error Types](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/CommonErrors.md)
+
+## [Actions](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_Operations.md)
+
+- [CreateRegistry](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_CreateRegistry.md): Creates a new registry, a catalog that organizes registry records and defines their discovery authorization and record approval behavior.
+- [CreateRegistryRecord](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_CreateRegistryRecord.md): Creates a registry record within a registry.
+- [DeleteRegistry](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_DeleteRegistry.md): Deletes a registry.
+- [DeleteRegistryRecord](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_DeleteRegistryRecord.md): Deletes a registry record
+- [GetRegistry](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_GetRegistry.md): Gets a registry by identifier (ARN or ID)
+- [GetRegistryRecord](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_GetRegistryRecord.md): Retrieves the details of a registry record
+- [ListRegistries](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_ListRegistries.md): Lists the registries in the caller's account and Region, with optional filtering by status and discovery authorizer type
+- [ListRegistryRecords](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_ListRegistryRecords.md): Lists the registry records within a registry, with optional filtering by name, status, and record type
+- [ListTagsForResource](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_ListTagsForResource.md): Lists the tags associated with the specified AWS Agent Registry resource.
+- [SubmitRegistryRecordForApproval](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_SubmitRegistryRecordForApproval.md): Submits a DRAFT registry record for approval, moving it into the registry's approval workflow.
+- [TagResource](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_TagResource.md): Adds or overwrites one or more tags for the specified AWS Agent Registry resource.
+- [UntagResource](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UntagResource.md): Removes one or more tags from the specified AWS Agent Registry resource.
+- [UpdateRegistry](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdateRegistry.md): Updates an existing registry.
+- [UpdateRegistryRecord](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdateRegistryRecord.md): Updates a registry record.
+- [UpdateRegistryRecordStatus](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdateRegistryRecordStatus.md): Updates the status of a registry record as part of the registry's curation workflow, for example to approve or reject a record that is pending approval, or to deprecate an approved record so that it is no longer discoverable
+
+
+## [Data Types](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_Types.md)
+
+- [A2aAgentCardDescriptor](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_A2aAgentCardDescriptor.md): Descriptor that defines the content of an A2A (Agent-to-Agent) agent card registry record.
+- [AgentCoreGatewaySourceDetails](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_AgentCoreGatewaySourceDetails.md): The source details for a registry record that was auto-detected from an Amazon Bedrock AgentCore Gateway resource.
+- [AgentCoreRuntimeProtocolConfiguration](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_AgentCoreRuntimeProtocolConfiguration.md): The protocol configuration of an AgentCore Runtime resource that a registry record was auto-detected from.
+- [AgentCoreRuntimeSourceDetails](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_AgentCoreRuntimeSourceDetails.md): The source details for a registry record that was auto-detected from an Amazon Bedrock AgentCore Runtime resource.
+- [AgentSkillsAdditionalData](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_AgentSkillsAdditionalData.md): Additional data associated with an agent skills definition descriptor.
+- [AgentSkillsDefinitionDescriptor](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_AgentSkillsDefinitionDescriptor.md): Descriptor that defines an agent skills registry record and its associated content.
+- [AgentSkillsMdDescriptor](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_AgentSkillsMdDescriptor.md): Markdown-format descriptor containing an agent skills document.
+- [AgUiDescriptor](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_AgUiDescriptor.md): A registry record descriptor for the AG-UI (Agent-User Interaction) protocol.
+- [ApprovalConfiguration](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_ApprovalConfiguration.md): Configuration for the registry's record approval workflow.
+- [AuthorizerConfiguration](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_AuthorizerConfiguration.md): The authorizer configuration for a registry.
+- [AuthorizingClaimMatchValueType](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_AuthorizingClaimMatchValueType.md): The value and match operator used to authorize a claim during JWT validation.
+- [AutoDetection](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_AutoDetection.md): The auto-detection properties for a registry, including the requested configuration and the current detection status.
+- [AutoDetectionConfiguration](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_AutoDetectionConfiguration.md): The customer-defined auto-detection settings for a registry.
+- [ClaimMatchValueType](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_ClaimMatchValueType.md): The expected value used to match a claim.
+- [CustomClaimValidationType](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_CustomClaimValidationType.md): A validation rule applied to a single claim of an inbound JWT.
+- [CustomDescriptor](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_CustomDescriptor.md): Custom descriptor for user-defined content
+- [CustomJWTAuthorizerConfiguration](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_CustomJWTAuthorizerConfiguration.md): Configuration for a custom JWT authorizer that validates inbound bearer tokens against an OpenID Connect identity provider.
+- [Descriptors](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_Descriptors.md): The typed set of descriptors for a registry record.
+- [DescriptorSource](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_DescriptorSource.md): The source configuration that defines where descriptor content is retrieved from.
+- [DescriptorSourceFromUrl](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_DescriptorSourceFromUrl.md): URL-based descriptor source configuration, with credential provider configurations for authenticated URL retrieval.
+- [DiscoveryConfiguration](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_DiscoveryConfiguration.md): Discovery configuration for the registry.
+- [EncryptionConfiguration](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_EncryptionConfiguration.md): The server-side encryption configuration for a registry.
+- [HttpDescriptor](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_HttpDescriptor.md): A registry record descriptor for the HTTP protocol.
+- [ManagedVpcResource](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_ManagedVpcResource.md): A service-managed private endpoint provisioned within a customer VPC.
+- [McpServerAdditionalData](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_McpServerAdditionalData.md): Additional data for an MCP server descriptor
+- [McpServerDescriptor](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_McpServerDescriptor.md): Descriptor that defines the content of an MCP (Model Context Protocol) server registry record, including the server definition and its tool definitions.
+- [McpToolsDescriptor](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_McpToolsDescriptor.md): MCP tools descriptor containing tool definitions
+- [PrivateEndpoint](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_PrivateEndpoint.md): A private network endpoint used to reach a resource over a private path.
+- [PrivateEndpointOverride](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_PrivateEndpointOverride.md): A mapping of a domain to the private endpoint used to reach it.
+- [Provenance](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_Provenance.md): A provenance entry that describes the lineage of a registry record.
+- [ProvenanceSummary](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_ProvenanceSummary.md): A condensed provenance entry surfaced in list results.
+- [RegistryFilter](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_RegistryFilter.md): A single filter applied to a ListRegistries request.
+- [RegistryRecordCredentialProviderConfiguration](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_RegistryRecordCredentialProviderConfiguration.md): A credential provider configuration that specifies how to authenticate when fetching descriptor content from a registry record's source URL.
+- [RegistryRecordCredentialProviderUnion](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_RegistryRecordCredentialProviderUnion.md): The credential provider details for a registry record.
+- [RegistryRecordFilter](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_RegistryRecordFilter.md): A single filter applied to a ListRegistryRecords request.
+- [RegistryRecordIamCredentialProvider](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_RegistryRecordIamCredentialProvider.md): The configuration for an IAM role credential provider that signs requests to a registry record's source with AWS Signature Version 4 (SigV4).
+- [RegistryRecordOAuthCredentialProvider](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_RegistryRecordOAuthCredentialProvider.md): The configuration for an OAuth 2.0 credential provider that authenticates requests to a registry record's source.
+- [RegistryRecordSummary](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_RegistryRecordSummary.md): A summary of a registry record returned by list operations.
+- [RegistrySummary](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_RegistrySummary.md): Registry summary for list operations
+- [SelfManagedLatticeResource](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_SelfManagedLatticeResource.md): A self-managed private endpoint backed by a VPC Lattice resource configuration.
+- [SourceDetails](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_SourceDetails.md): The details about the upstream source from which a registry record was detected.
+- [UpdatedA2aAgentCardDescriptor](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedA2aAgentCardDescriptor.md): The A2A agent card descriptor patch wrapper.
+- [UpdatedA2aAgentCardDescriptorFields](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedA2aAgentCardDescriptorFields.md): The set of A2A agent card descriptor fields that can be individually updated.
+- [UpdatedAgentSkillsAdditionalData](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedAgentSkillsAdditionalData.md): The agent skills additional-data patch wrapper.
+- [UpdatedAgentSkillsAdditionalDataFields](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedAgentSkillsAdditionalDataFields.md): The set of agent skills additional-data fields that can be individually updated.
+- [UpdatedAgentSkillsDefinitionDescriptor](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedAgentSkillsDefinitionDescriptor.md): The agent skills definition descriptor patch wrapper.
+- [UpdatedAgentSkillsDefinitionDescriptorFields](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedAgentSkillsDefinitionDescriptorFields.md): The set of agent skills definition descriptor fields that can be individually updated.
+- [UpdatedAgentSkillsMdDescriptor](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedAgentSkillsMdDescriptor.md): The agent skills markdown descriptor patch wrapper.
+- [UpdatedAgentSkillsMdDescriptorFields](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedAgentSkillsMdDescriptorFields.md): The set of agent skills markdown descriptor fields that can be individually updated.
+- [UpdatedAgUiDescriptor](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedAgUiDescriptor.md): The AG-UI descriptor patch wrapper.
+- [UpdatedAgUiDescriptorFields](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedAgUiDescriptorFields.md): The set of AG-UI descriptor fields that can be individually updated.
+- [UpdatedApprovalConfiguration](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedApprovalConfiguration.md): A wrapper for updating the approval configuration of a registry.
+- [UpdatedAuthorizerConfiguration](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedAuthorizerConfiguration.md): Wrapper for updating an optional authorizer configuration with PATCH semantics.
+- [UpdatedAutoDetectionConfiguration](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedAutoDetectionConfiguration.md): A wrapper for updating the auto-detection configuration of a registry with PATCH semantics.
+- [UpdatedCustomDescriptor](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedCustomDescriptor.md): The custom descriptor patch wrapper.
+- [UpdatedCustomDescriptorFields](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedCustomDescriptorFields.md): The set of custom descriptor fields that can be individually updated.
+- [UpdatedDataSchemaVersion](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedDataSchemaVersion.md): Leaf patch wrapper for a descriptor's data schema version.
+- [UpdatedDescription](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedDescription.md): Wrapper for updating an optional Description field with PATCH semantics
+- [UpdatedDescriptorData](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedDescriptorData.md): Leaf patch wrapper for descriptor data.
+- [UpdatedDescriptors](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedDescriptors.md): The top-level descriptors patch wrapper used in UpdateRegistryRecord.
+- [UpdatedDescriptorsFields](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedDescriptorsFields.md): The patchable descriptor fields applied during an UpdateRegistryRecord call.
+- [UpdatedDescriptorSource](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedDescriptorSource.md): Leaf patch wrapper for a descriptor's source configuration.
+- [UpdatedDiscoveryConfiguration](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedDiscoveryConfiguration.md): The discovery configuration fields to update on a registry.
+- [UpdatedDisplayName](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedDisplayName.md): Leaf patch wrapper for a registry record's display name.
+- [UpdatedHttpDescriptor](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedHttpDescriptor.md): The HTTP descriptor patch wrapper.
+- [UpdatedHttpDescriptorFields](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedHttpDescriptorFields.md): The set of HTTP descriptor fields that can be individually updated.
+- [UpdatedMcpServerAdditionalData](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedMcpServerAdditionalData.md): The MCP server additional-data patch wrapper.
+- [UpdatedMcpServerAdditionalDataFields](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedMcpServerAdditionalDataFields.md): The set of MCP server additional-data fields that can be individually updated.
+- [UpdatedMcpServerDescriptor](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedMcpServerDescriptor.md): The MCP server descriptor patch wrapper.
+- [UpdatedMcpServerDescriptorFields](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedMcpServerDescriptorFields.md): The set of MCP server descriptor fields that can be individually updated.
+- [UpdatedMcpToolsDescriptor](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedMcpToolsDescriptor.md): The MCP tools descriptor patch wrapper.
+- [UpdatedMcpToolsDescriptorFields](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_UpdatedMcpToolsDescriptorFields.md): The set of MCP tools descriptor fields that can be individually updated.
+- [ValidationExceptionField](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_ValidationExceptionField.md): Describes a single input field that failed validation.
+- [WorkloadIdentityDetails](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/API_WorkloadIdentityDetails.md): The workload identity details associated with a source resource.
+
+
+## Full content
+
+The entire guide is also available as a single markdown file, useful for feeding the full guide to an LLM in one pass:
+
+- [Complete guide (single file)](https://docs.aws.amazon.com/agent-registry-control/latest/APIReference/full.md)

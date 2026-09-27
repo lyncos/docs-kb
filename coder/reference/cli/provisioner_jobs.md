@@ -1,0 +1,32 @@
+---
+title: provisioner jobs
+description: View and manage provisioner jobs
+product: Coder
+section: reference
+source_url: https://coder.com/docs/reference/cli/provisioner_jobs
+fetched: '2026-09-26'
+tags:
+- coder
+- reference
+---
+
+<!-- DO NOT EDIT | GENERATED CONTENT -->
+
+View and manage provisioner jobs
+
+Aliases:
+
+* job
+
+## Usage
+
+```console
+coder provisioner jobs
+```
+
+## Subcommands
+
+| Name                                                | Purpose                  |
+|-----------------------------------------------------|--------------------------|
+| [<code>cancel</code>](./provisioner_jobs_cancel.md) | Cancel a provisioner job |
+| [<code>list</code>](./provisioner_jobs_list.md)     | List provisioner jobs    |

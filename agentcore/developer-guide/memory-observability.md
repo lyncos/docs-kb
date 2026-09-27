@@ -1,0 +1,30 @@
+---
+title: Observability
+description: You can monitor usage metrics for your memory in CloudWatch metrics. Some of the critical metrics are displayed in AgentCore Memory console.
+product: Amazon Bedrock AgentCore
+section: Developer Guide / memory
+source_url: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-observability.html
+fetched: '2026-09-26'
+tags:
+- agentcore
+- memory
+---
+
+# Observability
+<a name="memory-observability"></a>
+
+You can monitor usage metrics for your memory in CloudWatch metrics. Some of the critical metrics are displayed in AgentCore Memory console.
+
+![AgentCore Memory observability](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/memory-obs.png)
+
+
+ **CloudWatch metrics** : AgentCore Memory emits metrics to CloudWatch under the `Bedrock-AgentCore` namespace. The metrics contains:
++ Data plane usage statistics: CreateEvent/RetrieveMemoryRecord `Invocations` , `Latency` , `Errors` , etc
++ Ingestion metrics: `Invocations` , `Latency` , `Errors` `NumberOfMemoryRecords` for extraction/consolidation step during ingestion in each memory resource.
+
+![AgentCore Memory observability](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/memory-logs.png)
+
+
+In addition to CloudWatch metrics, customer can monitor the memory extraction process via CloudWatch logs if they enabled log delivery. Application logs during ingestion will be published to a log group in customer account. Customer can use the application logs to debug any errors encountered during asynchronous ingestion process.
+
+For more information, see [Observe your agent applications on Amazon Bedrock AgentCore Observability](observability.md).

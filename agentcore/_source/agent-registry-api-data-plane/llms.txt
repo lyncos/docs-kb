@@ -1,0 +1,43 @@
+# Agent Registry Data Plane API Reference Agent Registry Data Plane API Reference
+
+> AWS Agent Registry is a managed catalog for publishing and discovering resources such as Model Context Protocol (MCP) servers, agents, and agent skills. The Agent Registry API is its data-plane interface for discovering, searching, and retrieving the approved records published to a registry. The companion Agent Registry Control API provides registry and record management operations.
+
+- [Welcome](https://docs.aws.amazon.com/agent-registry/latest/APIReference/Welcome.md)
+- [Common Parameters](https://docs.aws.amazon.com/agent-registry/latest/APIReference/CommonParameters.md)
+- [Common Error Types](https://docs.aws.amazon.com/agent-registry/latest/APIReference/CommonErrors.md)
+
+## [Actions](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_Operations.md)
+
+- [BatchGetDiscoverableRegistryRecord](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_BatchGetDiscoverableRegistryRecord.md): Retrieves multiple discoverable registry records by ID from a single registry.
+- [ListDiscoverableRegistryRecords](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_ListDiscoverableRegistryRecords.md): Lists the discoverable registry records in a registry.
+- [SearchDiscoverableRegistryRecords](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_SearchDiscoverableRegistryRecords.md): Searches the discoverable registry records in a registry using a natural language query.
+
+
+## [Data Types](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_Types.md)
+
+- [A2aAgentCardDescriptor](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_A2aAgentCardDescriptor.md): Descriptor that defines the content of an A2A (Agent-to-Agent) agent card registry record.
+- [AgentSkillsAdditionalData](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_AgentSkillsAdditionalData.md): Additional data for an agent skills definition descriptor.
+- [AgentSkillsDefinitionDescriptor](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_AgentSkillsDefinitionDescriptor.md): Descriptor that defines an agent skills registry record and its associated content.
+- [AgentSkillsMdDescriptor](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_AgentSkillsMdDescriptor.md): Markdown-format descriptor containing an agent skills document.
+- [AgUiDescriptor](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_AgUiDescriptor.md): A descriptor for a registry record that exposes an AG-UI protocol endpoint.
+- [BatchGetDiscoverableRegistryRecordError](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_BatchGetDiscoverableRegistryRecordError.md): Describes why a requested record could not be retrieved.
+- [CustomDescriptor](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_CustomDescriptor.md): Custom descriptor for user-defined content
+- [Descriptors](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_Descriptors.md): The protocol-specific descriptors that describe how to connect to and use the registry record.
+- [DescriptorSource](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_DescriptorSource.md): The source location from which a descriptor's content was retrieved.
+- [DescriptorSourceFromUrl](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_DescriptorSourceFromUrl.md): A URL-based descriptor source that identifies where descriptor content is retrieved from.
+- [DiscoverableRegistryRecordSummary](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_DiscoverableRegistryRecordSummary.md): Summary information about a discoverable registry record returned by ListDiscoverableRegistryRecords.
+- [HttpDescriptor](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_HttpDescriptor.md): A descriptor for a registry record that exposes an HTTP endpoint.
+- [McpServerAdditionalData](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_McpServerAdditionalData.md): Additional data for an MCP server descriptor
+- [McpServerDescriptor](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_McpServerDescriptor.md): Descriptor that defines the content of an MCP (Model Context Protocol) server registry record, including the server definition and its tool definitions.
+- [McpToolsDescriptor](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_McpToolsDescriptor.md): MCP tools descriptor containing tool definitions
+- [RegistryRecordFilter](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_RegistryRecordFilter.md): A single filter applied to a ListDiscoverableRegistryRecords request.
+- [RegistryRecordsEntry](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_RegistryRecordsEntry.md): Binds one registry to the record IDs requested from it.
+- [RegistryRecordSummary](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_RegistryRecordSummary.md): Summary information about a registry record, including its descriptors.
+- [ValidationExceptionField](https://docs.aws.amazon.com/agent-registry/latest/APIReference/API_ValidationExceptionField.md): Describes a single input field that failed validation.
+
+
+## Full content
+
+The entire guide is also available as a single markdown file, useful for feeding the full guide to an LLM in one pass:
+
+- [Complete guide (single file)](https://docs.aws.amazon.com/agent-registry/latest/APIReference/full.md)

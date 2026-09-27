@@ -1,0 +1,104 @@
+---
+title: DeleteConsentPortal
+description: Deletes a consent portal.
+product: Amazon Bedrock AgentCore
+section: Control Plane API
+source_url: https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_DeleteConsentPortal.html
+fetched: '2026-09-26'
+tags:
+- agentcore
+- control-plane-api
+---
+
+# DeleteConsentPortal
+<a name="API_DeleteConsentPortal"></a>
+
+Deletes a consent portal.
+
+## Request Syntax
+<a name="API_DeleteConsentPortal_RequestSyntax"></a>
+
+```
+POST /identities/DeleteConsentPortal HTTP/1.1
+Content-type: application/json
+
+{
+   "consentPortalIdentifier": "{{string}}"
+}
+```
+
+## URI Request Parameters
+<a name="API_DeleteConsentPortal_RequestParameters"></a>
+
+The request does not use any URI parameters.
+
+## Request Body
+<a name="API_DeleteConsentPortal_RequestBody"></a>
+
+The request accepts the following data in JSON format.
+
+ ** [consentPortalIdentifier](#API_DeleteConsentPortal_RequestSyntax) **   <a name="bedrockagentcorecontrol-DeleteConsentPortal-request-consentPortalIdentifier"></a>
+The identifier of the consent portal. You can specify either the consent portal ID or its Amazon Resource Name (ARN).  
+Type: String  
+Pattern: `[a-zA-Z0-9\-_]{1,50}-[A-Za-z0-9]{10}`   
+Required: Yes
+
+## Response Syntax
+<a name="API_DeleteConsentPortal_ResponseSyntax"></a>
+
+```
+HTTP/1.1 204
+```
+
+## Response Elements
+<a name="API_DeleteConsentPortal_ResponseElements"></a>
+
+If the action is successful, the service sends back an HTTP 204 response with an empty HTTP body.
+
+## Errors
+<a name="API_DeleteConsentPortal_Errors"></a>
+
+For information about the errors that are common to all actions, see [Common Error Types](CommonErrors.md).
+
+ ** AccessDeniedException **   
+This exception is thrown when a request is denied per access permissions  
+HTTP Status Code: 403
+
+ ** ConflictException **   
+This exception is thrown when there is a conflict performing an operation  
+HTTP Status Code: 409
+
+ ** InternalServerException **   
+This exception is thrown if there was an unexpected error during processing of request  
+HTTP Status Code: 500
+
+ ** ResourceNotFoundException **   
+This exception is thrown when a resource referenced by the operation does not exist  
+HTTP Status Code: 404
+
+ ** ThrottlingException **   
+This exception is thrown when the number of requests exceeds the limit  
+HTTP Status Code: 429
+
+ ** UnauthorizedException **   
+This exception is thrown when the JWT bearer token is invalid or not found for OAuth bearer token based access  
+HTTP Status Code: 401
+
+ ** ValidationException **   
+The input fails to satisfy the constraints specified by the service.  
+HTTP Status Code: 400
+
+## See Also
+<a name="API_DeleteConsentPortal_SeeAlso"></a>
+
+For more information about using this API in one of the language-specific AWS SDKs, see the following:
++  [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/bedrock-agentcore-control-2023-06-05/DeleteConsentPortal) 
++  [AWS SDK for .NET V4](https://docs.aws.amazon.com/goto/DotNetSDKV4/bedrock-agentcore-control-2023-06-05/DeleteConsentPortal) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/bedrock-agentcore-control-2023-06-05/DeleteConsentPortal) 
++  [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/bedrock-agentcore-control-2023-06-05/DeleteConsentPortal) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/bedrock-agentcore-control-2023-06-05/DeleteConsentPortal) 
++  [AWS SDK for JavaScript V3](https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/bedrock-agentcore-control-2023-06-05/DeleteConsentPortal) 
++  [AWS SDK for Kotlin](https://docs.aws.amazon.com/goto/SdkForKotlin/bedrock-agentcore-control-2023-06-05/DeleteConsentPortal) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/bedrock-agentcore-control-2023-06-05/DeleteConsentPortal) 
++  [AWS SDK for Python (Boto3)](https://docs.aws.amazon.com/goto/boto3/bedrock-agentcore-control-2023-06-05/DeleteConsentPortal) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/bedrock-agentcore-control-2023-06-05/DeleteConsentPortal) 
