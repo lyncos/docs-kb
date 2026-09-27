@@ -186,7 +186,12 @@ def build():
     for product, (pname, _) in PRODUCTS.items():
         readme.append(f"| {pname} | {counts[product]} | [{product}/index.md]({product}/index.md) |")
     readme += ["", "Raw navigation files (llms.txt, manifest.json, sidebars.js, full-guide concatenations, OpenAPI) are under each product's `_source/`."]
-    open(os.path.join(OUT, "README.md"), "w", encoding="utf-8").write("\n".join(readme) + "\n")
+    tools = os.path.expanduser("~/kb/_tools")
+    extra = os.path.join(tools, "README-publish.md")
+    text = "\n".join(readme) + "\n" + (open(extra, encoding="utf-8").read() if os.path.exists(extra) else "")
+    open(os.path.join(OUT, "README.md"), "w", encoding="utf-8").write(text)
+    if os.path.exists(os.path.join(tools, "NOTICE.md")):
+        shutil.copy(os.path.join(tools, "NOTICE.md"), os.path.join(OUT, "NOTICE.md"))
     print(counts)
 
 
